@@ -1,16 +1,16 @@
 export function FeaturesSection() {
   const features = [
-    { emoji: "💳", name: "LINE会員証", description: "5秒で会員化、アプリDL不要" },
-    { emoji: "🎫", name: "スタンプカード", description: "デジタルで紛失なし" },
-    { emoji: "🎁", name: "クーポン配信", description: "セグメント別配信" },
-    { emoji: "📅", name: "予約", description: "無断キャンセル削減" },
-    { emoji: "⏰", name: "順番待ち", description: "待ち時間を可視化" },
-    { emoji: "🎰", name: "ガチャ", description: "エンゲージメント向上" },
-    { emoji: "💬", name: "1to1コミュニケーション", description: "顧客対応を記録" },
-    { emoji: "🎁", name: "ギフト", description: "友人紹介プログラム" },
-    { emoji: "🎯", name: "抽選", description: "キャンペーン施策に最適" },
-    { emoji: "🎟️", name: "チケット発行", description: "イベント・入場管理" },
-    { emoji: "💰", name: "決済システム", description: "LINE Pay連携でスムーズ決済" },
+    { emoji: "💳", name: "LINE会員証", description: "5秒で会員化、アプリDL不要", url: "https://lp-memberscard-function.vercel.app" },
+    { emoji: "🎫", name: "スタンプカード", description: "デジタルで紛失なし", url: "https://lp-stampcard-function.vercel.app" },
+    { emoji: "🎁", name: "クーポン配信", description: "セグメント別配信", url: "https://lp-coupon-function.vercel.app" },
+    { emoji: "📅", name: "予約", description: "無断キャンセル削減", url: "https://lp-reservation-function.vercel.app" },
+    { emoji: "⏰", name: "順番待ち", description: "待ち時間を可視化", url: "https://lp-waiting-function.vercel.app" },
+    { emoji: "🎰", name: "ガチャ", description: "エンゲージメント向上", url: "#" },
+    { emoji: "💬", name: "1to1コミュニケーション", description: "顧客対応を記録", url: "https://lp-1to1-function.vercel.app" },
+    { emoji: "🎁", name: "ギフト", description: "友人紹介プログラム", url: "https://lp-gift-function.vercel.app" },
+    { emoji: "🎯", name: "抽選", description: "キャンペーン施策に最適", url: "https://lp-lottery-function.vercel.app" },
+    { emoji: "🎟️", name: "チケット発行", description: "イベント・入場管理", url: "https://lp-ticket-function.vercel.app" },
+    { emoji: "💰", name: "決済システム", description: "LINE Pay連携でスムーズ決済", url: "#" },
   ]
 
   return (
@@ -34,7 +34,7 @@ export function FeaturesSection() {
               <div className="text-4xl mb-3">{feature.emoji}</div>
               <h3 className="text-base md:text-lg font-bold text-[#1F2937] mb-2">{feature.name}</h3>
               <p className="text-sm text-[#6B7280] mb-3">{feature.description}</p>
-              <a href="#" className="text-[#06C755] text-sm font-semibold hover:text-[#05A847] transition-colors">
+              <a href={feature.url} target="_blank" rel="noopener noreferrer" className="text-[#06C755] text-sm font-semibold hover:text-[#05A847] transition-colors">
                 詳しく見る →
               </a>
             </div>
