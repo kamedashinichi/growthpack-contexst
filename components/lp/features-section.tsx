@@ -5,12 +5,11 @@ export function FeaturesSection() {
     { emoji: "🎁", name: "クーポン配信", description: "セグメント別配信", url: "https://lp-coupon-function.vercel.app" },
     { emoji: "📅", name: "予約", description: "無断キャンセル削減", url: "https://lp-reservation-function.vercel.app" },
     { emoji: "⏰", name: "順番待ち", description: "待ち時間を可視化", url: "https://lp-waiting-function.vercel.app" },
-    { emoji: "🎰", name: "ガチャ", description: "エンゲージメント向上", url: "#" },
+    { emoji: "🎯", name: "セグメント配信", description: "セグメントで動的リッチメニューによる最適UI", url: "https://lp-segment-function.vercel.app" },
     { emoji: "💬", name: "1to1コミュニケーション", description: "顧客対応を記録", url: "https://lp-1to1-function.vercel.app" },
     { emoji: "🎁", name: "ギフト", description: "友人紹介プログラム", url: "https://lp-gift-function.vercel.app" },
     { emoji: "🎯", name: "抽選", description: "キャンペーン施策に最適", url: "https://lp-lottery-function.vercel.app" },
     { emoji: "🎟️", name: "チケット発行", description: "イベント・入場管理", url: "https://lp-ticket-function.vercel.app" },
-    { emoji: "💰", name: "決済システム", description: "LINE Pay連携でスムーズ決済", url: "#" },
   ]
 
   return (
