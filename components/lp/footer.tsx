@@ -1,8 +1,7 @@
 export function LPFooter() {
   const links = [
-    { label: "会社情報", href: "#" },
-    { label: "プライバシーポリシー", href: "#" },
-    { label: "利用規約", href: "#" },
+    { label: "会社情報", href: "https://classmethod.jp/" },
+    { label: "プライバシーポリシー", href: "https://classmethod.jp/company/" },
   ]
 
   return (
@@ -15,7 +14,7 @@ export function LPFooter() {
               <span className="text-2xl font-bold">グロースパック</span>
               <span className="text-2xl font-bold text-[#06C755]">for LINE</span>
             </div>
-            <p className="text-sm text-gray-400">スピード×柔軟性のLINE開発</p>
+            <p className="text-sm text-gray-400">スピード×柔軟性のLINEミニアプリ開発</p>
           </div>
 
           {/* Links */}
@@ -30,7 +29,7 @@ export function LPFooter() {
 
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-gray-700 text-center">
-          <p className="text-sm text-gray-400">© 2025 グロースパック for LINE. All rights reserved.</p>
+          <p className="text-sm text-gray-400">© Classmethod, Inc.</p>
         </div>
       </div>
     </footer>

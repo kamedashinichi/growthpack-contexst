@@ -12,21 +12,28 @@ export function FinalCTASection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8">
-          <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 md:px-12 py-4 md:py-5 bg-[#06C755] text-white font-bold text-lg md:text-xl rounded-lg shadow-xl hover:bg-[#05A847] hover:-translate-y-0.5 transition-all duration-300">
+          <a
+            href="https://classmethod.jp/download/line-mini-app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 md:px-10 py-4 md:py-5 bg-[#06C755] text-white font-bold text-lg md:text-xl rounded-lg shadow-xl hover:bg-[#05A847] hover:-translate-y-0.5 transition-all duration-300"
+          >
             <Download size={22} />
             資料ダウンロード（無料）
-          </button>
-          <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-10 md:px-12 py-4 md:py-5 bg-white text-[#06C755] font-bold text-lg md:text-xl border-2 border-[#06C755] rounded-lg hover:bg-[#E8F8F0] transition-all duration-300">
+          </a>
+          <a
+            href="https://classmethod.jp/inquiry/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 md:px-10 py-4 md:py-5 bg-white text-[#06C755] font-bold text-lg md:text-xl border-2 border-[#06C755] rounded-lg hover:bg-[#E8F8F0] transition-all duration-300"
+          >
             <MessageCircle size={22} />
             直接相談したい方はこちら
-          </button>
+          </a>
         </div>
 
         {/* Sub text */}
-        <p className="text-sm text-[#9CA3AF]">
-          ※ 資料請求後、3営業日以内にご連絡いたします
-          <br />※ お電話でのお問い合わせも受け付けております
-        </p>
+        <p className="text-sm text-[#9CA3AF]"></p>
       </div>
     </section>
   )
