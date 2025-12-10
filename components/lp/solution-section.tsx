@@ -46,107 +46,65 @@ export function SolutionSection() {
           </div>
         </div>
 
-        {/* Comparison Table */}
-        <div className="max-w-5xl mx-auto mb-12">
-          {/* Table Header */}
-          <div className="bg-white rounded-t-2xl overflow-hidden">
-            <div className="grid grid-cols-4 text-center">
-              <div className="p-4 bg-[#F3F4F6] font-bold text-[#1F2937] text-sm md:text-base">比較項目</div>
-              <div className="p-4 bg-[#F3F4F6] font-bold text-[#1F2937] text-sm md:text-base">SaaS</div>
-              <div className="p-4 bg-[#FCD34D] font-bold text-[#1F2937] text-sm md:text-base relative">
-                ハーフスクラッチ
-                <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#FB923C] text-white text-[10px] px-2 py-0.5 rounded-full whitespace-nowrap">
-                  おすすめ
-                </span>
-              </div>
-              <div className="p-4 bg-[#F3F4F6] font-bold text-[#1F2937] text-sm md:text-base">フルスクラッチ</div>
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            {/* SaaS Card */}
+            <div className="bg-white rounded-2xl p-6 text-[#1F2937] relative">
+              <h3 className="text-xl font-bold mb-6 text-center">SaaS</h3>
 
-          {/* Table Body */}
-          <div className="bg-white rounded-b-2xl overflow-hidden text-[#1F2937]">
-            {/* Initial Cost */}
-            <div className="grid grid-cols-4 text-center border-t border-[#E5E7EB]">
-              <div className="p-4 bg-[#F8F9FA] font-medium text-sm">初期コスト</div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">◎</span>
-                <span className="text-xs text-[#6B7280]">低い</span>
-              </div>
-              <div className="p-4 bg-[#FFFBEB] flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">○</span>
-                <span className="text-xs text-[#6B7280]">抑えられる</span>
-              </div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#EF4444] text-2xl mb-1">△</span>
-                <span className="text-xs text-[#6B7280]">高い</span>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-2 justify-center">
+                  <span className="text-[#06C755] text-lg shrink-0">◎</span>
+                  <span className="text-[#6B7280] text-center">低価格で即日利用可</span>
+                </div>
+                <div className="flex items-start gap-2 justify-center">
+                  <span className="text-[#EF4444] text-lg shrink-0">×</span>
+                  <span className="text-[#6B7280]">カスタマイズ不可</span>
+                </div>
+                <div className="flex items-start gap-2 justify-center">
+                  <span className="text-[#EF4444] text-lg shrink-0">△</span>
+                  <span className="text-[#6B7280]">拡張性に限界</span>
+                </div>
               </div>
             </div>
 
-            {/* Development Period */}
-            <div className="grid grid-cols-4 text-center border-t border-[#E5E7EB]">
-              <div className="p-4 bg-[#F8F9FA] font-medium text-sm">開発期間</div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">◎</span>
-                <span className="text-xs text-[#6B7280]">即日〜</span>
-              </div>
-              <div className="p-4 bg-[#FFFBEB] flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">○</span>
-                <span className="text-xs text-[#6B7280] font-bold">約3ヶ月</span>
-              </div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#EF4444] text-2xl mb-1">△</span>
-                <span className="text-xs text-[#6B7280]">6ヶ月〜</span>
+            {/* Half-Scratch Card */}
+            <div className="bg-gradient-to-br from-[#FEF3C7] to-white rounded-2xl p-6 text-[#1F2937] border-2 border-[#FCD34D] relative shadow-lg transform md:scale-105">
+              <h3 className="text-xl font-bold mb-6 text-center text-[#06C755]">ハーフスクラッチ</h3>
+
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-2 justify-center">
+                  <span className="text-[#06C755] text-lg shrink-0">◎</span>
+                  <span className="text-[#1F2937] font-medium">3ヶ月でスピード開発</span>
+                </div>
+                <div className="flex items-start gap-2 justify-center">
+                  <span className="text-[#06C755] text-lg shrink-0">○</span>
+                  <span className="text-[#1F2937] font-medium">柔軟なカスタマイズ</span>
+                </div>
+                <div className="flex items-start gap-2 justify-center">
+                  <span className="text-[#06C755] text-lg shrink-0">○</span>
+                  <span className="text-[#1F2937] font-medium">コスト最適化</span>
+                </div>
               </div>
             </div>
 
-            {/* Customization */}
-            <div className="grid grid-cols-4 text-center border-t border-[#E5E7EB]">
-              <div className="p-4 bg-[#F8F9FA] font-medium text-sm">カスタマイズ性</div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#EF4444] text-2xl mb-1">×</span>
-                <span className="text-xs text-[#6B7280]">不可</span>
-              </div>
-              <div className="p-4 bg-[#FFFBEB] flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">○</span>
-                <span className="text-xs text-[#6B7280]">柔軟に対応</span>
-              </div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">◎</span>
-                <span className="text-xs text-[#6B7280]">完全自由</span>
-              </div>
-            </div>
+            {/* Full Scratch Card */}
+            <div className="bg-white rounded-2xl p-6 text-[#1F2937] relative">
+              <h3 className="text-xl font-bold mb-6 text-center">フルスクラッチ</h3>
 
-            {/* Scalability */}
-            <div className="grid grid-cols-4 text-center border-t border-[#E5E7EB]">
-              <div className="p-4 bg-[#F8F9FA] font-medium text-sm">拡張性</div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#EF4444] text-2xl mb-1">△</span>
-                <span className="text-xs text-[#6B7280]">限定的</span>
-              </div>
-              <div className="p-4 bg-[#FFFBEB] flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">○</span>
-                <span className="text-xs text-[#6B7280]">段階的に追加可</span>
-              </div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">◎</span>
-                <span className="text-xs text-[#6B7280]">無制限</span>
-              </div>
-            </div>
-
-            {/* Operation & Maintenance */}
-            <div className="grid grid-cols-4 text-center border-t border-[#E5E7EB]">
-              <div className="p-4 bg-[#F8F9FA] font-medium text-sm">運用・保守</div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">◎</span>
-                <span className="text-xs text-[#6B7280]">ベンダー任せ</span>
-              </div>
-              <div className="p-4 bg-[#FFFBEB] flex flex-col items-center justify-center">
-                <span className="text-[#06C755] text-2xl mb-1">○</span>
-                <span className="text-xs text-[#6B7280]">サポート体制充実</span>
-              </div>
-              <div className="p-4 flex flex-col items-center justify-center">
-                <span className="text-[#FB923C] text-2xl mb-1">△</span>
-                <span className="text-xs text-[#6B7280]">自社or外注</span>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-2 justify-center">
+                  <span className="text-[#06C755] text-lg shrink-0">◎</span>
+                  <span className="text-[#6B7280]">完全自由設計</span>
+                </div>
+                <div className="flex items-start gap-2 justify-center">
+                  <span className="text-[#EF4444] text-lg shrink-0">△</span>
+                  <span className="text-[#6B7280]">高コスト</span>
+                </div>
+                <div className="flex items-start gap-2 justify-center">
+                  <span className="text-[#EF4444] text-lg shrink-0">△</span>
+                  <span className="text-[#6B7280]">開発期間6ヶ月〜</span>
+                </div>
               </div>
             </div>
           </div>

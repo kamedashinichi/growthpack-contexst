@@ -43,7 +43,7 @@ export function HeroSection() {
               <br className="hidden md:block" />
               機能アセットで実現する、
               <span className="text-[#06C755] font-bold">スピード×柔軟性</span>
-              のLINE開発
+              のLINEミニアプリ開発
             </p>
 
             {/* CTA Buttons */}
@@ -53,22 +53,28 @@ export function HeroSection() {
               }`}
             >
               {/* Primary CTA - 資料ダウンロード */}
-              <button
-                className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-10 lg:px-12 py-4 lg:py-[18px] bg-[#06C755] text-white font-bold text-base lg:text-lg rounded-lg shadow-[0_4px_12px_rgba(6,199,85,0.3)] hover:bg-[#05A847] hover:shadow-[0_6px_16px_rgba(6,199,85,0.4)] hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#06C755] focus:ring-offset-2 transition-all duration-300"
+              <a
+                href="https://classmethod.jp/download/line-mini-app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 lg:px-10 py-4 lg:py-[18px] bg-[#06C755] text-white font-bold text-base lg:text-lg rounded-lg shadow-[0_4px_12px_rgba(6,199,85,0.3)] hover:bg-[#05A847] hover:shadow-[0_6px_16px_rgba(6,199,85,0.4)] hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#06C755] focus:ring-offset-2 transition-all duration-300"
                 aria-label="資料ダウンロード（無料）を申し込む"
               >
                 <Download size={20} strokeWidth={2.5} />
                 資料ダウンロード（無料）
-              </button>
+              </a>
 
               {/* Secondary CTA - お問い合わせ */}
-              <button
-                className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 lg:px-10 py-[14px] lg:py-4 bg-white text-[#06C755] font-bold text-base lg:text-lg border-2 border-[#06C755] rounded-lg hover:bg-[#E8F8F0] hover:border-[#05A847] focus:outline-none focus:ring-2 focus:ring-[#06C755] focus:ring-offset-2 transition-all duration-300"
+              <a
+                href="https://classmethod.jp/inquiry/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 lg:px-10 py-[14px] lg:py-4 bg-white text-[#06C755] font-bold text-base lg:text-lg border-2 border-[#06C755] rounded-lg hover:bg-[#E8F8F0] hover:border-[#05A847] focus:outline-none focus:ring-2 focus:ring-[#06C755] focus:ring-offset-2 transition-all duration-300"
                 aria-label="お問い合わせフォームを開く"
               >
                 <MessageCircle size={20} strokeWidth={2.5} />
                 お問い合わせ
-              </button>
+              </a>
             </div>
 
             {/* Note Text */}
@@ -76,9 +82,7 @@ export function HeroSection() {
               className={`text-sm text-[#9CA3AF] mt-4 text-center lg:text-left ${
                 isLoaded ? "animate-fade-in animation-delay-600" : "opacity-0"
               }`}
-            >
-              ※ 資料請求後、3営業日以内にご連絡いたします
-            </p>
+            ></p>
           </div>
 
           {/* Visual - Right 45% */}

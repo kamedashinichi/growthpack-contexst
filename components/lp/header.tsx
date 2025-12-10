@@ -29,9 +29,14 @@ export function LPHeader() {
         </div>
 
         {/* Desktop CTA */}
-        <button className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-[#06C755] text-white font-bold rounded-lg shadow-[0_2px_8px_rgba(6,199,85,0.25)] hover:bg-[#05A847] hover:shadow-[0_4px_12px_rgba(6,199,85,0.35)] hover:-translate-y-0.5 transition-all duration-300">
+        <a
+          href="https://classmethod.jp/inquiry/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-[#06C755] text-white font-bold rounded-lg shadow-[0_2px_8px_rgba(6,199,85,0.25)] hover:bg-[#05A847] hover:shadow-[0_4px_12px_rgba(6,199,85,0.35)] hover:-translate-y-0.5 transition-all duration-300"
+        >
           お問い合わせ
-        </button>
+        </a>
 
         {/* Mobile Menu Button */}
         <button
@@ -47,7 +52,15 @@ export function LPHeader() {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 right-0 bg-white border-t border-[#E5E7EB] shadow-lg">
           <div className="px-4 py-4">
-            <button className="w-full px-6 py-3 bg-[#06C755] text-white font-bold rounded-lg">お問い合わせ</button>
+            {/* Mobile Menu CTA */}
+            <a
+              href="https://classmethod.jp/inquiry/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full px-6 py-3 bg-[#06C755] text-white font-bold rounded-lg text-center"
+            >
+              お問い合わせ
+            </a>
           </div>
         </div>
       )}
