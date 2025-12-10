@@ -37,25 +37,21 @@ export function StrengthSection() {
                             公式アカウントの開設からAPI開発まで一気通貫でサポート可能です。
                         </p>
 
-                        <div className="flex gap-4 relative">
-                            <div className="w-1/2">
-                                <Image
-                                    src="/images/linebadge.png"
-                                    alt="LINE Technology Partner Badge"
-                                    width={200}
-                                    height={100}
-                                    className="w-full h-auto"
-                                />
-                            </div>
-                            <div className="w-1/2">
-                                <Image
-                                    src="/images/OMObadge.png"
-                                    alt="LINE OMO Badge"
-                                    width={200}
-                                    height={100}
-                                    className="w-full h-auto"
-                                />
-                            </div>
+                        <div className="flex gap-4 items-center">
+                            <Image
+                                src="/images/linebadge.png"
+                                alt="LINE Technology Partner Badge"
+                                width={200}
+                                height={100}
+                                className="h-20 w-auto object-contain"
+                            />
+                            <Image
+                                src="/images/OMObadge.png"
+                                alt="LINE OMO Badge"
+                                width={200}
+                                height={100}
+                                className="h-20 w-auto object-contain"
+                            />
                         </div>
                     </div>
 
