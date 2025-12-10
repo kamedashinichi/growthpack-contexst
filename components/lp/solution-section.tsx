@@ -3,7 +3,7 @@ export function SolutionSection() {
     <section className="py-16 md:py-20 bg-[#06C755] text-white">
       <div className="max-w-[1200px] mx-auto px-4 md:px-6">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">80%は完成済み、残り20%を御社仕様に</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">80%は完成済み、残り20%を貴社仕様に</h2>
         <p className="text-lg md:text-xl text-center mb-12 md:mb-14 opacity-90">
           機能アセットをベースに、必要な部分だけカスタマイズ
         </p>
