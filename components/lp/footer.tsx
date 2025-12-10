@@ -1,7 +1,7 @@
 export function LPFooter() {
   const links = [
     { label: "会社情報", href: "https://classmethod.jp/" },
-    { label: "プライバシーポリシー", href: "https://classmethod.jp/company/" },
+    { label: "プライバシーポリシー", href: "https://classmethod.jp/privacy/" },
   ]
 
   return (
