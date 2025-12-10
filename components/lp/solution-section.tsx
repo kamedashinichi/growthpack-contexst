@@ -29,16 +29,16 @@ export function SolutionSection() {
                   <div className="text-4xl md:text-5xl font-bold text-[#FB923C]">20%</div>
                   <div className="text-xs text-[#6B7280] mt-1">カスタマイズ</div>
                 </div>
-                <p className="text-[10px] text-[#9CA3AF]">御社独自の要件</p>
+                <p className="text-[10px] text-[#9CA3AF]">独自ルールや既存システム連携</p>
               </div>
 
               <div className="text-3xl font-bold text-[#06C755]">=</div>
 
-              {/* 御社専用 */}
+              {/* 貴社オリジナル */}
               <div className="flex-1 text-center">
                 <div className="bg-gradient-to-br from-[#06C755] to-[#05A847] rounded-xl p-4 mb-2">
-                  <div className="text-2xl md:text-3xl font-bold text-white">御社専用</div>
-                  <div className="text-xs text-white/80 mt-1">システム</div>
+                  <div className="text-4xl md:text-5xl font-bold text-white">100%</div>
+                  <div className="text-xs text-white/80 mt-1">貴社オリジナル</div>
                 </div>
                 <p className="text-[10px] text-[#9CA3AF]">最短3ヶ月でリリース</p>
               </div>
