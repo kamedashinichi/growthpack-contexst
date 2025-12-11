@@ -11,8 +11,9 @@ export function LPFooter() {
           {/* Logo & Tagline */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-1 mb-2">
-              <span className="text-2xl font-bold">グロースパック</span>
-              <span className="text-2xl font-bold text-[#06C755]">for LINE</span>
+              <span className="text-xl md:text-1.5xl font-bold text-[#1F2937]">グロースパック</span>
+              <span className="text-xl md:text-1.0xl text-[#64748b]"> for </span>
+              <span className="text-xl md:text-1.5xl font-bold text-[#00C300]">LINE</span>
             </div>
             <p className="text-sm text-gray-400">スピード×柔軟性のLINEミニアプリ開発</p>
           </div>
