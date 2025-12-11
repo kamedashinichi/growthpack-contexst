@@ -25,7 +25,8 @@ export function LPHeader() {
         {/* Logo */}
         <div className="flex items-center gap-1">
           <span className="text-xl md:text-2xl font-bold text-[#1F2937]">グロースパック</span>
-          <span className="text-xl md:text-2xl font-bold text-[#06C755]">for LINE</span>
+          <span className="text-xl md:text-1.5xl font-bold text-[#64748b]">for</span>
+          <span className="text-xl md:text-2xl font-bold text-[#00C300]">LINE</span>
         </div>
 
         {/* Desktop CTA */}
