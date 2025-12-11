@@ -17,7 +17,7 @@ export function ProblemSection() {
                 alt="LINE友だちは増えたが活用できていない"
                 width={400}
                 height={300}
-                className="w-[80%] h-auto mx-auto"
+                className="w-full h-auto mx-auto"
               />
             </div>
           </div>
@@ -30,7 +30,7 @@ export function ProblemSection() {
                 alt="SaaSでは機能が足りない、スクラッチは高い"
                 width={400}
                 height={300}
-                className="w-[80%] h-auto mx-auto"
+                className="w-full h-auto mx-auto"
               />
             </div>
           </div>
@@ -43,7 +43,7 @@ export function ProblemSection() {
                 alt="会員データが分散、一元管理できていない"
                 width={400}
                 height={300}
-                className="w-[80%] h-auto mx-auto"
+                className="w-full h-auto mx-auto"
               />
             </div>
           </div>
