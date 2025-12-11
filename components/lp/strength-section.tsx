@@ -88,7 +88,7 @@ export function StrengthSection() {
                 <div className="mt-12 text-center">
                     <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-gray-200 shadow-sm text-sm text-[#4B5563]">
                         <Award className="w-4 h-4 text-[#F59E0B]" />
-                        <span>実績: 支援実績3,000社以上 / 技術ブログ「DevelopersIO」運営</span>
+                        <span>実績: 支援実績5,000社以上 / <a href="https://dev.classmethod.jp/" target="_blank" rel="noopener noreferrer" className="hover:underline">技術ブログ「DevelopersIO」運営</a></span>
                     </div>
                 </div>
             </div>
