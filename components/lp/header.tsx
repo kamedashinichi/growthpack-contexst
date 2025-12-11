@@ -23,10 +23,10 @@ export function LPHeader() {
     >
       <div className="max-w-[1200px] mx-auto px-4 md:px-6 h-full flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-1">
-          <span className="text-xl md:text-2xl font-bold text-[#1F2937]">グロースパック</span>
-          <span className="text-xl md:text-1.5xl font-bold text-[#64748b]">for</span>
-          <span className="text-xl md:text-2xl font-bold text-[#00C300]">LINE</span>
+        <div className="flex items-end gap-1">
+          <span className="text-xl md:text-1.5xl font-bold text-[#1F2937]">グロースパック</span>
+          <span className="text-xl md:text-1.0xl text-[#64748b]"> for </span>
+          <span className="text-xl md:text-1.5xl font-bold text-[#00C300]">LINE</span>
         </div>
 
         {/* Desktop CTA */}
