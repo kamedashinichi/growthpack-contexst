@@ -20,7 +20,7 @@ export function FeaturesSection() {
           顧客の体験を、LINEで一気通貫でサポート
         </h2>
         <p className="text-center text-[#6B7280] mb-12 md:mb-16">
-          必要な機能を選択して、御社専用のLINEミニアプリを構築
+          必要な機能を選択して、専用のLINEミニアプリを構築
         </p>
 
         {/* Feature Cards - 4 column grid */}
@@ -41,7 +41,7 @@ export function FeaturesSection() {
         </div>
 
         <div className="text-center mt-10 md:mt-12">
-          <p className="text-[#6B7280]">上記以外にも、御社のニーズに合わせた機能開発が可能です</p>
+          <p className="text-[#6B7280]">上記以外にも、ニーズに合わせた機能開発が可能です</p>
         </div>
       </div>
     </section>
