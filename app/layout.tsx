@@ -16,17 +16,13 @@ const roboto = Roboto({
   variable: "--font-roboto",
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || ""
-
 export const metadata: Metadata = {
   title: "グロースパック for LINE - デザインシステム",
   description: "BtoB向けLINE開発サービスのデザインシステム",
   generator: "v0.app",
-  metadataBase: new URL(siteUrl),
   openGraph: {
     title: "グロースパック for LINE",
     description: "高速かつ柔軟なLINE開発サービス",
-    url: siteUrl,
     siteName: "グロースパック for LINE",
     locale: "ja_JP",
     type: "website",
