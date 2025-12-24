@@ -11,7 +11,48 @@ export function SolutionSection() {
         {/* Formula */}
         <div className="max-w-4xl mx-auto mb-14 md:mb-16">
           <div className="bg-white rounded-2xl p-6 md:p-10 text-[#1F2937]">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+            {/* モバイル版: 80% + 20%を横に、その下に= 100% */}
+            <div className="flex flex-col md:hidden items-center justify-center gap-4">
+              {/* 80% + 20%の行 */}
+              <div className="flex items-center justify-center gap-4 w-full">
+                {/* 機能アセット */}
+                <div className="flex-1 text-center">
+                  <div className="bg-[#E8F8F0] rounded-xl p-4 mb-2">
+                    <div className="text-4xl font-bold text-[#06C755]">80%</div>
+                    <div className="text-xs text-[#6B7280] mt-1">機能アセット</div>
+                  </div>
+                  <p className="text-[10px] text-[#9CA3AF]">基本機能は開発済み</p>
+                </div>
+
+                <div className="text-3xl font-bold text-[#06C755]">+</div>
+
+                {/* カスタマイズ */}
+                <div className="flex-1 text-center">
+                  <div className="bg-[#FEF3C7] rounded-xl p-4 mb-2">
+                    <div className="text-4xl font-bold text-[#FB923C]">20%</div>
+                    <div className="text-xs text-[#6B7280] mt-1">カスタマイズ</div>
+                  </div>
+                  <p className="text-[10px] text-[#9CA3AF]">独自ルールや既存システム連携</p>
+                </div>
+              </div>
+
+              {/* = 100%の行 */}
+              <div className="flex items-center justify-center gap-4 w-full">
+                <div className="text-3xl font-bold text-[#06C755]">=</div>
+
+                {/* 貴社オリジナル */}
+                <div className="flex-1 text-center">
+                  <div className="bg-gradient-to-br from-[#06C755] to-[#05A847] rounded-xl p-4 mb-2">
+                    <div className="text-4xl font-bold text-white">100%</div>
+                    <div className="text-xs text-white/80 mt-1">貴社オリジナル</div>
+                  </div>
+                  <p className="text-[10px] text-[#9CA3AF]">最短3ヶ月でリリース</p>
+                </div>
+              </div>
+            </div>
+
+            {/* デスクトップ版: 従来通り横並び */}
+            <div className="hidden md:flex flex-row items-center justify-center gap-6">
               {/* 機能アセット */}
               <div className="flex-1 text-center">
                 <div className="bg-[#E8F8F0] rounded-xl p-4 mb-2">
