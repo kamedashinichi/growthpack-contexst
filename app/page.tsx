@@ -7,12 +7,13 @@ import { FeaturesSection } from "@/components/lp/features-section"
 import { CaseStudySection } from "@/components/lp/case-study-section"
 import { FinalCTASection } from "@/components/lp/final-cta-section"
 import { LPFooter } from "@/components/lp/footer"
+import { MobileFABButtons } from "@/components/lp/mobile-fab-buttons"
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       <LPHeader />
-      <main>
+      <main className="pb-32 md:pb-0">
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
@@ -22,6 +23,7 @@ export default function LandingPage() {
         <FinalCTASection />
       </main>
       <LPFooter />
+      <MobileFABButtons />
     </div>
   )
 }
