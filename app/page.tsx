@@ -13,7 +13,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       <LPHeader />
-      <main className="pb-32 md:pb-0">
+      <main className="pb-20 md:pb-0">
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
