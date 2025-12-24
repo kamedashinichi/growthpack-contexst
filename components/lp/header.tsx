@@ -1,11 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
 
 export function LPHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,33 +36,7 @@ export function LPHeader() {
         >
           お問い合わせ
         </a>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 text-[#1F2937]"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="メニューを開く"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-white border-t border-[#E5E7EB] shadow-lg">
-          <div className="px-4 py-4">
-            {/* Mobile Menu CTA */}
-            <a
-              href="https://classmethod.jp/inquiry/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full px-6 py-3 bg-[#06C755] text-white font-bold rounded-lg text-center"
-            >
-              お問い合わせ
-            </a>
-          </div>
-        </div>
-      )}
     </header>
   )
 }
