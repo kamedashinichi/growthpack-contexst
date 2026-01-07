@@ -66,7 +66,7 @@ export function HeroSection() {
 
               {/* Secondary CTA - お問い合わせ */}
               <a
-                href="https://classmethod.jp/inquiry/"
+                href="https://classmethod.jp/services/line/line-apps/#iframe-form"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 lg:px-10 py-[14px] lg:py-4 bg-white text-[#06C755] font-bold text-base lg:text-lg border-2 border-[#06C755] rounded-lg hover:bg-[#E8F8F0] hover:border-[#05A847] focus:outline-none focus:ring-2 focus:ring-[#06C755] focus:ring-offset-2 transition-all duration-300"

@@ -44,7 +44,7 @@ export function LPHeader() {
 
           {/* Secondary CTA - お問い合わせ */}
           <a
-            href="https://classmethod.jp/inquiry/"
+            href="https://classmethod.jp/services/line/line-apps/#iframe-form"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-2.5 bg-white text-[#06C755] font-bold border-2 border-[#06C755] rounded-lg hover:bg-[#E8F8F0] hover:-translate-y-0.5 transition-all duration-300"

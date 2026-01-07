@@ -20,7 +20,7 @@ export function MobileFABButtons() {
 
         {/* Secondary CTA - お問い合わせ */}
         <a
-          href="https://classmethod.jp/inquiry/"
+          href="https://classmethod.jp/services/line/line-apps/#iframe-form"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 bg-white text-[#06C755] font-bold text-sm border-2 border-[#06C755] rounded-lg hover:bg-[#E8F8F0] active:bg-[#E8F8F0] active:scale-[0.98] transition-all duration-200"
