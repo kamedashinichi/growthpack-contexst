@@ -1,17 +1,17 @@
+import Image from 'next/image'
+
 export function FeaturesSection() {
   const features = [
-    { emoji: "💳", name: "LINE会員証", description: "5秒で会員化、アプリDL不要", url: "https://lp-memberscard-function.vercel.app" },
-    { emoji: "⏰", name: "順番待ち", description: "待ち時間を可視化", url: "https://lp-waiting-function.vercel.app" },
-    { emoji: "📅", name: "予約", description: "無断キャンセル削減", url: "https://lp-reservation-function.vercel.app" },
-    { emoji: "🎫", name: "スタンプカード", description: "デジタルで紛失なし", url: "https://lp-stampcard-function.vercel.app" },
-    { emoji: "🎁", name: "クーポン配信", description: "セグメント別配信", url: "https://lp-coupon-function.vercel.app" },
-    { emoji: "🎟️", name: "チケット発行", description: "イベント・入場管理", url: "https://lp-ticket-function.vercel.app" },
-    { emoji: "🎯", name: "抽選", description: "キャンペーン施策に最適", url: "https://lp-lottery-function.vercel.app" },
-    { emoji: "🎯", name: "セグメント配信", description: "セグメントで動的リッチメニューによる最適UI", url: "https://lp-segment-function.vercel.app" },
-    { emoji: "💬", name: "1to1コミュニケーション", description: "顧客対応を記録", url: "https://lp-1to1-function.vercel.app" },
-    { emoji: "🎁", name: "ギフト", description: "友人紹介プログラム", url: "https://lp-gift-function.vercel.app" },
-
-
+    { image: "/images/会員証.png", name: "LINE会員証", description: "5秒で会員化、アプリDL不要", url: "https://lp-memberscard-function.vercel.app" },
+    { image: "/images/順番待ち.png", name: "順番待ち", description: "待ち時間を可視化", url: "https://lp-waiting-function.vercel.app" },
+    { image: "/images/予約.png", name: "予約", description: "無断キャンセル削減", url: "https://lp-reservation-function.vercel.app" },
+    { image: "/images/スタンプカード.png", name: "スタンプカード", description: "デジタルで紛失なし", url: "https://lp-stampcard-function.vercel.app" },
+    { image: "/images/クーポン.png", name: "クーポン配信", description: "セグメント別配信", url: "https://lp-coupon-function.vercel.app" },
+    { image: "/images/チケット.png", name: "チケット発行", description: "イベント・入場管理", url: "https://lp-ticket-function.vercel.app" },
+    { image: "/images/抽選.png", name: "抽選", description: "キャンペーン施策に最適", url: "https://lp-lottery-function.vercel.app" },
+    { image: "/images/セグメント配信.png", name: "セグメント配信", description: "セグメントで動的リッチメニューによる最適UI", url: "https://lp-segment-function.vercel.app" },
+    { image: "/images/1to1.png", name: "1to1コミュニケーション", description: "顧客対応を記録", url: "https://lp-1to1-function.vercel.app" },
+    { image: "/images/ギフト.png", name: "ギフト", description: "友人紹介プログラム", url: "https://lp-gift-function.vercel.app" },
   ]
 
   return (
@@ -32,7 +32,16 @@ export function FeaturesSection() {
               key={index}
               className="bg-white border border-[#E5E7EB] rounded-xl p-5 md:p-6 hover:shadow-lg hover:border-[#06C755] hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="text-4xl mb-3">{feature.emoji}</div>
+              <div className="mb-3 flex justify-start">
+                <div className="relative w-12 h-12">
+                  <Image
+                    src={feature.image}
+                    alt={feature.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
               <h3 className="text-base md:text-lg font-bold text-[#1F2937] mb-2">{feature.name}</h3>
               <p className="text-sm text-[#6B7280] mb-3">{feature.description}</p>
               <a href={feature.url} target="_blank" rel="noopener noreferrer" className="text-[#06C755] text-sm font-semibold hover:text-[#05A847] transition-colors">
