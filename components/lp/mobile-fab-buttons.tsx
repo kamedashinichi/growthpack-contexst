@@ -4,7 +4,7 @@ import { Download, MessageCircle } from "lucide-react"
 
 export function MobileFABButtons() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[60] md:hidden bg-white border-t border-[#E5E7EB] shadow-[0_-2px_12px_rgba(0,0,0,0.1)]">
+    <div className="fixed bottom-0 left-0 right-0 z-[60] md:hidden bg-white border-t border-[#E5E7EB] shadow-[0_-2px_12px_rgba(0,0,0,0.1)] pb-[env(safe-area-inset-bottom,0px)]">
       <div className="flex flex-row gap-2 p-2">
         {/* Primary CTA - 資料ダウンロード */}
         <a

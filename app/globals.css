@@ -4,6 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Safe Area */
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+
   /* Primary Colors - LINE Green */
   --line-green-main: #06c755;
   --line-green-light: #39d275;
