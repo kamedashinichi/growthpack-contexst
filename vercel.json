@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/memberscard/:path*",
+        "destination": "https://lp-memberscard-function.vercel.app/:path*"
+      }
+    ]
+  }
