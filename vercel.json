@@ -35,6 +35,10 @@
     {
       "source": "/ticket/:path*",
       "destination": "https://lp-ticket-function.vercel.app/:path*"
+    },
+    {
+      "source": "/segment/:path*",
+      "destination": "https://lp-segment-function.vercel.app/:path*"
     }
   ]
 }

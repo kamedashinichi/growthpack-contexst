@@ -9,7 +9,7 @@ export function FeaturesSection() {
     { image: "/images/クーポン.png", name: "クーポン配信", description: "セグメント別配信", url: "/coupon", isExternal: false },
     { image: "/images/チケット.png", name: "チケット発行", description: "イベント・入場管理", url: "/ticket", isExternal: false },
     { image: "/images/抽選.png", name: "抽選", description: "キャンペーン施策に最適", url: "/lottery", isExternal: false },
-    { image: "/images/セグメント配信.png", name: "セグメント配信", description: "セグメントで動的リッチメニューによる最適UI", url: "https://lp-segment-function.vercel.app", isExternal: true },
+    { image: "/images/セグメント配信.png", name: "セグメント配信", description: "セグメントで動的リッチメニューによる最適UI", url: "/segment", isExternal: false },
     { image: "/images/1to1.png", name: "1to1コミュニケーション", description: "顧客対応を記録", url: "/1to1", isExternal: false },
     { image: "/images/ギフト.png", name: "ギフト", description: "友人紹介プログラム", url: "/gift", isExternal: false },
   ]
