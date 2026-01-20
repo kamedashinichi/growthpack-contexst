@@ -15,25 +15,25 @@ export function FeaturesSection() {
   ]
 
   return (
-    <section className="py-16 md:py-20 bg-white">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-6">
+    <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6">
         {/* Section Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-3 sm:mb-4">
           顧客の体験を、LINEで一気通貫でサポート
         </h2>
-        <p className="text-center text-[#6B7280] mb-12 md:mb-16">
+        <p className="text-sm sm:text-base text-center text-[#6B7280] mb-8 sm:mb-12 md:mb-16">
           必要な機能を選択して、専用のLINEミニアプリを構築
         </p>
 
-        {/* Feature Cards - 4 column grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {/* Feature Cards - 1 column on mobile, 2 on sm, 4 on md+ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white border border-[#E5E7EB] rounded-xl p-5 md:p-6 hover:shadow-lg hover:border-[#06C755] hover:-translate-y-1 transition-all duration-300"
+              className="bg-white border border-[#E5E7EB] rounded-xl p-4 sm:p-5 md:p-6 hover:shadow-lg hover:border-[#06C755] hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="mb-3 flex justify-start">
-                <div className="relative w-12 h-12">
+              <div className="mb-2 sm:mb-3 flex justify-start">
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12">
                   <Image
                     src={feature.image}
                     alt={feature.name}
@@ -42,12 +42,12 @@ export function FeaturesSection() {
                   />
                 </div>
               </div>
-              <h3 className="text-base md:text-lg font-bold text-[#1F2937] mb-2">{feature.name}</h3>
-              <p className="text-sm text-[#6B7280] mb-3">{feature.description}</p>
+              <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#1F2937] mb-1.5 sm:mb-2">{feature.name}</h3>
+              <p className="text-xs sm:text-sm text-[#6B7280] mb-2 sm:mb-3">{feature.description}</p>
               <a 
                 href={feature.url} 
                 {...(feature.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-[#06C755] text-sm font-semibold hover:text-[#05A847] transition-colors"
+                className="text-[#06C755] text-xs sm:text-sm font-semibold hover:text-[#05A847] transition-colors"
               >
                 詳しく見る →
               </a>
@@ -55,8 +55,8 @@ export function FeaturesSection() {
           ))}
         </div>
 
-        <div className="text-center mt-10 md:mt-12">
-          <p className="text-[#6B7280]">上記以外にも、ニーズに合わせた機能開発が可能です</p>
+        <div className="text-center mt-8 sm:mt-10 md:mt-12">
+          <p className="text-sm sm:text-base text-[#6B7280]">上記以外にも、ニーズに合わせた機能開発が可能です</p>
         </div>
       </div>
     </section>

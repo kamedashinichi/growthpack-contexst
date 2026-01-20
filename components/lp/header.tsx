@@ -16,16 +16,16 @@ export function LPHeader() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 h-16 md:h-[72px] bg-white transition-shadow duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 h-14 sm:h-16 md:h-[72px] bg-white transition-shadow duration-300 ${
         isScrolled ? "shadow-[0_1px_3px_rgba(0,0,0,0.08)]" : ""
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-4 md:px-6 h-full flex items-center justify-between">
+      <div className="max-w-[1200px] mx-auto px-3 sm:px-4 md:px-6 h-full flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-end gap-1">
-          <span className="text-xl md:text-1.5xl font-bold text-[#1F2937]">グロースパック</span>
-          <span className="text-xl md:text-1.0xl text-[#64748b]"> for </span>
-          <span className="text-xl md:text-1.5xl font-bold text-[#00C300]">LINE</span>
+        <div className="flex items-end gap-0.5 sm:gap-1">
+          <span className="text-base sm:text-lg md:text-xl font-bold text-[#1F2937]">グロースパック</span>
+          <span className="text-base sm:text-lg md:text-xl text-[#64748b]"> for </span>
+          <span className="text-base sm:text-lg md:text-xl font-bold text-[#00C300]">LINE</span>
         </div>
 
         {/* Desktop CTAs */}
