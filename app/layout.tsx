@@ -21,8 +21,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "グロースパック for LINE - デザインシステム",
-  description: "BtoB向けLINE開発サービスのデザインシステム",
+  title: "グロースパック for LINE",
+  description: "通常6ヶ月の開発を3ヶ月で。機能アセットで実現するスピード×柔軟性のLINEミニアプリ開発",
   generator: "v0.app",
   openGraph: {
     title: "グロースパック for LINE",
