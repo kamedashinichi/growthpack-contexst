@@ -21,6 +21,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
   title: "グロースパック for LINE",
   description: "通常6ヶ月の開発を3ヶ月で。機能アセットで実現するスピード×柔軟性のLINEミニアプリ開発",
   generator: "v0.app",
@@ -30,11 +31,20 @@ export const metadata: Metadata = {
     siteName: "グロースパック for LINE",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: "/images/ogp.png",
+        width: 1200,
+        height: 630,
+        alt: "グロースパック for LINE",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "グロースパック for LINE",
     description: "高速かつ柔軟なLINE開発サービス",
+    images: ["/images/ogp.png"],
   },
 }
 
