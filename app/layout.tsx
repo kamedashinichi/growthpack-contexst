@@ -34,30 +34,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <head>
-        <meta property="og:title" content="グロースパック for LINE" />
-        <meta
-          property="og:description"
-          content="高速かつ柔軟なLINE開発サービス"
-        />
-        <meta property="og:site_name" content="グロースパック for LINE" />
-        <meta property="og:locale" content="ja_JP" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://growthpack-contexst.vercel.app/images/ogp.png"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="グロースパック for LINE" />
-        <meta
-          name="twitter:description"
-          content="高速かつ柔軟なLINE開発サービス"
-        />
-        <meta
-          name="twitter:image"
-          content="https://growthpack-contexst.vercel.app/images/ogp.png"
-        />
-      </head>
       <body className={`${notoSansJP.variable} ${roboto.variable} font-sans antialiased`}>
         {children}
         <Analytics />
