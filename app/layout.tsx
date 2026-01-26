@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://lp.growthpackforline.classmethod.net/images/ogp.jpg",
+        url: "https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg",
         width: 1200,
         height: 630,
         alt: "グロースパック for LINE",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "グロースパック for LINE",
     description: "高速かつ柔軟なLINE開発サービス",
-    images: ["https://lp.growthpackforline.classmethod.net/images/ogp.jpg"],
+    images: ["https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg"],
   },
 }
 
