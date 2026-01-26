@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/ogp.png",
+        url: "https://growthpack-contexst.vercel.app/images/ogp.png",
         width: 1200,
         height: 630,
         alt: "グロースパック for LINE",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "グロースパック for LINE",
     description: "高速かつ柔軟なLINE開発サービス",
-    images: ["/images/ogp.png"],
+    images: ["https://growthpack-contexst.vercel.app/images/ogp.png"],
   },
 }
 
