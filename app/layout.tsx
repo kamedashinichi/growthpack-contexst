@@ -25,27 +25,6 @@ export const metadata: Metadata = {
   title: "グロースパック for LINE",
   description: "通常6ヶ月の開発を3ヶ月で。機能アセットで実現するスピード×柔軟性のLINEミニアプリ開発",
   generator: "v0.app",
-  openGraph: {
-    title: "グロースパック for LINE",
-    description: "高速かつ柔軟なLINE開発サービス",
-    siteName: "グロースパック for LINE",
-    locale: "ja_JP",
-    type: "website",
-    images: [
-      {
-        url: "https://growthpack-contexst.vercel.app/images/ogp.png",
-        width: 1200,
-        height: 630,
-        alt: "グロースパック for LINE",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "グロースパック for LINE",
-    description: "高速かつ柔軟なLINE開発サービス",
-    images: ["https://growthpack-contexst.vercel.app/images/ogp.png"],
-  },
 }
 
 export default function RootLayout({
@@ -55,6 +34,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <meta property="og:title" content="グロースパック for LINE" />
+        <meta
+          property="og:description"
+          content="高速かつ柔軟なLINE開発サービス"
+        />
+        <meta property="og:site_name" content="グロースパック for LINE" />
+        <meta property="og:locale" content="ja_JP" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://growthpack-contexst.vercel.app/images/ogp.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="グロースパック for LINE" />
+        <meta
+          name="twitter:description"
+          content="高速かつ柔軟なLINE開発サービス"
+        />
+        <meta
+          name="twitter:image"
+          content="https://growthpack-contexst.vercel.app/images/ogp.png"
+        />
+      </head>
       <body className={`${notoSansJP.variable} ${roboto.variable} font-sans antialiased`}>
         {children}
         <Analytics />
