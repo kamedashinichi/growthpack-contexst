@@ -25,6 +25,20 @@ export const metadata: Metadata = {
   title: "グロースパック for LINE",
   description: "通常6ヶ月の開発を3ヶ月で。機能アセットで実現するスピード×柔軟性のLINEミニアプリ開発",
   generator: "v0.app",
+  openGraph: {
+    title: "グロースパック for LINE",
+    description: "高速かつ柔軟なLINE開発サービス",
+    siteName: "グロースパック for LINE",
+    locale: "ja_JP",
+    type: "website",
+    images: ["https://growthpack-contexst.vercel.app/images/ogp.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "グロースパック for LINE",
+    description: "高速かつ柔軟なLINE開発サービス",
+    images: ["https://growthpack-contexst.vercel.app/images/ogp.jpg"],
+  },
 }
 
 export default function RootLayout({
