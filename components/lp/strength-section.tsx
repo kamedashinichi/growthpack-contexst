@@ -1,5 +1,4 @@
 import { ShieldCheck, Cloud, Award } from 'lucide-react'
-import Image from 'next/image'
 
 export function StrengthSection() {
     return (
@@ -31,28 +30,11 @@ export function StrengthSection() {
                             </div>
                         </div>
 
-                        <p className="text-xs sm:text-sm md:text-base text-[#6B7280] leading-relaxed relative mb-4 sm:mb-6">
+                        <p className="text-xs sm:text-sm md:text-base text-[#6B7280] leading-relaxed relative">
                             LINEの仕様を熟知した認定パートナーとして、
                             最新機能の活用や最適なUX設計をご提案します。
                             公式アカウントの開設からAPI開発まで一気通貫でサポート可能です。
                         </p>
-
-                        <div className="flex gap-2 sm:gap-4 items-center">
-                            <Image
-                                src="/images/linebadge.png"
-                                alt="LINE Technology Partner Badge"
-                                width={200}
-                                height={100}
-                                className="h-12 sm:h-16 md:h-20 w-auto object-contain"
-                            />
-                            <Image
-                                src="/images/OMObadge.png"
-                                alt="LINE OMO Badge"
-                                width={200}
-                                height={100}
-                                className="h-12 sm:h-16 md:h-20 w-auto object-contain"
-                            />
-                        </div>
                     </div>
 
                     {/* AWS */}
