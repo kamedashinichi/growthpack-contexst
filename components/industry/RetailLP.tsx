@@ -1,10 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Download, MessageCircle, ChevronDown, ShieldCheck, Cloud, Award, Users, TrendingUp, Zap, AlertTriangle, ArrowRight } from "lucide-react"
+import { Download, MessageCircle, ChevronDown, ShieldCheck, Cloud, Award, Users, TrendingUp, Zap, MessageSquare, ArrowRight, FileText, Clock, CheckCircle2, Headphones, Rocket } from "lucide-react"
 import Image from "next/image"
 import { LPHeader } from "@/components/lp/header"
-import { FinalCTASection } from "@/components/lp/final-cta-section"
 import { LPFooter } from "@/components/lp/footer"
 import { MobileFABButtons } from "@/components/lp/mobile-fab-buttons"
 
@@ -16,28 +15,33 @@ const CTA_CONTACT = "https://classmethod.jp/services/line/line-apps/#iframe-form
 const troubles = [
   {
     icon: Users,
-    title: "友だちは増えた",
-    problem: "クーポンを送る以外にやることがない",
-    detail: "友だち登録はゴールではなくスタート。でも次の一手が見えない…",
+    report: "「友だち5万人います」",
+    boss: "「で、売上いくら上がったの？」",
+    result: "答えられない",
+    detail: "友だち数は増えた。でも売上との因果関係を示すデータが何もない。",
   },
   {
-    icon: AlertTriangle,
-    title: "全員にクーポン配信",
-    problem: "配信するたびにブロックが増える",
-    detail: "一斉配信は手軽だけど、興味のない人にはノイズでしかない",
+    icon: MessageSquare,
+    report: "「クーポン配信しました」",
+    boss: "「ブロック率どうなった？」",
+    result: "悪化している",
+    detail: "一斉配信のたびにブロックが増加。興味のない人にはノイズでしかない。",
   },
   {
     icon: TrendingUp,
-    title: "誰に何を送ればいいか",
-    problem: "打ち手がないまま時間だけ過ぎる",
-    detail: "属性も購買データもないから、セグメントの切りようがない",
+    report: "「セグメント配信したいです」",
+    boss: "「顧客データどこにあるの？」",
+    result: "ない",
+    detail: "属性も購買履歴もないから、セグメントの切りようがない。",
   },
 ]
 
 const caseStudies = [
   {
+    company: "PAL様",
     industry: "アパレル・雑貨",
     scale: "約900店舗",
+    timeline: "導入後6ヶ月",
     metrics: [
       { value: "3", unit: "倍", label: "会員数増加" },
       { value: "5", unit: "秒", label: "で会員登録完了" },
@@ -45,8 +49,10 @@ const caseStudies = [
     ],
   },
   {
+    company: "グッデイ様",
     industry: "ホームセンター",
     scale: "63店舗",
+    timeline: "導入後1年",
     metrics: [
       { value: "15", unit: "万人", label: "友だち増加" },
       { value: "11", unit: "万人", label: "会員数増加" },
@@ -281,6 +287,29 @@ export function RetailLP() {
           </div>
         </section>
 
+        {/* Metrics Bar */}
+        <section className="py-6 sm:py-8 bg-[#1F2937]">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6">
+            <p className="text-xs sm:text-sm text-center text-gray-400 mb-3 sm:mb-4">導入企業の実績</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+              {[
+                { value: "3", unit: "倍", label: "会員数増加" },
+                { value: "5", unit: "秒", label: "で会員登録完了" },
+                { value: "15", unit: "万人", label: "友だち増加" },
+                { value: "5", unit: "倍以上", label: "会員証提示率" },
+              ].map((m, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-0.5">
+                    <span className="font-['Roboto'] text-[#06C755]">{m.value}</span>
+                    <span className="text-base sm:text-lg md:text-xl text-gray-300">{m.unit}</span>
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-gray-400">{m.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ② Trouble Section */}
         <section className="py-12 sm:py-16 md:py-20 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6">
@@ -292,25 +321,31 @@ export function RetailLP() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-              {troubles.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <div
-                    key={index}
-                    className="bg-[#F8F9FA] rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-[#E5E7EB]"
-                  >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#FB923C]/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4">
-                      <Icon size={20} className="sm:w-6 sm:h-6 text-[#FB923C]" />
-                    </div>
-                    <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-1.5 sm:mb-2">{item.title}</h3>
-                    <div className="flex items-center gap-1.5 mb-2 sm:mb-3">
-                      <ArrowRight size={14} className="text-[#FB923C] shrink-0" />
-                      <p className="text-sm sm:text-base font-semibold text-[#FB923C]">{item.problem}</p>
-                    </div>
-                    <p className="text-xs sm:text-sm text-[#6B7280] leading-relaxed">{item.detail}</p>
+              {troubles.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-[#F8F9FA] rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-[#E5E7EB]"
+                >
+                  {/* 担当者の報告 */}
+                  <div className="bg-white rounded-lg p-3 sm:p-4 mb-2 sm:mb-3 border border-[#E5E7EB]">
+                    <p className="text-xs sm:text-sm text-[#6B7280] mb-1">担当者</p>
+                    <p className="text-sm sm:text-base font-bold text-[#1F2937]">{item.report}</p>
                   </div>
-                )
-              })}
+                  {/* 上司の質問 */}
+                  <div className="flex items-center gap-1.5 mb-2 sm:mb-3">
+                    <ArrowRight size={14} className="text-[#6B7280] shrink-0" />
+                  </div>
+                  <div className="bg-white rounded-lg p-3 sm:p-4 mb-2 sm:mb-3 border border-[#E5E7EB]">
+                    <p className="text-xs sm:text-sm text-[#6B7280] mb-1">上司</p>
+                    <p className="text-sm sm:text-base font-bold text-[#1F2937]">{item.boss}</p>
+                  </div>
+                  {/* 結果 */}
+                  <div className="bg-[#FB923C]/10 rounded-lg p-3 sm:p-4 mt-3 sm:mt-4 border border-[#FB923C]/30">
+                    <p className="text-sm sm:text-base font-bold text-[#FB923C] text-center">{item.result}</p>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[#6B7280] leading-relaxed mt-3 sm:mt-4">{item.detail}</p>
+                </div>
+              ))}
             </div>
 
             {/* Bottom message */}
@@ -340,8 +375,11 @@ export function RetailLP() {
               {caseStudies.map((study, index) => (
                 <div key={index} className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
                   <div className="mb-4 sm:mb-6">
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#1F2937] mb-1 sm:mb-2">{study.industry}</h3>
-                    <p className="text-xs sm:text-sm text-[#6B7280]">{study.scale}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#1F2937] mb-1 sm:mb-2">{study.company}</h3>
+                    <p className="text-xs sm:text-sm text-[#6B7280]">{study.industry} / {study.scale}</p>
+                    <span className="inline-block mt-1.5 sm:mt-2 px-2.5 py-0.5 bg-[#E8F8F0] text-[#06C755] text-xs sm:text-sm font-semibold rounded-full">
+                      {study.timeline}
+                    </span>
                   </div>
                   <div className="grid grid-cols-3 gap-2 sm:gap-4">
                     {study.metrics.map((metric, mIndex) => (
@@ -587,8 +625,110 @@ export function RetailLP() {
           </div>
         </section>
 
-        {/* ⑧ CTA Section - Reuse existing */}
-        <FinalCTASection />
+        {/* ⑧ 導入の流れ */}
+        <section className="py-12 sm:py-16 md:py-20 bg-white">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-3 sm:mb-4">
+              導入の流れ
+            </h2>
+            <p className="text-sm sm:text-base text-center text-[#6B7280] mb-8 sm:mb-12 md:mb-16">
+              最短3ヶ月で本番稼働
+            </p>
+
+            <div className="max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
+                {[
+                  { icon: Headphones, step: "01", title: "ヒアリング", period: "2週間", desc: "課題・要件の整理と最適な機能の選定" },
+                  { icon: FileText, step: "02", title: "設計・開発", period: "2ヶ月", desc: "機能アセットをベースにスピード開発" },
+                  { icon: Rocket, step: "03", title: "テスト・リリース", period: "2週間", desc: "動作検証と本番環境への展開" },
+                  { icon: CheckCircle2, step: "04", title: "運用サポート", period: "継続", desc: "データ分析と改善提案を伴走支援" },
+                ].map((item, index) => {
+                  const Icon = item.icon
+                  return (
+                    <div key={index} className="relative flex md:flex-col items-start md:items-center text-center gap-4 md:gap-0 pb-6 md:pb-0">
+                      {/* Connector line (desktop) */}
+                      {index < 3 && (
+                        <div className="hidden md:block absolute top-6 left-[calc(50%+28px)] w-[calc(100%-56px)] h-0.5 bg-[#E5E7EB]" />
+                      )}
+                      {/* Connector line (mobile) */}
+                      {index < 3 && (
+                        <div className="md:hidden absolute left-[23px] top-[52px] w-0.5 h-[calc(100%-52px)] bg-[#E5E7EB]" />
+                      )}
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#06C755] rounded-full flex items-center justify-center shrink-0 relative z-10">
+                        <Icon size={22} className="sm:w-6 sm:h-6 text-white" />
+                      </div>
+                      <div className="md:mt-3 text-left md:text-center">
+                        <p className="text-[10px] sm:text-xs text-[#06C755] font-bold mb-0.5">STEP {item.step}</p>
+                        <h3 className="text-sm sm:text-base font-bold text-[#1F2937] mb-0.5 sm:mb-1">{item.title}</h3>
+                        <span className="inline-block px-2 py-0.5 bg-[#E8F8F0] text-[#06C755] text-[10px] sm:text-xs font-semibold rounded-full mb-1 sm:mb-2">
+                          {item.period}
+                        </span>
+                        <p className="text-[10px] sm:text-xs text-[#6B7280] leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ⑨ CTA Section with Document Preview */}
+        <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-[#E8F8F0] to-white">
+          <div className="max-w-[900px] mx-auto px-4 sm:px-5 md:px-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#1F2937] mb-4 sm:mb-6">まずは資料で詳しく知る</h2>
+
+            <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-10">
+              {/* Document Preview */}
+              <div className="flex-1 bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-[#E5E7EB] shadow-sm">
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                  <FileText size={20} className="text-[#06C755]" />
+                  <p className="text-sm sm:text-base font-bold text-[#1F2937]">資料でわかること</p>
+                </div>
+                <ul className="space-y-2 sm:space-y-3">
+                  {[
+                    "導入企業の具体的な成果数値",
+                    "10機能の詳細と活用シーン",
+                    "料金プラン・開発スケジュール",
+                    "他社サービスとの比較",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 size={16} className="text-[#06C755] shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-[#1F2937]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex-1 text-center">
+                <div className="flex flex-col gap-3 sm:gap-4">
+                  <a
+                    href={CTA_DOWNLOAD}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 px-5 sm:px-6 md:px-10 py-3.5 sm:py-4 md:py-5 bg-[#06C755] text-white font-bold text-base sm:text-lg md:text-xl rounded-lg shadow-xl hover:bg-[#05A847] hover:-translate-y-0.5 transition-all duration-300"
+                  >
+                    <Download size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
+                    資料ダウンロード（無料）
+                  </a>
+                  <a
+                    href={CTA_CONTACT}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 px-5 sm:px-6 md:px-10 py-3.5 sm:py-4 md:py-5 bg-white text-[#06C755] font-bold text-base sm:text-lg md:text-xl border-2 border-[#06C755] rounded-lg hover:bg-[#E8F8F0] transition-all duration-300"
+                  >
+                    <MessageCircle size={18} className="sm:w-5 sm:h-5 md:w-[22px] md:h-[22px]" />
+                    直接相談したい方はこちら
+                  </a>
+                </div>
+                <p className="text-xs sm:text-sm text-[#9CA3AF] mt-3 sm:mt-4">
+                  ※ 30秒で完了。営業電話はいたしません
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <LPFooter />
       <MobileFABButtons />
