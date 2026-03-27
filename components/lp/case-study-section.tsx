@@ -61,10 +61,19 @@ function IndustryCaseStudy({ caseStudies }: { caseStudies: CaseStudy[] }) {
 
           {/* Details */}
           {study.details && (
-            <p className="text-sm sm:text-base text-neutral-500 leading-[1.8]">
+            <p className="text-sm sm:text-base text-neutral-500 leading-[1.8] mb-6 sm:mb-8">
               {study.details}
             </p>
           )}
+
+          {/* 店頭利用イメージ */}
+          <div className="rounded-xl overflow-hidden">
+            <img
+              src="https://classmethod.jp/wp-content/uploads/2020/06/img-pal-lineapp-pop-1680-500px-1.jpg"
+              alt="PAL CLOSET 店頭でのLINEミニアプリ利用案内POP"
+              className="w-full h-auto"
+            />
+          </div>
         </div>
       </div>
     </section>

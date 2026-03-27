@@ -1,5 +1,12 @@
 import type { FeatureHighlight } from "@/lib/content"
 
+const featureDemoLinks: Record<string, string> = {
+  memberscard: "/memberscard",
+  "1to1": "/1to1",
+  coupon: "/coupon",
+  gift: "/gift",
+}
+
 interface FeatureHighlightSectionProps {
   highlights: FeatureHighlight[]
 }
@@ -27,24 +34,32 @@ export function FeatureHighlightSection({ highlights }: FeatureHighlightSectionP
               <p className="text-sm sm:text-base text-neutral-500 leading-[1.8] mb-4 sm:mb-6">
                 {highlight.industryContext}
               </p>
-              {highlight.proof && (
-                <div className="inline-flex items-center gap-2 bg-[#E8F8F0] text-[#06C755] text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  {highlight.proof}
-                </div>
-              )}
+              <div className="flex items-center gap-4 flex-wrap">
+                {highlight.proof && (
+                  <div className="inline-flex items-center gap-2 bg-[#E8F8F0] text-[#06C755] text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    {highlight.proof}
+                  </div>
+                )}
+                <a
+                  href={featureDemoLinks[highlight.featureId] ?? "#"}
+                  className="text-[#06C755] text-xs sm:text-sm font-semibold hover:text-[#05A847] transition-colors"
+                >
+                  デモを見る →
+                </a>
+              </div>
             </div>
           ))}
         </div>

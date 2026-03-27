@@ -36,78 +36,98 @@ function ApparelHero({
       aria-labelledby="hero-heading"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6 py-16 sm:py-20 md:py-28 lg:py-32">
-        {/* Industry Label */}
-        <p
-          className={`text-xs sm:text-sm tracking-[0.2em] uppercase text-[#06C755] mb-6 sm:mb-8 ${
-            isLoaded ? "animate-fade-in" : "opacity-0"
-          }`}
-        >
-          for Apparel &amp; Fashion
-        </p>
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          {/* Text Content - Left */}
+          <div className="flex-[1.2]">
+            {/* Industry Label */}
+            <p
+              className={`text-xs sm:text-sm tracking-[0.2em] uppercase text-[#06C755] mb-6 sm:mb-8 ${
+                isLoaded ? "animate-fade-in" : "opacity-0"
+              }`}
+            >
+              for Apparel &amp; Fashion
+            </p>
 
-        {/* H1 */}
-        <h1
-          id="hero-heading"
-          className={`text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.15] tracking-tight mb-6 sm:mb-8 max-w-[900px] ${
-            isLoaded ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
-          {content.h1}
-        </h1>
+            {/* H1 */}
+            <h1
+              id="hero-heading"
+              className={`text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] font-extrabold leading-[1.15] tracking-tight mb-6 sm:mb-8 ${
+                isLoaded ? "animate-fade-in-up" : "opacity-0"
+              }`}
+            >
+              {content.h1}
+            </h1>
 
-        {/* Sub Copy */}
-        <p
-          className={`text-sm sm:text-base md:text-lg text-neutral-400 leading-[1.8] mb-10 sm:mb-12 max-w-[640px] ${
-            isLoaded ? "animate-fade-in animation-delay-200" : "opacity-0"
-          }`}
-        >
-          {content.subCopy}
-        </p>
+            {/* Sub Copy */}
+            <p
+              className={`text-sm sm:text-base md:text-lg text-neutral-400 leading-[1.8] mb-10 sm:mb-12 max-w-[540px] ${
+                isLoaded ? "animate-fade-in animation-delay-200" : "opacity-0"
+              }`}
+            >
+              {content.subCopy}
+            </p>
 
-        {/* Display Stats */}
-        {content.displayStats && (
+            {/* Display Stats */}
+            {content.displayStats && (
+              <div
+                className={`flex flex-wrap gap-6 sm:gap-10 md:gap-12 mb-10 sm:mb-12 ${
+                  isLoaded ? "animate-fade-in animation-delay-400" : "opacity-0"
+                }`}
+              >
+                {content.displayStats.map((stat, i) => (
+                  <div key={i}>
+                    <span className="block text-[32px] sm:text-[40px] md:text-[48px] font-extrabold leading-none tracking-tight font-['Roboto']">
+                      {stat.value}
+                    </span>
+                    <span className="block text-xs sm:text-sm text-neutral-500 mt-1 sm:mt-2">
+                      {stat.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* CTA */}
+            <div
+              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 ${
+                isLoaded ? "animate-fade-in animation-delay-600" : "opacity-0"
+              }`}
+            >
+              <a
+                href="https://classmethod.jp/download/line-mini-app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#06C755] text-white font-bold text-sm sm:text-base rounded-lg hover:bg-[#05A847] transition-all duration-300"
+              >
+                <Download size={18} strokeWidth={2.5} />
+                資料ダウンロード（無料）
+              </a>
+              <a
+                href="https://classmethod.jp/services/line/line-apps/#iframe-form"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-white font-bold text-sm sm:text-base border border-neutral-600 rounded-lg hover:bg-white/5 transition-all duration-300"
+              >
+                <MessageCircle size={18} strokeWidth={2.5} />
+                お問い合わせ
+              </a>
+            </div>
+          </div>
+
+          {/* Visual - Right: PAL CLOSET ミニアプリ画面 */}
           <div
-            className={`flex flex-wrap gap-8 sm:gap-12 md:gap-16 mb-10 sm:mb-14 ${
-              isLoaded ? "animate-fade-in animation-delay-400" : "opacity-0"
+            className={`flex-1 hidden lg:flex items-center justify-center ${
+              isLoaded ? "animate-slide-in-right animation-delay-200" : "opacity-0"
             }`}
           >
-            {content.displayStats.map((stat, i) => (
-              <div key={i}>
-                <span className="block text-[40px] sm:text-[56px] md:text-[72px] font-extrabold leading-none tracking-tight font-['Roboto']">
-                  {stat.value}
-                </span>
-                <span className="block text-xs sm:text-sm text-neutral-500 mt-1 sm:mt-2">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+            <div className="relative w-full max-w-[400px]">
+              <img
+                src="https://classmethod.jp/wp-content/uploads/2020/06/img-pal-lineapp-v2-1.jpg"
+                alt="PAL CLOSET LINEミニアプリの会員証画面"
+                className="w-full h-auto rounded-2xl shadow-2xl border border-neutral-800"
+              />
+            </div>
           </div>
-        )}
-
-        {/* CTA */}
-        <div
-          className={`flex flex-col sm:flex-row gap-3 sm:gap-4 ${
-            isLoaded ? "animate-fade-in animation-delay-600" : "opacity-0"
-          }`}
-        >
-          <a
-            href="https://classmethod.jp/download/line-mini-app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#06C755] text-white font-bold text-sm sm:text-base rounded-lg hover:bg-[#05A847] transition-all duration-300"
-          >
-            <Download size={18} strokeWidth={2.5} />
-            資料ダウンロード（無料）
-          </a>
-          <a
-            href="https://classmethod.jp/services/line/line-apps/#iframe-form"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-white font-bold text-sm sm:text-base border border-neutral-600 rounded-lg hover:bg-white/5 transition-all duration-300"
-          >
-            <MessageCircle size={18} strokeWidth={2.5} />
-            お問い合わせ
-          </a>
         </div>
       </div>
 

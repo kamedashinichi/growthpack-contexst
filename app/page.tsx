@@ -21,6 +21,11 @@ type Props = {
   searchParams: Promise<{ industry?: string }>
 }
 
+const canonicalPaths: Record<string, string> = {
+  generic: "https://lp.growthpackforline.classmethod.net",
+  apparel: "https://lp.growthpackforline.classmethod.net/apparel",
+}
+
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const params = await searchParams
   const content = getIndustryContent(params?.industry)
@@ -28,6 +33,9 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   return {
     title: content.seo.title,
     description: content.seo.description,
+    alternates: {
+      canonical: canonicalPaths[content.id] ?? canonicalPaths.generic,
+    },
     openGraph: {
       title: content.seo.ogTitle,
       description: content.seo.ogDescription,
