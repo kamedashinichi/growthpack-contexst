@@ -83,21 +83,21 @@ export const apparel: IndustryContent = {
       name: "1to1コミュニケーション",
       industryContext:
         "顧客ごとのLINEチャット履歴を全スタッフで共有。来店予約の確認、入荷通知、コーディネート提案をLINE上で完結。スタッフ異動後も途切れない接客を実現する。",
-      proof: "担当交代後の顧客離反率を低減",
+      proof: undefined,
     },
     {
       featureId: "coupon",
       name: "クーポン配信",
       industryContext:
         "購買履歴・来店頻度に基づくセグメント別クーポンで、一律配信と比較してブロック率を18%低減。誕生日クーポン、休眠復帰クーポンなど、顧客のライフサイクルに応じた施策を自動化する。",
-      proof: "中川政七商店：メッセージROAS 665%",
+      proof: undefined,
     },
     {
       featureId: "gift",
       name: "ギフト（友人紹介）",
       industryContext:
         "既存会員がLINEで友人にギフトを贈ると、受け取った友人も会員登録。紹介者と被紹介者双方にインセンティブを付与し、広告費をかけずに新規顧客を獲得する仕組み。",
-      proof: "PAL CLOSET：友だち1ヶ月で10万人増（店舗QR起点）",
+      proof: undefined,
     },
   ],
   caseStudies: [
