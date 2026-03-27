@@ -46,10 +46,7 @@ export function ComparisonSection() {
             </div>
 
             <h3 className="text-lg sm:text-xl font-bold mb-2">ハーフスクラッチ</h3>
-            <p className="text-2xl sm:text-3xl font-extrabold font-['Roboto'] mb-1">
-              500<span className="text-base sm:text-lg font-bold text-neutral-400">万円〜</span>
-            </p>
-            <p className="text-xs text-neutral-500 mb-6">会員証機能の場合 / 最短3ヶ月</p>
+            <p className="text-xs text-neutral-500 mb-6">最短3ヶ月 / 費用は資料にてご案内</p>
 
             <div className="space-y-3 sm:space-y-4 text-sm">
               <div className="flex items-start gap-2.5">

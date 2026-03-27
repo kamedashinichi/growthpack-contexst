@@ -18,8 +18,8 @@ export const apparel: IndustryContent = {
     visualVariant: "typography",
     displayStats: [
       { value: "3ヶ月", label: "最短開発期間" },
-      { value: "500万〜", label: "会員証の導入費用" },
       { value: "5秒", label: "会員登録完了" },
+      { value: "10", label: "選べる機能数" },
     ],
   },
   problems: [
