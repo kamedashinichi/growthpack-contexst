@@ -1,16 +1,26 @@
 import { Download, MessageCircle } from "lucide-react"
+import type { CTAContent } from "@/lib/content"
 
-export function FinalCTASection() {
+interface FinalCTASectionProps {
+  content?: CTAContent
+}
+
+export function FinalCTASection({ content }: FinalCTASectionProps) {
+  const headline = content?.headline ?? "まずは資料で詳しく知る"
+  const subtext =
+    content?.subtext ??
+    "機能詳細・導入事例・料金プランなど、詳しい情報を資料でご確認いただけます"
+
   return (
     <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-[#E8F8F0] to-white">
       <div className="max-w-[800px] mx-auto px-4 sm:px-5 md:px-6 text-center">
-        {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] mb-4 sm:mb-6">まずは資料で詳しく知る</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] mb-4 sm:mb-6">
+          {headline}
+        </h2>
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#6B7280] mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-          機能詳細・導入事例・料金プランなど、詳しい情報を資料でご確認いただけます
+          {subtext}
         </p>
 
-        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
           <a
             href="https://classmethod.jp/download/line-mini-app/"
@@ -32,7 +42,6 @@ export function FinalCTASection() {
           </a>
         </div>
 
-        {/* Sub text */}
         <p className="text-xs sm:text-sm text-[#9CA3AF]"></p>
       </div>
     </section>
