@@ -120,10 +120,10 @@ function ApparelHero({
               isLoaded ? "animate-slide-in-right animation-delay-200" : "opacity-0"
             }`}
           >
-            <div className="relative w-full max-w-[400px]">
+            <div className="relative w-full max-w-[440px]">
               <img
-                src="https://classmethod.jp/wp-content/uploads/2020/06/img-pal-lineapp-v2-1.jpg"
-                alt="PAL CLOSET LINEミニアプリの会員証画面"
+                src="/images/apparel-hero.png"
+                alt="アパレル店舗でLINEミニアプリの会員証を提示するお客様"
                 className="w-full h-auto rounded-2xl shadow-2xl border border-neutral-800"
               />
             </div>
