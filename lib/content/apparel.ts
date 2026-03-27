@@ -39,7 +39,7 @@ export const apparel: IndustryContent = {
       title: "50ブランド横断の会員証、SaaSでは対応できない",
       description:
         "複数ブランドを展開するアパレル企業にとって、ブランド横断の統合会員証は必須。しかし月額制SaaSは単一ブランド前提の設計で、マルチブランド管理・既存EC連携・大規模トラフィックに対応できない。",
-      stat: { value: "6%", label: "ミニアプリ導入済みの50店舗以上アパレル企業" },
+      stat: { value: "1社", label: "単一ブランドしか管理できないSaaSがほとんど" },
     },
   ],
   solutionStory: {
