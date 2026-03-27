@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { track } from "@vercel/analytics"
 import { Download, MessageCircle, ChevronDown } from "lucide-react"
 import type { HeroContent, IndustryId } from "@/lib/content"
 
@@ -98,6 +99,7 @@ function ApparelHero({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-[#06C755] text-white font-bold text-sm sm:text-base rounded-lg hover:bg-[#05A847] transition-all duration-300"
+                onClick={() => track("cta_download", { location: "hero", industry: "apparel" })}
               >
                 <Download size={18} strokeWidth={2.5} />
                 資料ダウンロード（無料）
@@ -107,6 +109,7 @@ function ApparelHero({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-white font-bold text-sm sm:text-base border border-neutral-600 rounded-lg hover:bg-white/5 transition-all duration-300"
+                onClick={() => track("cta_contact", { location: "hero", industry: "apparel" })}
               >
                 <MessageCircle size={18} strokeWidth={2.5} />
                 お問い合わせ

@@ -84,7 +84,7 @@ export default async function LandingPage({ searchParams }: Props) {
           <CaseStudySection caseStudies={content.caseStudies} industry={industry} />
 
           {/* 5. インラインCTA① */}
-          <InlineCTA text="PAL CLOSETの導入プロセスを資料で詳しく見る" />
+          <InlineCTA text="PAL CLOSETの導入プロセスを資料で詳しく見る" location="after_casestudy" />
 
           {/* 6. Solution Story */}
           {content.solutionStory && (
@@ -100,7 +100,7 @@ export default async function LandingPage({ searchParams }: Props) {
           <ComparisonSection />
 
           {/* 9. インラインCTA② */}
-          <InlineCTA text="料金・導入プロセスの詳細を資料で確認する" />
+          <InlineCTA text="料金・導入プロセスの詳細を資料で確認する" location="after_comparison" />
 
           {/* 10. All Features */}
           <FeaturesSection
