@@ -4,12 +4,12 @@ export const apparel: IndustryContent = {
   id: "apparel",
   seo: {
     title:
-      "アパレル向けLINEミニアプリ開発 | 会員証・1to1・ギフト | グロースパック for LINE",
+      "アパレル店舗の顧客接点DX｜LINEミニアプリ開発 | グロースパック for LINE",
     description:
-      "50ブランド1,078店舗のPAL CLOSETが会員数3倍を実現。EC×店舗の会員統合からセグメント配信まで、アパレルに特化したLINEミニアプリ開発サービス",
-    ogTitle: "アパレル向けLINEミニアプリ開発 | グロースパック for LINE",
+      "193名調査で見えた店舗スタッフの課題。50ブランド横断の会員証で顧客接点を一元化。",
+    ogTitle: "アパレル店舗の顧客接点DX｜Growthpack for LINE",
     ogDescription:
-      "PAL CLOSETが50ブランド統合で会員数3倍・EC売上5倍。アパレル特化のLINEミニアプリ開発",
+      "193名調査で見えた店舗スタッフの課題。50ブランド横断の会員証で顧客接点を一元化。",
   },
   hero: {
     h1: "EC会員と店舗会員、まだバラバラに管理していませんか？",
@@ -40,30 +40,30 @@ export const apparel: IndustryContent = {
     },
   ],
   solutionStory: {
-    headline: "4つの機能で、顧客との関係を積み上げる",
+    headline: "4つのPhaseで、顧客との関係を積み上げる",
     subheadline:
       "LINEミニアプリの会員証を起点に、接客・再来店促進・ファン化までを一気通貫で設計",
     steps: [
       {
-        label: "会員証で統合IDを作る",
+        label: "Phase 1｜会員証で統合IDを作る",
         description:
           "来店時にLINEで5秒で会員登録。店舗・EC・LINEのデータを一つのIDに統合し、ブランドを横断した購買履歴を可視化する。",
         featureId: "memberscard",
       },
       {
-        label: "1to1で担当に依存しない接客を実現",
+        label: "Phase 2｜1to1で担当に依存しない接客を実現",
         description:
           "LINE上で顧客ごとの対応履歴を記録。スタッフが異動しても、過去の接客内容・好みの傾向を次の担当が引き継げる。",
         featureId: "1to1",
       },
       {
-        label: "クーポン・ギフトで再来店を促す",
+        label: "Phase 3｜クーポン・ギフトで再来店を促す",
         description:
           "購買データに基づくパーソナライズクーポンと、友人紹介ギフトで新規顧客を獲得。一律配信ではなく、行動に応じた出し分けでブロック率を抑える。",
         featureId: "coupon",
       },
       {
-        label: "セグメント配信で効果を最大化",
+        label: "Phase 4｜セグメント配信で効果を最大化",
         description:
           "統合された会員データをもとに、購買頻度・来店チャネル・ブランド嗜好でセグメントを切り、最適なタイミングで最適なメッセージを届ける。",
         featureId: "segment",
@@ -116,8 +116,8 @@ export const apparel: IndustryContent = {
     },
   ],
   cta: {
-    headline: "アパレル業界の会員統合事例を詳しく見る",
+    headline: "製品資料をダウンロード",
     subtext:
-      "PAL CLOSETの導入プロセス・技術構成・成果数値など、詳しい情報を資料でご確認いただけます",
+      "機能詳細・導入事例・料金プランなど、詳しい情報を資料でご確認いただけます",
   },
 }

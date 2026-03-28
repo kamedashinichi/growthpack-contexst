@@ -55,6 +55,7 @@ function IndustryProblems({ problems }: { problems: Problem[] }) {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   )

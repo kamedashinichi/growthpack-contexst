@@ -16,6 +16,7 @@ import { InlineCTA } from "@/components/lp/inline-cta"
 import { FinalCTASection } from "@/components/lp/final-cta-section"
 import { LPFooter } from "@/components/lp/footer"
 import { MobileFABButtons } from "@/components/lp/mobile-fab-buttons"
+import { WPDownloadForm } from "@/components/lp/wp-download-form"
 
 type Props = {
   searchParams: Promise<{ industry?: string }>
@@ -80,13 +81,13 @@ export default async function LandingPage({ searchParams }: Props) {
           {/* 3. Problem */}
           <ProblemSection problems={content.problems} industry={industry} />
 
+          {/* 3.5 WP Download Form */}
+          <WPDownloadForm />
+
           {/* 4. Case Study（繰り上げ） */}
           <CaseStudySection caseStudies={content.caseStudies} industry={industry} />
 
-          {/* 5. インラインCTA① */}
-          <InlineCTA text="PAL CLOSETの導入プロセスを資料で詳しく見る" location="after_casestudy" />
-
-          {/* 6. Solution Story */}
+          {/* 5. Solution Story */}
           {content.solutionStory && (
             <SolutionStorySection story={content.solutionStory} />
           )}
@@ -99,15 +100,7 @@ export default async function LandingPage({ searchParams }: Props) {
           {/* 8. Comparison */}
           <ComparisonSection />
 
-          {/* 9. インラインCTA② */}
-          <InlineCTA text="料金・導入プロセスの詳細を資料で確認する" location="after_comparison" />
-
-          {/* 10. All Features */}
-          <FeaturesSection
-            highlightIds={content.featureHighlights.map((h) => h.featureId)}
-          />
-
-          {/* 11. FAQ */}
+          {/* 9. FAQ */}
           <FAQSection />
 
           {/* 12. Final CTA */}
