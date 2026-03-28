@@ -22,9 +22,9 @@ function IndustryProblems({ problems }: { problems: Problem[] }) {
           The Problem
         </p>
         <h2 className="text-2xl sm:text-3xl md:text-[40px] font-bold text-[#1F2937] leading-tight mb-12 sm:mb-16 md:mb-20">
-          193名調査で見えた、
+          アパレルDXを阻む
           <br />
-          店舗スタッフの&ldquo;見えない負担&rdquo;
+          3つの構造的課題
         </h2>
 
         <div className="space-y-12 sm:space-y-16 md:space-y-20">
@@ -56,18 +56,6 @@ function IndustryProblems({ problems }: { problems: Problem[] }) {
           ))}
         </div>
 
-        {/* Bridge Copy */}
-        <div className="mt-12 sm:mt-16 md:mt-20 text-center">
-          <p className="text-lg sm:text-xl md:text-2xl font-bold text-[#1F2937] leading-relaxed">
-            時間を奪われ、声も届かない ──
-            <br />
-            だから今、「お客様と向き合う時間」を取り戻す
-            <span className="text-[#06C755]">顧客接点DX</span>が必要です。
-          </p>
-          <p className="text-xs text-neutral-400 mt-4">
-            出典: アパレル店舗スタッフ業務実態調査 2026（n=193）
-          </p>
-        </div>
       </div>
     </section>
   )
