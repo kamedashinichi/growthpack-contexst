@@ -84,7 +84,7 @@ export default async function LandingPage({ searchParams }: Props) {
           {/* 3.5 WP Download Form */}
           <WPDownloadForm />
 
-          {/* 4. Case Study（繰り上げ�� */}
+          {/* 4. Case Study（繰り上げ） */}
           <CaseStudySection caseStudies={content.caseStudies} industry={industry} />
 
           {/* 5. インラインCTA① */}
