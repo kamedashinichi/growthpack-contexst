@@ -25,6 +25,7 @@ export type CaseStudyItem = {
 export type ComparisonItem = {
   label: string
   official: boolean | "partial"
+  saas: boolean | "partial"
   mini: boolean
   highlight?: boolean
 }

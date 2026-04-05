@@ -141,13 +141,5 @@ export const foodData: IndustryLPData = {
         description: "来店回数・金額に応じた優良顧客へのターゲット配信",
       },
     ],
-    stepColorMap: {
-      "順番待ち": { step: 1, color: "#3B82F6", label: "STEP1" },
-      "スタンプカード": { step: 1, color: "#3B82F6", label: "STEP1" },
-      "クーポン配信": { step: 2, color: "#06C755", label: "STEP2" },
-      "セグメント配信": { step: 2, color: "#06C755", label: "STEP2" },
-      "予約": { step: 3, color: "#8B5CF6", label: "STEP3" },
-      "デジタル会員証": { step: 3, color: "#8B5CF6", label: "STEP3" },
-    },
   },
 }
