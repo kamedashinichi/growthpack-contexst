@@ -24,10 +24,8 @@ export const foodData: IndustryLPData = {
     ),
   },
   metrics: [
-    { value: "40", unit: "%超", label: "リピーター率（活用事例）" },
     { value: "1", unit: "ヶ月", label: "最短導入期間" },
-    { value: "0", unit: "件", label: "アプリDL不要" },
-    { value: "10", unit: "店舗〜", label: "導入実績あり" },
+    { value: "5", unit: "秒", label: "会員登録時間" },
   ],
   problem: {
     heading: "飲食チェーンのDX担当者が抱える、4つの課題",
@@ -66,24 +64,7 @@ export const foodData: IndustryLPData = {
       </p>
     ),
   },
-  caseStudies: [
-    {
-      company: "たんじろう（アクティブカンパニー）様",
-      industry: "飲食チェーン",
-      metrics: [
-        { value: "90", unit: "%", label: "モバイルオーダー利用率" },
-        { value: "40", unit: "%超", label: "リピーター率" },
-      ],
-    },
-    {
-      company: "山小屋（ワイエスフード）様",
-      industry: "飲食チェーン",
-      metrics: [
-        { value: "↓", unit: "", label: "業務効率化" },
-        { value: "↓", unit: "", label: "教育時間短縮" },
-      ],
-    },
-  ],
+  caseStudies: [],
   comparison: commonComparisonItems,
   comparisonHighlight: {
     title: (
