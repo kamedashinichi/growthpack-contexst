@@ -84,23 +84,23 @@ function GenericCaseStudy() {
   const caseStudies = [
     {
       company: "PAL様",
-      industry: "アパレル・小売業",
+      industry: "アパレル・小売業（約900店舗）",
       quote:
         "Native appはアプリDLが必要な為、ライトユーザーや操作に不慣れなお客様に導入が進まず、スタッフ/ユーザー双方に課題感があった。LINE Mini appはライトユーザーへのリーチ＆会員化という棲み分けができた",
       metrics: [
-        { value: "200", unit: "%", label: "新規会員数増加" },
-        { value: "3", unit: "倍", label: "友だち数増加" },
-        { value: "5", unit: "倍", label: "EC売上成長" },
+        { value: "約3", unit: "倍", label: "会員数増加" },
+        { value: "10", unit: "万人", label: "友だち数増加（1ヶ月）" },
+        { value: "5", unit: "秒", label: "会員登録時間" },
       ],
     },
     {
       company: "グッデイ様",
-      industry: "ホームセンター",
+      industry: "ホームセンター（63店舗）",
       quote:
         "以前はチャットボットのSaaSサービスを導入していましたが、問い合わせやカスタマイズにより柔軟に対応するため、フルスクラッチでの開発を検討していました",
       metrics: [
-        { value: "1.9", unit: "%", label: "提示率向上" },
-        { value: "15", unit: "万人", label: "友だち増加" },
+        { value: "5", unit: "倍以上", label: "会員証提示率（月間）" },
+        { value: "15", unit: "万人", label: "友だち数増加" },
         { value: "11", unit: "万人", label: "会員数増加" },
       ],
     },
