@@ -6,6 +6,11 @@ import Image from "next/image"
 import { retailData } from "@/data/industries/retail"
 import { apparelData } from "@/data/industries/apparel"
 import { foodData } from "@/data/industries/food"
+import { drugstoreData } from "@/data/industries/drugstore"
+import { departmentData } from "@/data/industries/department"
+import { supermarketData } from "@/data/industries/supermarket"
+import { ecData } from "@/data/industries/ec"
+import { sportsData } from "@/data/industries/sports"
 import type { IndustryLPData } from "@/data/types"
 import { CTA_DOWNLOAD, CTA_CONTACT } from "@/data/shared"
 import { LandingPageLayout } from "@/components/LandingPageLayout"
@@ -20,6 +25,11 @@ const industryMap: Record<string, IndustryLPData> = {
   retail: retailData,
   apparel: apparelData,
   food: foodData,
+  drugstore: drugstoreData,
+  department: departmentData,
+  supermarket: supermarketData,
+  ec: ecData,
+  sports: sportsData,
 }
 
 export function IndustryLP({ industry }: { industry: string }) {
