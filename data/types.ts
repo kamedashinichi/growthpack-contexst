@@ -81,6 +81,7 @@ export type IndustryLPData = {
   hero: {
     headline: ReactNode
     subheadline: ReactNode
+    heroImage?: string
   }
   metrics?: MetricsItem[]
   problem: ProblemSectionProps

@@ -111,12 +111,17 @@ function IndustryHeroSection({ data }: { data: IndustryLPData }) {
             </div>
           </div>
 
-          {/* Visual - Phone Mockup */}
+          {/* Visual - Hero Image or Phone Mockup */}
           <div
             className={`flex-1 flex items-center justify-center w-full max-w-[280px] sm:max-w-[350px] md:max-w-md lg:max-w-[500px] ${
               isLoaded ? "animate-slide-in-right animation-delay-200" : "opacity-0"
             }`}
           >
+            {data.hero.heroImage ? (
+              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
+                <Image src={data.hero.heroImage} alt={`${data.label}のイメージ`} fill className="object-cover" />
+              </div>
+            ) : (
             <div className="relative w-full aspect-square">
               <div className="absolute inset-0 bg-gradient-to-br from-[#06C755]/15 via-[#39D275]/10 to-[#E8F8F0] rounded-full scale-110" />
               <div className="absolute inset-3 sm:inset-4 lg:inset-6 bg-white rounded-[24px] sm:rounded-[32px] shadow-2xl overflow-hidden border border-[#E5E7EB]">
@@ -180,6 +185,7 @@ function IndustryHeroSection({ data }: { data: IndustryLPData }) {
               <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-8 h-8 sm:w-10 sm:h-10 lg:w-16 lg:h-16 bg-[#3B82F6] rounded-full opacity-50 blur-sm" />
               <div className="absolute top-1/4 -left-3 sm:-left-6 w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-[#06C755] rounded-full opacity-60" />
             </div>
+            )}
           </div>
         </div>
       </div>

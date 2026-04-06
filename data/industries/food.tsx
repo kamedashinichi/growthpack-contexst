@@ -22,6 +22,7 @@ export const foodData: IndustryLPData = {
         順番待ち・スタンプ・クーポン・予約、必要な機能を選んで最短1ヶ月で導入。
       </>
     ),
+    heroImage: "/images/food-hero.png",
   },
   metrics: [
     { value: "1", unit: "ヶ月", label: "最短導入期間" },

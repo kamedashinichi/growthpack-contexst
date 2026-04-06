@@ -22,6 +22,7 @@ export const apparelData: IndustryLPData = {
         「インストール不要の<span className="text-[#06C755] font-bold">LINEミニアプリ</span>」でした。
       </>
     ),
+    heroImage: "/images/apparel-hero.png",
   },
   metrics: [
     { value: "3", unit: "倍", label: "会員数増加（PAL様）" },

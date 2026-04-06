@@ -22,6 +22,7 @@ export const departmentData: IndustryLPData = {
         <span className="text-[#06C755] font-bold">グロースパック for LINE</span> は答えを持っています。
       </>
     ),
+    heroImage: "/images/department-hero.png",
   },
   metrics: [
     { value: "1", unit: "ヶ月", label: "最短導入期間" },

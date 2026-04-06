@@ -22,6 +22,7 @@ export const ecData: IndustryLPData = {
         <span className="text-[#06C755] font-bold">LINEをECの再購入エンジン</span>に変える。
       </>
     ),
+    heroImage: "/images/ec-hero.png",
   },
   metrics: [
     { value: "1", unit: "ヶ月", label: "最短導入期間" },
