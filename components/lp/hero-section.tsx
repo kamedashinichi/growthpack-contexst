@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { track } from "@vercel/analytics"
 import { Download, MessageCircle, ChevronDown } from "lucide-react"
 import type { HeroContent, IndustryId } from "@/lib/content"
+import { LandingGridPatternCtaBg } from "@/components/landing/cta-backgrounds/LandingGridPatternCtaBg"
 
 interface HeroSectionProps {
   content: HeroContent
@@ -149,6 +150,11 @@ function GenericHero({ isLoaded }: { isLoaded: boolean }) {
       className="relative pt-16 md:pt-[72px] min-h-[500px] sm:min-h-[600px] md:min-h-[700px] bg-gradient-to-b from-[#E8F8F0] to-white overflow-hidden"
       aria-labelledby="hero-heading"
     >
+      <LandingGridPatternCtaBg
+        className="absolute inset-0 opacity-30"
+        variant="primary"
+        gridSize="large"
+      />
       <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6 py-12 sm:py-16 md:py-24 lg:py-[100px]">
         <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16">
           {/* Text Content - Left 55% */}

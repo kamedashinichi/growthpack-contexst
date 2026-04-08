@@ -4,6 +4,7 @@ import type { FeaturesData } from '@/types/features-catalog'
 import { LPHeader } from "@/components/lp/header"
 import { LPFooter } from "@/components/lp/footer"
 import { CategoryTabs } from "@/components/lp/category-tabs"
+import { LandingBandSection } from "@/components/landing/LandingBand"
 
 const data = featuresData as FeaturesData
 
@@ -16,8 +17,8 @@ export default function FeaturesPage() {
   return (
     <div className="min-h-screen bg-white">
       <LPHeader />
-      <main className="pt-20 md:pt-24 pb-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <main className="pt-20 md:pt-24 pb-0">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-20">
           <div className="text-center mb-12">
             <h1 className="text-2xl sm:text-3xl font-bold text-[#1F2937] mb-3">
               「自分の課題」から、必要な機能を探す
@@ -28,6 +29,13 @@ export default function FeaturesPage() {
           </div>
           <CategoryTabs categories={data.categories} features={data.features} />
         </div>
+
+        <LandingBandSection
+          variant="primary"
+          size="md"
+        >
+          LINEヤフー Technology Partner認定 — アセットベースで最短1ヶ月から導入可能
+        </LandingBandSection>
       </main>
       <LPFooter />
     </div>
