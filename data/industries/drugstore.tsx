@@ -96,7 +96,7 @@ export const drugstoreData: IndustryLPData = {
       colorLight: "#F5F3FF",
       title: "調剤連携で来店体験を向上する",
       subtitle: "STEP 3",
-      description: "調剤完了をLINEで通知。待ち時間中に関連OTC薬のクーポンを配信して買い回りを促進。",
+      description: "調剤完了をLINEで通知。待ち時間中に関連商品のクーポンを配信して買い回りを促進。",
       features: ["1to1コミュニケーション", "セグメント配信"],
       icon: Smartphone,
     },
