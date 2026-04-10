@@ -74,32 +74,32 @@ export const hotelData: IndustryLPData = {
     subtitle: "アセットベースで選んで組み合わせ。不要な機能に投資しない。",
     items: [
       {
-        image: "/images/features/membership-card.png",
+        image: "/images/会員証.png",
         name: "デジタル会員証",
         description:
           "LINEで友だち追加と同時に会員登録完了。宿泊履歴・ポイント残高をいつでも確認。フロントでQRをかざすだけでチェックイン手続きを短縮。",
-        url: "/features",
+        url: "/memberscard",
       },
       {
-        image: "/images/features/coupon.png",
+        image: "/images/クーポン.png",
         name: "施設内クーポン",
         description:
           "レストラン・スパ・売店など施設内サービスのクーポンをLINEで配信。チェックイン後にプッシュ通知で送り、施設内消費を自動で促進。",
-        url: "/features",
+        url: "/coupon",
       },
       {
-        image: "/images/features/stamp-card.png",
+        image: "/images/スタンプカード.png",
         name: "スタンプカード",
         description:
           "宿泊1回ごとにスタンプ付与。規定数到達で特典提供。紙カードの不正・紛失リスクゼロで、リピート率の改善をデータで追跡できる。",
-        url: "/features",
+        url: "/stampcard",
       },
       {
-        image: "/images/features/segment-push.png",
+        image: "/images/セグメント配信.png",
         name: "セグメント配信",
         description:
           "宿泊履歴・来館頻度・プランタイプで絞ってLINEメッセージ配信。「半年未来訪ゲストへの再来訪促進」「連泊ゲストへの施設利用案内」が自動化。",
-        url: "/features",
+        url: "/segment",
       },
     ],
   },
