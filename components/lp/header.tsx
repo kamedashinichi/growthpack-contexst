@@ -74,7 +74,7 @@ export function LPHeader() {
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center gap-1 text-sm text-[#4B5563] hover:text-[#06C755] transition-colors"
               >
-                業界別LP
+                業界課題
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`}
@@ -124,7 +124,7 @@ export function LPHeader() {
             </a>
 
             {/* Mobile: Industry label */}
-            <p className="pt-3 pb-1 text-xs text-[#9CA3AF] font-medium uppercase tracking-wider">業界別LP</p>
+            <p className="pt-3 pb-1 text-xs text-[#9CA3AF] font-medium uppercase tracking-wider">業界課題</p>
             {INDUSTRY_ITEMS.map((item) => (
               <a
                 key={item.href}
