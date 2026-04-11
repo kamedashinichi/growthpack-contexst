@@ -49,7 +49,7 @@ export function LPHeader() {
         <a href="/" className="flex items-end gap-0.5 sm:gap-1">
           <span className="text-base sm:text-lg md:text-xl font-bold text-[#1F2937]">グロースパック</span>
           <span className="text-base sm:text-lg md:text-xl text-[#64748b]"> for </span>
-          <span className="text-base sm:text-lg md:text-xl font-bold text-[#00C300]">LINE</span>
+          <span className="text-base sm:text-lg md:text-xl font-bold text-[#06C755]">LINE</span>
         </a>
 
         {/* Mobile Menu Button */}

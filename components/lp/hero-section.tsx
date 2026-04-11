@@ -225,7 +225,7 @@ function GenericHero({ isLoaded }: { isLoaded: boolean }) {
             }`}
           >
             <div className="relative w-full aspect-square">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#06C755]/15 via-[#39D275]/10 to-[#E8F8F0] rounded-full scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#06C755]/15 via-[#06C755]/10 to-[#E8F8F0] rounded-full scale-110" />
 
               <div className="absolute inset-3 sm:inset-4 lg:inset-6 bg-white rounded-[24px] sm:rounded-[32px] shadow-2xl overflow-hidden border border-[#E5E7EB]">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 md:w-24 h-4 sm:h-5 md:h-6 bg-[#1F2937] rounded-b-xl sm:rounded-b-2xl" />
@@ -244,7 +244,7 @@ function GenericHero({ isLoaded }: { isLoaded: boolean }) {
                   </div>
 
                   <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5 flex-1">
-                    <div className="bg-gradient-to-r from-[#06C755] to-[#39D275] rounded-lg sm:rounded-xl p-2 sm:p-2.5 md:p-3 text-white">
+                    <div className="bg-gradient-to-r from-[#06C755] to-[#05A847] rounded-lg sm:rounded-xl p-2 sm:p-2.5 md:p-3 text-white">
                       <div className="flex items-center justify-between mb-1 sm:mb-2">
                         <span className="text-[10px] sm:text-xs font-bold">会員証</span>
                         <span className="text-[8px] sm:text-[10px] bg-white/20 px-1.5 sm:px-2 py-0.5 rounded-full">Gold</span>
