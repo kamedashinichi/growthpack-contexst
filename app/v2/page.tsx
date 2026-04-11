@@ -409,8 +409,7 @@ export default function V2TopPage() {
         </div>
         <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
           {PROBLEMS.map((p) => (
-            <Card key={p.title} padding="md">
-              <div className="w-1 h-8 bg-[#06C755] rounded-full mb-4" />
+            <Card key={p.title} padding="md" className="border-l-4 border-l-[#06C755]">
               <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">
                 {p.title}
               </h3>
