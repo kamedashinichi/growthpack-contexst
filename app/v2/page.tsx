@@ -326,8 +326,8 @@ export default function V2TopPage() {
                   {[
                     { x: 90, y: 100 },
                     { x: 410, y: 100 },
-                    { x: 50, y: 280 },
-                    { x: 450, y: 280 },
+                    { x: 0, y: 280 },
+                    { x: 500, y: 280 },
                     { x: 90, y: 460 },
                     { x: 410, y: 460 },
                   ].map((p, i) => (
@@ -376,8 +376,8 @@ export default function V2TopPage() {
                 {[
                   { top: '10%', left: '5%', image: '/images/会員証.png', label: '会員証', delay: '0s' },
                   { top: '10%', right: '5%', image: '/images/スタンプカード.png', label: 'スタンプ', delay: '0.1s' },
-                  { top: '45%', left: '0%', image: '/images/予約.png', label: '予約', delay: '0.2s' },
-                  { top: '45%', right: '0%', image: '/images/クーポン.png', label: 'クーポン', delay: '0.3s' },
+                  { top: '45%', left: '-10%', image: '/images/予約.png', label: '予約', delay: '0.2s' },
+                  { top: '45%', right: '-10%', image: '/images/クーポン.png', label: 'クーポン', delay: '0.3s' },
                   { bottom: '10%', left: '5%', image: '/images/1to1.png', label: '1to1', delay: '0.4s' },
                   { bottom: '10%', right: '5%', image: '/images/ギフト.png', label: 'ギフト', delay: '0.5s' },
                 ].map((card) => (
