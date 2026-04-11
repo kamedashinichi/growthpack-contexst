@@ -434,25 +434,14 @@ export default function V2TopPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-4 md:gap-5">
-          {/* SaaS A */}
+        <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+          {/* SaaS */}
           <Card variant="outline" padding="md">
             <div className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-wider mb-3">Option A</div>
-            <h3 className="text-base font-bold mb-4">SaaS<br /><span className="text-sm font-normal text-[#6B7280]">（拡張性なし）</span></h3>
+            <h3 className="text-base font-bold mb-4">SaaS<br /><span className="text-sm font-normal text-[#6B7280]">パッケージ型</span></h3>
             <ul className="text-sm text-[#6B7280] space-y-2">
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />初期コスト: 低</li>
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />拡張性: △</li>
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />サポート: △</li>
-            </ul>
-          </Card>
-
-          {/* SaaS B */}
-          <Card variant="outline" padding="md">
-            <div className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-wider mb-3">Option B</div>
-            <h3 className="text-base font-bold mb-4">SaaS<br /><span className="text-sm font-normal text-[#6B7280]">（拡張性あり）</span></h3>
-            <ul className="text-sm text-[#6B7280] space-y-2">
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />初期コスト: 低</li>
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />拡張性: ○</li>
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />サポート: △</li>
             </ul>
           </Card>
@@ -473,7 +462,7 @@ export default function V2TopPage() {
 
           {/* スクラッチ */}
           <Card variant="outline" padding="md">
-            <div className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-wider mb-3">Option D</div>
+            <div className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-wider mb-3">Option C</div>
             <h3 className="text-base font-bold mb-4">スクラッチ<br /><span className="text-sm font-normal text-[#6B7280]">開発</span></h3>
             <ul className="text-sm text-[#6B7280] space-y-2">
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#EF4444] shrink-0" />初期コスト: 高</li>
