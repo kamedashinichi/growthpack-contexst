@@ -27,8 +27,6 @@ import {
   ShieldCheck,
   Award,
   Zap,
-  Building2,
-  Phone,
 } from 'lucide-react';
 import { Button } from '@/components/shared/ui/button';
 import { Section } from '@/components/shared/ui/section';
@@ -201,19 +199,6 @@ const FAQS = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* CTA電話番号コンポーネント（3箇所共通）                                   */
-/* ------------------------------------------------------------------ */
-
-function PhoneNote({ light = false }: { light?: boolean }) {
-  return (
-    <div className={`flex items-center gap-2 text-sm ${light ? 'text-white/70' : 'text-[#6B7280]'}`}>
-      <Phone className="w-4 h-4 shrink-0" />
-      <span>またはお電話 <span className={`font-semibold ${light ? 'text-white/90' : 'text-[#1F2937]'}`}>0120-777-123</span>（平日 10:00–18:00）</span>
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /* PAGE                                                                  */
 /* ------------------------------------------------------------------ */
 
@@ -300,7 +285,6 @@ export default function V2TopPage() {
                   <a href="#features">機能一覧を見る</a>
                 </Button>
               </div>
-              <PhoneNote light />
 
               {/* ミニチェックリスト */}
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-sm text-white/70">
@@ -389,34 +373,6 @@ export default function V2TopPage() {
           </div>
         </div>
       </div>
-
-      {/* ============================================================ */}
-      {/* クライアントロゴ帯                                               */}
-      {/* ============================================================ */}
-      <Section spacing="sm" container="wide" background="muted">
-        <div className="text-center mb-8">
-          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#9CA3AF] mb-1">
-            TRUSTED BY
-          </div>
-          <p className="text-sm sm:text-base font-semibold text-[#6B7280]">
-            導入実績 5,000社以上のクラスメソッドが提供
-          </p>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div
-              key={i}
-              className="w-28 h-12 bg-[#E5E7EB] rounded-md flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-200"
-              aria-label="クライアントロゴ（本番前差し替え予定）"
-            >
-              <Building2 className="w-6 h-6 text-[#9CA3AF]" />
-            </div>
-          ))}
-        </div>
-        <p className="text-xs text-[#9CA3AF] text-center mt-6">
-          ※ ロゴは許諾確認後に掲載します。
-        </p>
-      </Section>
 
       {/* ============================================================ */}
       {/* 実績数字セクション                                               */}
@@ -561,7 +517,6 @@ export default function V2TopPage() {
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </a>
               </Button>
-              <PhoneNote light />
             </div>
           </div>
         </div>
@@ -797,9 +752,6 @@ export default function V2TopPage() {
               <a href="#features">資料をダウンロード</a>
             </Button>
           </div>
-          <div className="flex justify-center">
-            <PhoneNote light />
-          </div>
           <div className="text-xs text-white/50 pt-2">
             ※ お打ち合わせでご要件を伺ったうえで、個別にお見積もりいたします。
           </div>
@@ -853,8 +805,6 @@ export default function V2TopPage() {
               <div className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">CONTACT</div>
               <ul className="space-y-2 text-sm text-white/60">
                 <li><a href="#contact" className="hover:text-white transition-colors">無料相談はこちら</a></li>
-                <li className="text-white/40">0120-777-123</li>
-                <li className="text-white/40 text-xs">平日 10:00 – 18:00</li>
               </ul>
             </div>
           </div>
