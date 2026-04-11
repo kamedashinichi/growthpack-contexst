@@ -153,9 +153,9 @@ const STATS = [
   },
   {
     value: '最短',
-    unit: '1ヶ月',
+    unit: '3ヶ月',
     label: 'フェーズ1の立ち上げ期間',
-    sub: 'アセット流用により意思決定から稼働までを圧縮',
+    sub: '会員証を含む標準構成。機能範囲と連携要件で変動します',
   },
   {
     value: '10',
@@ -174,7 +174,7 @@ const STATS = [
 const FAQS = [
   {
     q: '導入にはどのくらいの期間がかかりますか？',
-    a: 'フェーズ1の会員証のみであれば最短1ヶ月が目安です。機能範囲と外部システム連携の有無により変動します。複数機能＋CRM連携の場合は2〜3ヶ月を想定してください。詳細はヒアリング後にお伝えします。',
+    a: '会員証を含む標準的なフェーズ1構成で、最短3ヶ月が目安です。機能範囲と外部システム連携の有無により変動します。複数機能＋CRM連携の場合はそれ以上を想定してください。詳細はヒアリング後にお伝えします。',
   },
   {
     q: '既存のCRMやPOSシステムと連携できますか？',
@@ -264,7 +264,7 @@ export default function V2TopPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-[600px]">
-                ハーフスクラッチ開発で、SaaSの速さとフルスクラッチの柔軟性を両立。会員証・予約・クーポンなど10機能のアセットから必要なものだけを選び、<span className="font-bold text-white">最短1ヶ月</span>で立ち上げます。
+                ハーフスクラッチ開発で、SaaSの速さとフルスクラッチの柔軟性を両立。会員証・予約・クーポンなど10機能のアセットから必要なものだけを選び、<span className="font-bold text-white">最短3ヶ月</span>で立ち上げます。
               </p>
 
               {/* CTA — ヒーロー内（1箇所目） */}
@@ -297,7 +297,7 @@ export default function V2TopPage() {
 
               {/* ミニチェックリスト */}
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-sm text-white/70">
-                {['最短1ヶ月で立ち上げ', '10機能から選択可能', 'CRM・POS連携対応'].map((t) => (
+                {['最短3ヶ月で立ち上げ', '10機能から選択可能', 'CRM・POS連携対応'].map((t) => (
                   <div key={t} className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-[#06C755]" />
                     {t}
@@ -419,7 +419,7 @@ export default function V2TopPage() {
               { icon: Award, label: 'AWS Premier Tier Services Partner', color: '#FF9900' },
               { icon: ShieldCheck, label: 'ISO 27001 取得（クラスメソッド）', color: '#3B82F6' },
               { icon: Users, label: '技術支援実績 5,000社以上', color: '#05A847' },
-              { icon: Zap, label: '最短1ヶ月導入', color: '#05A847' },
+              { icon: Zap, label: '最短3ヶ月導入', color: '#05A847' },
             ].map(({ icon: Icon, label, color }) => (
               <div key={label} className="flex items-center gap-2 text-sm font-semibold text-[#1F2937] whitespace-nowrap">
                 <Icon className="w-4 h-4 shrink-0" style={{ color }} />
