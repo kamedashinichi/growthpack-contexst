@@ -32,7 +32,7 @@ const FEATURES = [
   {
     image: '/images/会員証.png',
     name: 'デジタル会員証',
-    tagline: 'アプリDL不要。QRコードで5秒つながる次世代会員体験。',
+    tagline: 'アプリDL不要。バーコード提示で5秒つながる次世代会員体験。',
     phase: 'Phase 1',
     id: 'membership',
   },
@@ -359,8 +359,27 @@ export default function V2TopPage() {
                         <div className="bg-white rounded-lg p-3 border border-[#E5E7EB] shadow-sm">
                           <div className="text-[9px] text-[#05A847] font-bold mb-1 uppercase tracking-wider">MEMBERSHIP</div>
                           <div className="font-bold text-[#1F2937] text-xs mb-2">デジタル会員証</div>
-                          <div className="h-10 bg-[#F8F9FA] rounded border border-dashed border-[#06C755]/40 flex items-center justify-center text-[9px] text-[#9CA3AF]">
-                            QR
+                          {/* 1次元バーコード（疑似） */}
+                          <div className="h-10 bg-white rounded border border-[#E5E7EB] flex flex-col items-center justify-center gap-0.5 px-2">
+                            <svg
+                              viewBox="0 0 100 20"
+                              className="w-full h-5"
+                              preserveAspectRatio="none"
+                              aria-hidden="true"
+                            >
+                              {[
+                                2, 1, 3, 1, 2, 2, 1, 3, 2, 1, 1, 2, 3, 1, 2, 1,
+                                2, 3, 1, 1, 2, 2, 1, 3, 1, 2, 2, 1, 3, 1, 2, 1,
+                              ].map((w, i, arr) => {
+                                const x = arr.slice(0, i).reduce((s, n) => s + n, 0) * 2;
+                                return i % 2 === 0 ? (
+                                  <rect key={i} x={x} y="0" width={w * 2} height="20" fill="#1F2937" />
+                                ) : null;
+                              })}
+                            </svg>
+                            <div className="text-[7px] tracking-[0.15em] text-[#6B7280] font-mono">
+                              4901234 567890
+                            </div>
                           </div>
                         </div>
                         <div className="bg-[#E8F8F0] rounded-md px-2 py-1.5 border border-[#06C755]/20">
