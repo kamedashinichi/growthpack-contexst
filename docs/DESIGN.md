@@ -1,32 +1,28 @@
 # DESIGN.md — Growthpack LPサイト デザインシステム
 
-出典: クラスメソッド株式会社 公式サイト（https://classmethod.jp/）の構造・トーン・配色観察をベースに、Growthpack LPサイトで再現可能な形へ落とし込んだ仕様書。
+**対象実装**: `app/v2/page.tsx`（トップページ / FIX 版）+ `components/shared/ui/*`
+**正準**: このファイルが正。新規ページ・リファクタはすべて本書に従う。
 
-LINE連携プロダクトであることを視覚的に即伝えるため、プライマリに LINE 公式ブランドカラー **LINE Green (#06C755)** を採用。
+出典: クラスメソッド株式会社 公式サイト（https://classmethod.jp/）の構造・トーン・配色観察をベースに、Growthpack LPサイトで再現可能な形へ落とし込んだ仕様書。LINE連携プロダクトであることを視覚的に即伝えるため、プライマリに LINE 公式ブランドカラー **LINE Green (#06C755)** を採用。
 
 ---
 
 ## 0. デザイン原則
 
-classmethod.jp の視覚DNA調査（2026-04-11 WebFetch）から抽出した、同社らしさの核:
+classmethod.jp の視覚DNA調査と `/v2` トップページの FIX 実装から抽出した、同社らしさ × LINE ブランドの核:
 
-**classmethod.jp の特徴**
-- 情報密度が高い／ミニマルではない／静的で堅牢
-- 実績写真を背景にしたヒーロー（白背景ではない）、装飾より説得力
-- クライアントロゴを大量表示、認定バッジ・ISO・実績数で信頼を重ねて構築
-- CTAは過度に派手でない（青系）、電話番号を併記、複数箇所に配置
-- 人物顔出し無し。実務シーン（工場・店舗・オフィス）の写真
-- ナビは白背景＋黒テキスト＋ドロップダウンで多階層を整理
+**LP の核となる原則**
 
-**LP に取り込むべき原則**
-
-1. **ヒーローは写真背景＋白テキスト** — ミニアプリ画面 or 業務シーンをカバー。装飾グラフィックは控えめ
-2. **信頼の層を重ねる** — 認定バッジ帯 + クライアントロゴ帯 + 実績数字の3層でパートナーシップを可視化
+1. **ダーク系ヒーロー × 製品中心の視覚メタファー** — 写真ではなく、ダークグラデ + ドットグリッド + SVG で製品を中心に据えた放射図で「LINEを軸に顧客接点が広がる」を 1 枚絵で伝える（v1.5 の「写真背景」アプローチは FIX 時に廃止）
+2. **信頼の層を重ねる** — ヒーロー直下に認定バッジ帯（LINEヤフー/AWS/ISO/実績数/期間）、次いで大数字の実績セクションを置く
 3. **情報密度で信頼を作る** — 空白で上品さを出すより、整理された密度で「ちゃんと調べて作った」印象を優先
-4. **CTAは過度に派手にしない** — LINE Green dark を使うが、ボタンサイズは標準、電話番号や「無料相談」テキストを併記
+4. **CTAは LINE Green dark 1色で統一** — ブランド色 `#06C755` そのものは色面単独でのみ使い、テキストを載せる面は AA 確保の `#05A847`（dark 版）を必ず使う。focus ring だけブランド色に戻す
 5. **技術者向けの実直さ** — 煽り語NG、丁寧体、数値根拠を並べる
 6. **モノクロ基調 × LINE Green 差し色** — 本文は白黒、LINE Green はブランド色として限定使用
 7. **レイアウトは中央寄せグリッド** — コンテンツ幅 `max-w-[1200px]` (wide) / `max-w-[900px]` (default)
+8. **顧客向けに具体額を出さない** — 全機能で「Phase ラベル」までの表記に留める。個別見積もりを原則とし、最低予算ライン等も LP に書かない
+9. **実装期間は会員証を含む現実値（最短3ヶ月〜）を標準表記** — フェーズ1の標準構成に会員証が入る前提
+10. **未確認の事実を書かない** — 未許諾のクライアントロゴ・未検証の技術連携・未確定の実績数値は載せない。MCP など一次ソースで確認済みの情報のみ
 
 ---
 
@@ -320,62 +316,114 @@ import { Section } from '@/components/shared/ui/section';
 
 ---
 
-## 7. 画面ごとの構成パターン（classmethod.jp 準拠）
+## 7. 画面ごとの構成パターン（`/v2` FIX 版準拠）
 
-### ヒーロー（写真背景＋白テキスト版）
+トップページは `app/v2/page.tsx` に FIX 版が実装済み。以下は他ページで同パターンを再利用するときのリファレンス。
 
-- **背景**: ダークオーバーレイ付きの実務シーン画像（店舗 / オフィス / ミニアプリ画面）
-  - 背景画像 → `bg-gradient-to-r from-[#0a0a0a]/85 to-[#0a0a0a]/60` を重ねる
-  - `text-white` で見出し、`text-white/80` でサブコピー
-- **構成**: 左右2カラム（md:以上）、スマホは縦積み
-- **左**: 認定バッジ + H1（白・太字） + サブコピー + CTA2個 + 「実績数字 5,000社」
-- **右**: LINEミニアプリ画面モックアップ（ダーク背景に浮かぶ）
-- **高さ**: `min-h-[560px] md:min-h-[640px]`
+### 7-1. ヒーロー（ダーク + 放射型タッチポイント図）
 
-### 信頼バッジ帯（ヒーロー直下）
+**背景**
+- 写真は使わない
+- ベース: `bg-[#0a0a0a]` + `radial-gradient(ellipse 80% 60% at 80% 100%, rgba(6,199,85,0.22), transparent 70%), linear-gradient(135deg, #0a0a0a 0%, #1a1d21 60%, #0a0a0a 100%)`
+- レイヤー: 細ドットグリッド（`radial-gradient(circle, #ffffff 1px, transparent 1px)` + `backgroundSize: 28px 28px` + `opacity 0.07`）
+- 高さ: `min-h-[560px] md:min-h-[700px]`
 
-- 横並びのモノクロロゴ5〜8個を淡いグレー背景 `bg-[#F8F9FA]` で並べる
-- 上に小見出し「TRUSTED BY / 導入実績」
-- ロゴは `grayscale` で、hover で `grayscale-0` にして遊びを入れる
+**構成**
+- lg以上で2カラム `grid lg:grid-cols-12` / 左 `col-span-7` / 右 `col-span-5`
+- モバイルは右カラムを `hidden lg:block` で非表示、左のみ縦積み
 
-### 認定・ISO 帯
+**左カラム（テキスト + CTA）**
+1. 認定バッジ pill: `bg-[#E8F8F0] border border-[#06C755]/30 text-[#05A847]` に緑ドット + 「LINEヤフー Partner Program Technology Partner」
+2. H1: `text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-white`、キーフレーズを `<span className="text-[#05A847]">` で強調
+3. サブコピー: `text-base sm:text-lg text-white/80 leading-relaxed max-w-[600px]`
+4. CTA 2個（横並び→sm: でも縦積み）: primary（無料で相談する）+ 白枠 outline（資料をダウンロード）
+5. ミニチェックリスト 3項目: `Check` アイコン + `text-white/70 text-sm`
 
-- 白背景 + 細ボーダー区切り
-- 「LINEヤフー Technology Partner」「AWS Premier Tier」「ISO 27001」等のバッジ＋短いラベル
-- 4〜6個を横並び
+**右カラム（放射型タッチポイント図）**
+- `relative h-[560px] w-full` の中に中心スマホと6つの接点カードを絶対配置
+- **中心スマホ**（220px 幅）: `bg-[#111] rounded-[28px] border border-white/10 shadow-[0_20px_60px_rgba(6,199,85,0.25)]` 内に LINE ミニアプリのミニモック（緑ヘッダー + 会員証カード + 新着通知）
+- **会員証カード内**: SVG で 1 次元バーコードを描画、下に `font-mono text-[7px] text-[#6B7280] tracking-[0.15em]` で13桁数字
+- **6つの接点カード**: 上左/上右/中左/中右/下左/下右 に絶対配置
+  - 左右中央のカードは `left: -10%` / `right: -10%` でコンテナ外へ張り出させる
+  - カード: `bg-white/95 backdrop-blur rounded-xl border border-white/30 shadow-[0_8px_24px_rgba(0,0,0,0.3)] p-3 w-[110px]` に PNG アイコン + ラベル
+  - `animate-fade-in` + `animationDelay` を 0s〜0.5s で 0.1s 刻み
+- **SVG接続線**: 中心(250,280)から各カードへ `stroke="#06C755" strokeDasharray="4 6" opacity 0.35` の点線
+- **中心グロー**: `<circle cx="250" cy="280" r="140" fill="url(#lineFade)" />` で radial gradient
 
-### 機能紹介セクション
+### 7-2. 信頼バッジ帯（ヒーロー直下）
 
-- 3〜4カラムのカードグリッド（白背景カード）
-- 各カードに: アイコン（上） / 見出し（中） / 説明文（下） / Phase ラベル
-- カード間 `gap-6 md:gap-8`
+- `bg-white border-b border-[#E5E7EB]` の薄い帯 `py-6`
+- 横 flex で4〜5項目を中央寄せ `gap-6 md:gap-10`
+- 各項目: Lucide アイコン（色は項目ごとに固有: LINE Green / AWS #FF9900 / 認証系 #3B82F6）+ `text-sm font-semibold text-[#1F2937] whitespace-nowrap`
+- 項目例: LINEヤフー Technology Partner / AWS Premier Tier Services Partner / ISO 27001 / 技術支援実績 5,000社以上 / 最短3ヶ月導入
 
-### 事例セクション（classmethod.jp 準拠）
+### 7-3. 実績数字セクション
 
-- 横スクロールカルーセル or 3カラムグリッド
-- 各カードに: 背景画像 + 企業ロゴ + 業種タグ + 1行の成果
-- hoverで拡大・シャドウ
-- **事例企業は公開確認済みのもののみ**（ルール: 未確認の技術連携は記載しない）
+- `grid sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#E5E7EB] border border-[#E5E7EB] rounded-xl overflow-hidden`
+- 各セル: `px-6 py-8 text-center bg-white`
+  - 大数字 `text-4xl sm:text-5xl font-bold text-[#1F2937]` + 単位 `text-2xl sm:text-3xl text-[#05A847]`
+  - ラベル `text-sm font-semibold text-[#1F2937] mt-3`
+  - サブ `text-xs text-[#6B7280]`
 
-### CTA 帯（複数配置）
+### 7-4. 課題カード（左ボーダー強調）
 
-- ヒーロー内・セクション中盤・最終の3箇所に配置
-- メインCTA + 電話番号 + 受付時間を横並び
-  ```
-  [無料で相談する] または お電話 0120-XXX-XXX（平日 10:00-18:00）
-  ```
-- 電話番号は classmethod.jp に倣って併記。ダーク帯の最終CTAでは特に強調
+- `<Section spacing="sm" container="wide" background="muted">`
+- セクションヘッダー: 英字キャプション `text-xs sm:text-sm uppercase tracking-wider text-[#05A847]` + h2 + 説明文（`max-w-[720px]`）
+- カード: `<Card padding="md" className="border-l-4 border-l-[#06C755]">` に h3 + body
+- 縦バーを上に置いて下に積む形は**禁止**（見栄えが悪い）。必ず左ボーダーで見出しと本文が右に流れる構造
 
-### 問い合わせ前の最終 CTA 帯
+### 7-5. ポジショニング 3カラム比較
 
-- ダーク背景 `bg-[#1a1d21]` + 白文字
-- 見出し + 1行サブコピー + 大きな CTA ボタン + 電話番号
+- `grid md:grid-cols-3 gap-4 md:gap-5`（旧 4 カラムから 3 カラムに縮約）
+- カード3種: Option A = SaaS / Growthpack = ハーフスクラッチ / Option C = スクラッチ
+- 中央の Growthpack カードは `variant="accent"` + `ring-2 ring-[#06C755] shadow-lg relative` で強調、左上に `RECOMMENDED` バッジ
+- 各カードに比較軸を `<li>` で3項目（初期コスト / 拡張性 / サポート）+ 状態ドット（緑○/黄△/赤✗）
 
-### フッター
+### 7-6. 機能グリッド（PNG アイコン + Phase ラベル）
 
-- 背景 `bg-[#0a0a0a]` / 文字 `text-white/80`
-- 4〜5カラム: 会社情報 / サービス / 機能 / 事例 / リソース
-- 最下段 copyright は左寄せ `text-xs text-white/50`、右側に SNS アイコン
+- `grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5`
+- 各カード: `<Card padding="md">` に左寄せヘッダー
+  - 左に Next.js `<Image>` `w-11 h-11 relative object-contain` で `/public/images/<機能名>.png` を表示（現LP と共通）
+  - 右に機能名 + Phase チップ
+  - 下に 1 行タグライン
+- Phase チップ色:
+  - Phase 1: `bg-[#E8F8F0] text-[#05A847]`
+  - Phase 2: `bg-[#FEF3C7] text-[#B45309]`
+  - Phase 3: `bg-[#EDE9FE] text-[#6D28D9]`
+- セクション末尾に免責 `※ 各機能は選んだ組み合わせと外部システム連携の有無により個別見積もりとなります。`
+- **機能ごとの具体価格を出さない**（04-08 ルール）
+
+### 7-7. Phase フロー 3カラム
+
+- `grid md:grid-cols-3 gap-5 md:gap-6`
+- 各カード `<Card variant="elevated" padding="lg" rounded="xl">` に番号バッジ + Phase ラベル + 説明 + チェックリスト（含まれる機能）
+
+### 7-8. 業種事例グリッド（社名なしの抽象化）
+
+- `grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5` で 6 業種
+- 各カードは業種タグ + 一般化した成果文（例: 「アパレル — 会員化率 X 倍、休眠会員の再接触」）
+- **個別企業名は LP 本文に出さない**。公開許諾が取れた事例のみ別途ケーススタディで出す
+
+### 7-9. FAQ アコーディオン風
+
+- `<Section spacing="md" container="default" background="muted">` で幅を 900px に絞る
+- 各 Q&A を `<Card padding="md">` に格納、h3 に `<span className="text-[#06C755]">Q.</span>` を先頭に置く
+- 回答本文は `pl-6` でインデント
+
+### 7-10. 最終 CTA 帯（ダーク）
+
+- `<Section id="contact" spacing="lg" container="default" background="dark">`
+- 中央寄せで小さい英字キャプション `CONTACT` + h2（LINE Green 強調含む）+ 説明文
+- CTA 2個: primary 背景白 + 緑文字（resolve 注: ダーク上で LINE Green のボタンはコントラスト落ちるので白ボタンに緑文字の反転）+ outline 白枠
+- リンク先: classmethod.jp の問い合わせフォーム / 資料DL（§10 参照）
+
+### 7-11. フッター
+
+- `bg-[#0a0a0a] text-white/80 pt-12 pb-10`
+- 4カラム `grid md:grid-cols-4 gap-8 md:gap-10`: BRAND（ロゴ+説明）/ SERVICE / RESOURCES / CONTACT
+- 各カラムの見出しは `text-xs font-semibold uppercase tracking-wider text-white/40 mb-4`
+- 下段: `border-t border-white/10` で区切り、左に copyright `© Classmethod, Inc.`、右に legal リンク（プライバシーポリシー / 会社情報）
+- **copyright は必ず `© Classmethod, Inc.`**（「クラスメソッド株式会社 All rights reserved.」ではない）
 
 ---
 
@@ -391,19 +439,209 @@ import { Section } from '@/components/shared/ui/section';
 
 ---
 
-## 9. 実装タスク（初期整備チェックリスト）
+## 9. 実装タスク（`/v2` FIX 版 完了済みリスト）
 
-- [ ] `data/config/colors.js` を LINE Green 構造に書き換え（DESIGN-DIFF.md アクション4）
-- [ ] `tailwind.config.ts` の primary マッピング更新
-- [ ] `globals.css` にフォントファミリー・本文デフォルト line-height 1.75 を設定
-- [ ] 共通ボタンコンポーネント `<Button variant="primary|secondary|outline">` を作成
-- [ ] 共通カードコンポーネント `<Card>` を作成
-- [ ] セクションラッパー `<Section spacing="sm|md|lg">` を作成
-- [ ] 既存LPのHero/Feature/Case/FooterをこのDESIGN.mdに沿ってリファクタ
+- [x] `data/config/colors.js` を LINE Green 構造に書き換え（DESIGN-DIFF.md アクション4）
+- [x] `tailwind.config.ts` の primary マッピング更新 + `neutral` 追加
+- [x] `globals.css` にフォントファミリー・本文デフォルト line-height 1.75・見出し行間を設定
+- [x] 共通ボタンコンポーネント `<Button variant="primary|secondary|outline|ghost|link|destructive">` を作成
+- [x] 共通カードコンポーネント `<Card variant="default|elevated|outline|accent">` を作成
+- [x] セクションラッパー `<Section spacing="sm|md|lg" container="wide|default|narrow" background="white|muted|accent|dark">` を作成
+- [x] `app/v2/page.tsx` をこのDESIGN.mdに沿って新規構築（トップページFIX版）
+
+### 残タスク（Stage 2 以降）
+
+- [ ] `/v2` を `/` に昇格（現 `/` を置き換え）
+- [ ] 業種別 LP（8業種）を FIX 版のパターンで順次再構築
+- [ ] 昇格時に `app/v2/layout.tsx` の `robots: noindex` を外す
+- [ ] sitemap.ts に業種別 LP を登録
+- [ ] 既存 `components/lp/*.tsx` の段階的廃止（新プリミティブへの置換）
 
 ---
 
-## 10. 更新履歴
+## 10. 外部リンク・CTA 規約
+
+### 10-1. CTA リンク先の正規URL
+
+| アクション | 正規URL |
+|----------|--------|
+| お問い合わせ / 無料で相談する | `https://classmethod.jp/services/line/line-apps/#iframe-form` |
+| 資料ダウンロード | `https://classmethod.jp/download/line-mini-app/` |
+| 技術ブログ | `https://dev.classmethod.jp/tags/line/` |
+| プライバシーポリシー | `https://classmethod.jp/privacy/` |
+| 会社情報 | `https://classmethod.jp/` |
+
+**これらの URL は全ての CTA / フッターで統一**。mailto: や内部アンカーにフォールバックしない。
+
+### 10-2. 外部リンクの書き方
+
+```tsx
+<a
+  href="https://classmethod.jp/services/line/line-apps/#iframe-form"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  お問い合わせ
+</a>
+```
+
+- `target="_blank"` + `rel="noopener noreferrer"` を**必ず**セットで付ける
+- `<Button asChild>` でラップする場合も同様
+
+### 10-3. CTA を置く場所
+
+1. ヘッダー右端（小サイズ primary: お問い合わせ）
+2. ヒーロー内（lg サイズ primary + outline: 無料で相談する + 資料DL）
+3. 中盤のグリーン帯 or ポジショニング直後のグリーン帯（1個）
+4. 最終ダーク CTA 帯（lg サイズ 2個）
+5. フッター CONTACT カラム（テキストリンク 2個）
+
+### 10-4. 電話番号
+
+掲載しない（実番号が確定するまで）。classmethod.jp 本体には `0120-991-668` があるが、LP 側には載せず問い合わせフォームに誘導する。
+
+---
+
+## 11. SEO & 構造化データ
+
+### 11-1. メタデータ（各ページの layout.tsx）
+
+必須フィールド:
+
+```ts
+export const metadata: Metadata = {
+  title: 'グロースパック for LINE｜ハーフスクラッチで作るLINEミニアプリ開発サービス',
+  description: '…最短3ヶ月で立ち上げます。',
+  keywords: [
+    'LINEミニアプリ',
+    'LINEミニアプリ 開発',
+    'ハーフスクラッチ',
+    'LINE 会員証',
+    'LINE OMO',
+    'LINE リテール',
+    'グロースパック for LINE',
+    'クラスメソッド',
+  ],
+  robots: { index: false, follow: false, googleBot: { index: false, follow: false, noimageindex: true } }, // プロトタイプ中のみ
+  openGraph: { type: 'website', locale: 'ja_JP', title, description, siteName: 'グロースパック for LINE' },
+  twitter: { card: 'summary_large_image', title, description },
+};
+```
+
+**SEO空白地帯の占有**: memory `project_seo_gap.md` の調査結果「ハーフスクラッチに言及した記事が30記事中ゼロ」「TCO比較記事ゼロ」を受け、**title の先頭近くに「ハーフスクラッチ」を必ず入れる**。
+
+### 11-2. 構造化データ（JSON-LD）
+
+**FAQPage** — FAQ がある全ページで必須:
+
+```tsx
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+```
+
+**Service** — トップページ / サービス紹介ページで必須:
+
+```tsx
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'LINEミニアプリ開発サービス',
+  name: 'グロースパック for LINE',
+  description: '…',
+  provider: { '@type': 'Organization', name: 'クラスメソッド株式会社', url: 'https://classmethod.jp' },
+  areaServed: { '@type': 'Country', name: 'Japan' },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'グロースパック for LINE 機能アセット',
+    itemListElement: ['デジタル会員証', '順番待ち', ...].map((name) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name },
+    })),
+  },
+};
+```
+
+**Organization** — Root Layout `app/layout.tsx` で既に設定済み。継承されるため各ページで個別記述不要。
+
+### 11-3. GA4 / Analytics
+
+- `NEXT_PUBLIC_GA_ID` 環境変数で Root Layout に gtag を注入済み
+- `@vercel/analytics/next` の `<Analytics />` も Root で挿入済み
+- **Next.js の layout 継承により全サブページで自動動作**。新規ページで追加実装は不要
+
+### 11-4. noindex 運用
+
+- プロトタイプ段階の新ページは必ず `robots: noindex+nofollow+noimageindex` を layout.tsx で設定
+- 本番公開時に metadata から robots フィールドを削除（= Next.js デフォルトの index+follow に戻る）
+- `sitemap.ts` にもこのタイミングで登録する
+
+---
+
+## 12. JSX 和文の改行禁止ルール
+
+JSX テキストノード内で和文を改行すると、改行位置に半角スペースが混入し、和文字間に妙な隙間が出る。**和文の本文段落は必ず 1 行にまとめる**。
+
+❌ NG
+```tsx
+<p>
+  SaaSは速く安いが、拡張と連携に制約があります。
+  フルスクラッチは自由度が高いが、期間とコストが膨らみます。
+</p>
+```
+
+✅ OK（長くても 1 行）
+```tsx
+<p>
+  SaaSは速く安いが、拡張と連携に制約があります。フルスクラッチは自由度が高いが、期間とコストが膨らみます。
+</p>
+```
+
+✅ OK（テンプレートリテラルで明示的に制御）
+```tsx
+<p>{`SaaSは速く安いが、拡張と連携に制約があります。フルスクラッチは自由度が高いが、期間とコストが膨らみます。`}</p>
+```
+
+欧文は単語区切りの空白が意味を持つため改行OK。日本語のみの制約。
+
+---
+
+## 13. 画像・アイコン ルール
+
+### 13-1. 機能アイコン
+
+機能グリッド等で機能を表現するアイコンは**必ず `/public/images/<機能名>.png` の PNG を Next.js `<Image>` で表示**する。Lucide React アイコンで代用しない。
+
+- 会員証: `/images/会員証.png`
+- 順番待ち: `/images/順番待ち.png`
+- 予約: `/images/予約.png`
+- スタンプカード: `/images/スタンプカード.png`
+- クーポン: `/images/クーポン.png`
+- チケット: `/images/チケット.png`
+- 抽選: `/images/抽選.png`
+- セグメント配信: `/images/セグメント配信.png`
+- 1to1: `/images/1to1.png`
+- ギフト: `/images/ギフト.png`
+
+### 13-2. UI アイコン
+
+機能を表現しないUI用アイコン（矢印/チェック/バッジ/シールド 等）は Lucide React を使う。Growthpack のブランド色と噛み合わない色（純青など）は避ける。
+
+### 13-3. ストック写真
+
+**原則使用しない**。ヒーローのダークグラデ+ SVG 構成、Phase/機能カードの PNG アイコン、背景のドットグリッドで視覚的リッチさを担保する。ストック写真を使いたい場合は LP 全体で統一されたトーンの実務シーンに限定する。
+
+---
+
+## 14. 更新履歴
 
 - 2026-04-11 v1 初版。classmethod.jp 観察ベース
 - 2026-04-11 v1.1 プライマリをLINE公式ブランドカラー (LINE Green #06C755) に変更。AA可読性確保のためボタン/リンクのテキスト面は dark 版 #05A847 を使う2段構えに
@@ -411,3 +649,4 @@ import { Section } from '@/components/shared/ui/section';
 - 2026-04-11 v1.3 DESIGN-DIFF.md アクション3-5反映。LINE Green light を #E8F8F0 に統一（5箇所置換）、tailwind.config.ts と colors.js を LINE Green 構造に書き換え（Indigoデッドコード除去）、hero装飾円の青 #3B82F6 を LINE Green に変更、AWS #FF9900 を意味的例外として明文化、Award #F59E0B をトークンとして追加
 - 2026-04-11 v1.4 セクション2〜4を現LP実装値に整合。globals.css にフォントスタック・行間1.75・見出し行間デフォルトを注入。共通プリミティブ `<Button>` `<Section>` `<Card>` を DESIGN.md §4 準拠で新設（components/shared/ui/）。タイポグラフィスケールを現LP使用パターンに合わせて10種に絞り込み、コンテナ幅 900px / section padding 3段 (sm/md/lg) を標準化
 - 2026-04-11 v1.5 **classmethod.jp の視覚DNA再調査結果を反映**。原則を「情報密度で信頼を作る」「写真背景ヒーロー」「認定バッジ帯 + クライアントロゴ帯 + 実績数字の3層信頼構築」「電話番号併記のCTA」等に刷新。§7 画面構成パターンを classmethod.jp 準拠で全面書き換え（ヒーロー白背景→写真背景、信頼バッジ帯追加、CTAに電話番号併記）
+- 2026-04-11 **v2.0 `/v2` トップページ FIX 版との整合**。ヒーローを「写真背景」から「ダークグラデ + SVG 放射型タッチポイント図」に変更（写真を撤廃、スマホを中心に6接点カードが放射する構図）。クライアントロゴ帯と電話番号 CTA は実データ未整備のため削除。ポジショニング比較を 4 → 3 カラムに縮約（Option B 統合）。会員証バーコード表示を QR → 1 次元に変更。実装期間表記を「最短1ヶ月」→「**最短3ヶ月**」（会員証含む現実値）に統一。§0 原則を FIX 版に合わせて刷新。§7 画面構成パターンを `/v2` 実装準拠で全面書き直し。新規章として §10（外部リンク・CTA 規約: classmethod.jp の正規URL / target="_blank" / 電話番号非掲載）、§11（SEO & 構造化データ: metadata / FAQPage + Service JSON-LD / noindex運用）、§12（JSX 和文の改行禁止ルール）、§13（画像・アイコン ルール: 機能PNG必須 / UI は Lucide / ストック写真原則禁止）を追加
