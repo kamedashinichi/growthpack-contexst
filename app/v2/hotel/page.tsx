@@ -543,7 +543,6 @@ export default function HotelPage() {
             </div>
           ))}
         </div>
-        <p className="text-xs text-[#9CA3AF] text-center mt-4">※ 業界内で報告されている事例に基づく参考値です。導入効果は施設規模・既存システム・施策設計によって異なります。</p>
       </Section>
 
       {/* ============================================================ */}
