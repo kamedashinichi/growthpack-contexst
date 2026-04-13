@@ -12,6 +12,7 @@
  */
 import Link from 'next/link';
 import Image from 'next/image';
+import { TopHeader } from '@/components/shared/top-header';
 import {
   ArrowRight,
   Check,
@@ -274,30 +275,7 @@ export default function V2TopPage() {
       {/* ============================================================ */}
       {/* Header                                                         */}
       {/* ============================================================ */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-[#E5E7EB]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-5 md:px-6 h-16 md:h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-[#06C755] flex items-center justify-center text-white font-bold text-sm">
-              G
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="text-base md:text-lg font-bold text-[#1F2937]">グロースパック</span>
-              <span className="text-sm md:text-base text-[#6B7280]"> for </span>
-              <span className="text-base md:text-lg font-bold text-[#06C755]">LINE</span>
-            </div>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6 text-sm font-semibold text-[#1F2937]">
-            <a href="#problems" className="hover:text-[#05A847] transition-colors">課題</a>
-            <a href="#positioning" className="hover:text-[#05A847] transition-colors">選ばれる理由</a>
-            <a href="#features" className="hover:text-[#05A847] transition-colors">機能</a>
-            <a href="#steps" className="hover:text-[#05A847] transition-colors">導入ステップ</a>
-            <a href="#faq" className="hover:text-[#05A847] transition-colors">FAQ</a>
-          </nav>
-          <Button variant="primary" size="sm" asChild>
-            <a href="https://classmethod.jp/services/line/line-apps/#iframe-form" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
-          </Button>
-        </div>
-      </header>
+      <TopHeader />
 
       {/* ============================================================ */}
       {/* Hero — 写真背景 + ダークオーバーレイ + 白テキスト                  */}
