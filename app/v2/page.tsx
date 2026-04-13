@@ -752,7 +752,7 @@ export default function V2TopPage() {
       {/* ============================================================ */}
       {/* 業種別導入実績（事例セクション / 社名なし）                          */}
       {/* ============================================================ */}
-      <Section spacing="sm" container="wide" background="muted">
+      <Section id="case-studies" spacing="sm" container="wide" background="muted">
         <div className="max-w-[720px] mb-10 md:mb-12">
           <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">
             CASE STUDIES
@@ -945,7 +945,7 @@ export default function V2TopPage() {
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">RESOURCES</div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li><a href="#" className="hover:text-white transition-colors">業種別導入事例</a></li>
+                <li><a href="#case-studies" className="hover:text-white transition-colors">業種別導入事例</a></li>
                 <li><a href="#faq" className="hover:text-white transition-colors">よくあるご質問</a></li>
                 <li>
                   <a
