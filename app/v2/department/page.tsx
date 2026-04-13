@@ -751,9 +751,6 @@ export default function DepartmentPage() {
             );
           })}
         </div>
-        <div className="mt-8 text-center text-sm text-[#6B7280]">
-          ※ 各機能は選んだ組み合わせと外部システム連携の有無により個別見積もりとなります。
-        </div>
       </Section>
 
       {/* ============================================================ */}
