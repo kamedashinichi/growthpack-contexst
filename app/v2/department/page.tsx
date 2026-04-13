@@ -35,14 +35,7 @@ import { ScrollTracker } from './scroll-tracker';
 
 // 百貨店業界で特に効く7機能（外商二層設計に対応）
 const FEATURES = [
-  {
-    image: '/images/1to1.png',
-    name: '1to1コミュニケーション',
-    tagline: '外商顧客との接触履歴・嗜好を蓄積し、担当者が変わっても同品質の接客を引き継ぎます。',
-    phase: 'Phase 3',
-    id: 'one-to-one',
-    layer: '外商向け',
-  },
+  // Phase 1
   {
     image: '/images/会員証.png',
     name: 'デジタル会員証',
@@ -50,14 +43,6 @@ const FEATURES = [
     phase: 'Phase 1',
     id: 'membership',
     layer: '一般向け',
-  },
-  {
-    image: '/images/チケット.png',
-    name: 'チケット・パス管理',
-    tagline: '催事・招待会・先行販売のチケット発行と入場管理をLINE上で完結します。紙・Excelからの脱却。',
-    phase: 'Phase 2',
-    id: 'ticket',
-    layer: '催事向け',
   },
   {
     image: '/images/セグメント配信.png',
@@ -75,13 +60,14 @@ const FEATURES = [
     id: 'coupon',
     layer: '一般向け',
   },
+  // Phase 2
   {
-    image: '/images/ギフト.png',
-    name: 'ギフト',
-    tagline: '歳暮・中元など季節ギフトをLINE上で受付。外商顧客のソーシャルギフト機会を組織的に取りこぼさない設計。',
-    phase: 'Phase 3',
-    id: 'gift',
-    layer: '外商向け',
+    image: '/images/チケット.png',
+    name: 'チケット・パス管理',
+    tagline: '催事・招待会・先行販売のチケット発行と入場管理をLINE上で完結します。紙・Excelからの脱却。',
+    phase: 'Phase 2',
+    id: 'ticket',
+    layer: '催事向け',
   },
   {
     image: '/images/予約.png',
@@ -90,6 +76,23 @@ const FEATURES = [
     phase: 'Phase 2',
     id: 'reservation',
     layer: '一般向け',
+  },
+  // Phase 3
+  {
+    image: '/images/1to1.png',
+    name: '1to1コミュニケーション',
+    tagline: '外商顧客との接触履歴・嗜好を蓄積し、担当者が変わっても同品質の接客を引き継ぎます。',
+    phase: 'Phase 3',
+    id: 'one-to-one',
+    layer: '外商向け',
+  },
+  {
+    image: '/images/ギフト.png',
+    name: 'ギフト',
+    tagline: '歳暮・中元など季節ギフトをLINE上で受付。外商顧客のソーシャルギフト機会を組織的に取りこぼさない設計。',
+    phase: 'Phase 3',
+    id: 'gift',
+    layer: '外商向け',
   },
 ];
 
