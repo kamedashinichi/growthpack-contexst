@@ -133,26 +133,6 @@ const APPEAL_STEPS = [
   },
 ];
 
-const PHASES = [
-  {
-    phase: 'Phase 1',
-    label: '既存会員の活性化',
-    features: ['デジタル会員証', 'スタンプカード'],
-    description: 'プラスチックカードをデジタルに移行し、既に持っている会員基盤を活性化する。最短3ヶ月で立ち上げ可能。',
-  },
-  {
-    phase: 'Phase 2',
-    label: 'チラシLINE移行',
-    features: ['クーポン配信', 'セグメント配信', '抽選'],
-    description: '折込チラシをLINE配信に置き換え、購買カテゴリ別のセグメント配信で効果を高める。配信コスト削減と集客精度向上を同時に達成する。',
-  },
-  {
-    phase: 'Phase 3',
-    label: '購買連動パーソナライズ',
-    features: ['ギフト'],
-    description: '購買データを活用してロイヤル会員経由の紹介を促進。既存会員の口コミを仕組み化し広告費をかけずに新規会員を獲得する。',
-  },
-];
 
 const STATS = [
   {
@@ -330,7 +310,6 @@ export default function SupermarketPage() {
             <a href="#problems" className="hover:text-[#05A847] transition-colors">課題</a>
             <a href="#appeal" className="hover:text-[#05A847] transition-colors">訴求</a>
             <a href="#features" className="hover:text-[#05A847] transition-colors">機能</a>
-            <a href="#phases" className="hover:text-[#05A847] transition-colors">導入ステップ</a>
             <a href="#case-studies" className="hover:text-[#05A847] transition-colors">事例</a>
             <a href="#faq" className="hover:text-[#05A847] transition-colors">FAQ</a>
           </nav>
@@ -742,49 +721,6 @@ export default function SupermarketPage() {
       </Section>
 
       {/* ============================================================ */}
-      {/* Phase ロードマップ（§7-7、SM・HC向け）                            */}
-      {/* ============================================================ */}
-      <Section id="phases" spacing="md" container="wide" background="muted">
-        <div className="max-w-[720px] mb-10 md:mb-12">
-          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">
-            ROADMAP
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            3フェーズで段階的に育てる。
-          </h2>
-          <p className="text-base text-[#4B5563]">既存会員の活性化から始め、チラシをLINEに移行し、購買データで施策を精緻化する。各フェーズが次のデータ基盤になります。</p>
-        </div>
-
-        <div className="relative">
-          <div className="hidden md:block absolute top-10 left-[calc(33.333%+0px)] right-[calc(33.333%+0px)] h-0.5 bg-[#E5E7EB] z-0" />
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6 relative z-10">
-            {PHASES.map((p, i) => (
-              <Card key={p.phase} variant="elevated" padding="lg" rounded="xl" className="relative">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
-                    {i + 1}
-                  </div>
-                  <div>
-                    <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{p.phase}</div>
-                    <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{p.label}</h3>
-                  </div>
-                </div>
-                <p className="text-sm text-[#4B5563] leading-relaxed mb-4">{p.description}</p>
-                <div className="pt-4 border-t border-[#E5E7EB] space-y-1.5">
-                  {p.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2 text-sm text-[#1F2937]">
-                      <Check className="w-4 h-4 text-[#06C755] shrink-0" />
-                      {f}
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* ============================================================ */}
       {/* 事例セクション（グッデイ公開事例のみ）                              */}
       {/* ============================================================ */}
       <Section id="case-studies" spacing="md" container="wide" background="white">
@@ -908,9 +844,7 @@ export default function SupermarketPage() {
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">SERVICE</div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li><a href="#features" className="hover:text-white transition-colors">機能一覧</a></li>
-                <li><a href="#phases" className="hover:text-white transition-colors">導入ロードマップ</a></li>
-                <li><a href="#positioning" className="hover:text-white transition-colors">ハーフスクラッチとは</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">機能一覧</a></li>                <li><a href="#positioning" className="hover:text-white transition-colors">ハーフスクラッチとは</a></li>
               </ul>
             </div>
 

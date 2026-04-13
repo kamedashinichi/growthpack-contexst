@@ -123,26 +123,6 @@ const APPEAL_STEPS = [
   },
 ];
 
-const PHASES = [
-  {
-    phase: 'Phase 1',
-    label: 'LINE ID連携の入口構築',
-    features: ['LINE ID連携会員証'],
-    description: 'LINE友だちとEC会員を統合するID連携を先に構築。以後の施策すべての土台になります。',
-  },
-  {
-    phase: 'Phase 2',
-    label: 'カゴ落ちレスキュー＆リピート自動化',
-    features: ['セグメント配信', 'クーポン配信', '1to1コミュニケーション'],
-    description: 'カゴ落ちフォロー・購買周期リマインド・再入荷通知を自動化。LTVを底上げします。',
-  },
-  {
-    phase: 'Phase 3',
-    label: 'CAC≒0新規獲得の拡張',
-    features: ['ソーシャルギフト'],
-    description: 'ロイヤル顧客経由で新規会員を獲得するギフト施策を解禁。広告費に頼らない獲得チャネルを育てます。',
-  },
-];
 
 const STATS = [
   {
@@ -303,7 +283,6 @@ export default function EcPage() {
             <a href="#problems" className="hover:text-[#05A847] transition-colors">課題</a>
             <a href="#appeal" className="hover:text-[#05A847] transition-colors">訴求</a>
             <a href="#features" className="hover:text-[#05A847] transition-colors">機能</a>
-            <a href="#phases" className="hover:text-[#05A847] transition-colors">導入ステップ</a>
             <a href="#faq" className="hover:text-[#05A847] transition-colors">FAQ</a>
           </nav>
           <Button variant="primary" size="sm" asChild>
@@ -712,49 +691,6 @@ export default function EcPage() {
       </Section>
 
       {/* ============================================================ */}
-      {/* Phase ロードマップ（§7-7、EC向け）                              */}
-      {/* ============================================================ */}
-      <Section id="phases" spacing="md" container="wide" background="muted">
-        <div className="max-w-[720px] mb-10 md:mb-12">
-          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">
-            ROADMAP
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            3フェーズで段階的に育てる。
-          </h2>
-          <p className="text-base text-[#4B5563]">ID連携の基盤→リピート自動化→新規獲得拡張。各フェーズが次の施策のデータ基盤になります。</p>
-        </div>
-
-        <div className="relative">
-          <div className="hidden md:block absolute top-10 left-[calc(33.333%+0px)] right-[calc(33.333%+0px)] h-0.5 bg-[#E5E7EB] z-0" />
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6 relative z-10">
-            {PHASES.map((p, i) => (
-              <Card key={p.phase} variant="elevated" padding="lg" rounded="xl" className="relative">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
-                    {i + 1}
-                  </div>
-                  <div>
-                    <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{p.phase}</div>
-                    <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{p.label}</h3>
-                  </div>
-                </div>
-                <p className="text-sm text-[#4B5563] leading-relaxed mb-4">{p.description}</p>
-                <div className="pt-4 border-t border-[#E5E7EB] space-y-1.5">
-                  {p.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2 text-sm text-[#1F2937]">
-                      <Check className="w-4 h-4 text-[#06C755] shrink-0" />
-                      {f}
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* ============================================================ */}
       {/* FAQ（§7-9）                                                    */}
       {/* ============================================================ */}
       <Section id="faq" spacing="md" container="default" background="white">
@@ -839,9 +775,7 @@ export default function EcPage() {
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">SERVICE</div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li><a href="#features" className="hover:text-white transition-colors">機能一覧</a></li>
-                <li><a href="#phases" className="hover:text-white transition-colors">導入ロードマップ</a></li>
-                <li><a href="#positioning" className="hover:text-white transition-colors">ハーフスクラッチとは</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">機能一覧</a></li>                <li><a href="#positioning" className="hover:text-white transition-colors">ハーフスクラッチとは</a></li>
               </ul>
             </div>
 
