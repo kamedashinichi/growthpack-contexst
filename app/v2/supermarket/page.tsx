@@ -47,14 +47,14 @@ const FEATURES = [
     image: '/images/会員証.png',
     name: 'デジタル会員証',
     tagline: 'レジQRで5秒会員化。シニアでも使いやすいLINEで来店客全員をデジタル会員に。カード忘れによるポイント未付与をゼロにする。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'membership',
   },
   {
     image: '/images/スタンプカード.png',
     name: 'スタンプカード',
     tagline: '来店・購買でスタンプ付与。紛失・不正利用のない完全デジタル管理で来店頻度向上と週次来店習慣の形成に直結する。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'stamp-card',
   },
   // Phase 2
@@ -62,21 +62,21 @@ const FEATURES = [
     image: '/images/クーポン.png',
     name: 'クーポン配信',
     tagline: '折込チラシの代替として、LINEでターゲット配信。来店頻度・購買カテゴリに応じた配信で配信コストを抑えながら効果を最大化する。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'coupon',
   },
   {
     image: '/images/セグメント配信.png',
     name: 'セグメント配信',
     tagline: '週1来店層・月1来店層・休眠層に分けて最適な内容を配信。購買カテゴリ別に生鮮・日用品・園芸で訴求を出し分けられる。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'segment-delivery',
   },
   {
     image: '/images/抽選.png',
     name: '抽選',
     tagline: '来店・購買金額を条件に抽選イベントを設定。チラシ掲載の抽選企画をデジタルに移行し、集客効果を計測できる形にする。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'lottery',
   },
   // Phase 3
@@ -84,7 +84,7 @@ const FEATURES = [
     image: '/images/ギフト.png',
     name: 'ギフト',
     tagline: 'ロイヤル会員経由の紹介で新規会員獲得。広告費をかけずに既存会員の口コミを活性化する。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'gift',
   },
 ];
@@ -695,9 +695,9 @@ export default function SupermarketPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {FEATURES.map((f) => {
             const phaseColor =
-              f.phase === 'Phase 1'
+              f.phase === 'Step 1'
                 ? 'bg-[#E8F8F0] text-[#05A847]'
-                : f.phase === 'Phase 2'
+                : f.phase === 'Step 2'
                 ? 'bg-[#FEF3C7] text-[#B45309]'
                 : 'bg-[#EDE9FE] text-[#6D28D9]';
             return (

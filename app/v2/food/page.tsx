@@ -43,14 +43,14 @@ const FEATURES = [
     image: '/images/会員証.png',
     name: 'デジタル会員証',
     tagline: 'アプリDL不要、5秒で会員化。マルチブランドを1つのIDで統合。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'membership',
   },
   {
     image: '/images/順番待ち.png',
     name: '順番待ち',
     tagline: '行列をLINE通知に変換。「並ばなくていい体験」でロイヤルティ向上。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'queue',
   },
   // Phase 2
@@ -58,21 +58,21 @@ const FEATURES = [
     image: '/images/スタンプカード.png',
     name: 'スタンプカード',
     tagline: '紙カード紛失ゼロ。来店データが蓄積され再来店サイクルを設計できる。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'stamp-card',
   },
   {
     image: '/images/クーポン.png',
     name: 'クーポン配信',
     tagline: '来店頻度と購買履歴に応じた配信。テイクアウト誘導にも活用。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'coupon',
   },
   {
     image: '/images/予約.png',
     name: '予約',
     tagline: '電話不要のLINE予約で機会損失を防止。ピーク時の着席率を改善。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'reservation',
   },
   // Phase 3
@@ -80,14 +80,14 @@ const FEATURES = [
     image: '/images/セグメント配信.png',
     name: 'セグメント配信',
     tagline: '来店間隔・業態・注文パターンで配信を出し分け。休眠会員の掘り起こしに。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'segment-delivery',
   },
   {
     image: '/images/1to1.png',
     name: '1to1コミュニケーション',
     tagline: 'マルチブランドのCRM基盤として、複数業態にまたがる顧客データを一元管理。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'one-to-one',
   },
 ];
@@ -684,9 +684,9 @@ export default function FoodPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {FEATURES.map((f) => {
             const phaseColor =
-              f.phase === 'Phase 1'
+              f.phase === 'Step 1'
                 ? 'bg-[#E8F8F0] text-[#05A847]'
-                : f.phase === 'Phase 2'
+                : f.phase === 'Step 2'
                 ? 'bg-[#FEF3C7] text-[#B45309]'
                 : 'bg-[#EDE9FE] text-[#6D28D9]';
             return (

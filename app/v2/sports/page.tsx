@@ -41,14 +41,14 @@ const FEATURES = [
     image: '/images/会員証.png',
     name: 'デジタル会員証',
     tagline: 'QRコード対応のデジタル会員証。アプリDL不要でライト層を即座にデータ化できます。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'membership',
   },
   {
     image: '/images/チケット.png',
     name: 'チケット・パス',
     tagline: 'チケット先行販売・試合当日パスをLINEで完結。ライト層の来場ハードルを下げます。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'ticket',
   },
   // Phase 2
@@ -56,21 +56,21 @@ const FEATURES = [
     image: '/images/抽選.png',
     name: '抽選',
     tagline: '限定グッズ・先行チケットの公平な電子抽選。手作業の属人化を解消します。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'lottery',
   },
   {
     image: '/images/スタンプカード.png',
     name: 'スタンプカード',
     tagline: '来場スタンプで次の来場動機を設計。試合・公演日以外の接点を作ります。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'stamp-card',
   },
   {
     image: '/images/クーポン.png',
     name: 'クーポン配信',
     tagline: '来場頻度・会員ランク別の特典配信。ライト層とコアファンで施策を出し分けます。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'coupon',
   },
   // Phase 3
@@ -78,7 +78,7 @@ const FEATURES = [
     image: '/images/セグメント配信.png',
     name: 'セグメント配信',
     tagline: '払っているが来ない会員（幽霊会員）を再活性化するセグメント別メッセージ配信。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'segment-delivery',
   },
 ];
@@ -678,9 +678,9 @@ export default function SportsPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {FEATURES.map((f) => {
             const phaseColor =
-              f.phase === 'Phase 1'
+              f.phase === 'Step 1'
                 ? 'bg-[#E8F8F0] text-[#05A847]'
-                : f.phase === 'Phase 2'
+                : f.phase === 'Step 2'
                 ? 'bg-[#FEF3C7] text-[#B45309]'
                 : 'bg-[#EDE9FE] text-[#6D28D9]';
             return (

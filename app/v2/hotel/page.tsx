@@ -43,14 +43,14 @@ const FEATURES = [
     image: '/images/予約.png',
     name: '予約',
     tagline: 'LINE上で宿泊予約を受け、OTA経由を直予約に巻き取る。予約完了後の会員登録も自動化します。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'reservation',
   },
   {
     image: '/images/会員証.png',
     name: 'デジタル会員証',
     tagline: '友だち追加と同時に会員化。アプリDL不要、5秒で会員登録。再来訪時の本人特定も容易に。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'membership',
   },
   // Phase 2
@@ -58,14 +58,14 @@ const FEATURES = [
     image: '/images/クーポン.png',
     name: 'クーポン配信',
     tagline: '館内レストラン・スパ・売店・次回宿泊のクーポンをLINEで配信。チェックイン後の消費を引き上げます。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'coupon',
   },
   {
     image: '/images/1to1.png',
     name: '1to1コミュニケーション',
     tagline: 'コンシェルジュ的な個別応対をLINEに集約。要望・アレルギー・好みを蓄積して次回滞在へ引き継ぎます。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'one-to-one',
   },
   // Phase 3
@@ -73,14 +73,14 @@ const FEATURES = [
     image: '/images/セグメント配信.png',
     name: 'セグメント配信',
     tagline: '宿泊履歴・季節・プランタイプで配信を出し分け。半年未来訪ゲストの呼び戻しに。PMS連携なしでもCSV取込で対応可能です。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'segment-delivery',
   },
   {
     image: '/images/ギフト.png',
     name: 'ギフト',
     tagline: 'ロイヤル顧客経由の紹介・贈答利用を促進。広告費をかけない新規獲得の仕組みを作ります。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'gift',
   },
 ];
@@ -672,9 +672,9 @@ export default function HotelPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {FEATURES.map((f) => {
             const phaseColor =
-              f.phase === 'Phase 1'
+              f.phase === 'Step 1'
                 ? 'bg-[#E8F8F0] text-[#05A847]'
-                : f.phase === 'Phase 2'
+                : f.phase === 'Step 2'
                 ? 'bg-[#FEF3C7] text-[#B45309]'
                 : 'bg-[#EDE9FE] text-[#6D28D9]';
             return (

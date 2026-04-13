@@ -39,7 +39,7 @@ const FEATURES = [
     image: '/images/会員証.png',
     name: 'デジタル会員証',
     tagline: '一般顧客の会員接点をLINEに集約。アプリDL不要で5秒会員化、館内共通IDとして機能します。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'membership',
     layer: '一般向け',
   },
@@ -47,7 +47,7 @@ const FEATURES = [
     image: '/images/セグメント配信.png',
     name: 'セグメント配信',
     tagline: '来店頻度・購買帯・売場嗜好で動的にメッセージを出し分け。一斉配信からの脱却を支援します。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'segment-delivery',
     layer: '一般向け',
   },
@@ -55,7 +55,7 @@ const FEATURES = [
     image: '/images/クーポン.png',
     name: 'クーポン配信',
     tagline: '催事前後・誕生日・長期未来店タイミングに自動配信。休眠会員の掘り起こしと来店促進に。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'coupon',
     layer: '一般向け',
   },
@@ -64,7 +64,7 @@ const FEATURES = [
     image: '/images/チケット.png',
     name: 'チケット・パス管理',
     tagline: '催事・招待会・先行販売のチケット発行と入場管理をLINE上で完結します。紙・Excelからの脱却。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'ticket',
     layer: '催事向け',
   },
@@ -72,7 +72,7 @@ const FEATURES = [
     image: '/images/予約.png',
     name: '予約',
     tagline: 'レストラン・サービスカウンター・外商個別商談の予約受付をLINEで一元管理します。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'reservation',
     layer: '一般向け',
   },
@@ -81,7 +81,7 @@ const FEATURES = [
     image: '/images/1to1.png',
     name: '1to1コミュニケーション',
     tagline: '外商顧客との接触履歴・嗜好を蓄積し、担当者が変わっても同品質の接客を引き継ぎます。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'one-to-one',
     layer: '外商向け',
   },
@@ -89,7 +89,7 @@ const FEATURES = [
     image: '/images/ギフト.png',
     name: 'ギフト',
     tagline: '歳暮・中元など季節ギフトをLINE上で受付。外商顧客のソーシャルギフト機会を組織的に取りこぼさない設計。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'gift',
     layer: '外商向け',
   },
@@ -695,9 +695,9 @@ export default function DepartmentPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {FEATURES.map((f) => {
             const phaseColor =
-              f.phase === 'Phase 1'
+              f.phase === 'Step 1'
                 ? 'bg-[#E8F8F0] text-[#05A847]'
-                : f.phase === 'Phase 2'
+                : f.phase === 'Step 2'
                 ? 'bg-[#FEF3C7] text-[#B45309]'
                 : 'bg-[#EDE9FE] text-[#6D28D9]';
             const layerColor =

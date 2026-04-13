@@ -44,7 +44,7 @@ const FEATURES = [
     image: '/images/会員証.png',
     name: 'LINE ID連携会員証',
     tagline: 'EC会員IDとLINE IDを統合。アプリDL不要、友だち追加の延長線で会員化。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'id-linkage',
   },
   // Phase 2
@@ -52,21 +52,21 @@ const FEATURES = [
     image: '/images/セグメント配信.png',
     name: 'セグメント配信',
     tagline: '購買回数・カテゴリ・最終購入日・閲覧履歴で動的にセグメントを切り、精度の高い配信を実現。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'segment-delivery',
   },
   {
     image: '/images/クーポン.png',
     name: 'クーポン配信',
     tagline: 'カゴ落ち回収・休眠掘り起こし・購買周期リマインドの3用途で活用。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'coupon',
   },
   {
     image: '/images/1to1.png',
     name: '1to1コミュニケーション',
     tagline: '再入荷通知・購買周期リマインドを自動配信。個別接点でLTVを最大化。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'one-to-one',
   },
   // Phase 3
@@ -74,7 +74,7 @@ const FEATURES = [
     image: '/images/ギフト.png',
     name: 'ソーシャルギフト',
     tagline: '受取人の即時会員化・住所不要・CAC≒0の新規獲得モデル。ロイヤル顧客が自社の営業マンになる。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'social-gift',
   },
 ];
@@ -665,9 +665,9 @@ export default function EcPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {FEATURES.map((f) => {
             const phaseColor =
-              f.phase === 'Phase 1'
+              f.phase === 'Step 1'
                 ? 'bg-[#E8F8F0] text-[#05A847]'
-                : f.phase === 'Phase 2'
+                : f.phase === 'Step 2'
                 ? 'bg-[#FEF3C7] text-[#B45309]'
                 : 'bg-[#EDE9FE] text-[#6D28D9]';
             return (

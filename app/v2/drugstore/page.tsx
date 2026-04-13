@@ -46,7 +46,7 @@ const FEATURES = [
     image: '/images/会員証.png',
     name: 'デジタル会員証',
     tagline: 'レジ前5秒でLINE会員化。ポイントカード携帯率の低下を一気に解消します。',
-    phase: 'Phase 1',
+    phase: 'Step 1',
     id: 'membership',
   },
   // Phase 2
@@ -54,21 +54,21 @@ const FEATURES = [
     image: '/images/スタンプカード.png',
     name: 'スタンプカード',
     tagline: '紙カード不要のデジタル台紙で、再来店を設計する。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'stamp-card',
   },
   {
     image: '/images/クーポン.png',
     name: 'クーポン配信',
     tagline: '調剤完了後の待ち時間に配信。滞在中の購買機会を収益に変えます。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'coupon',
   },
   {
     image: '/images/1to1.png',
     name: '1to1コミュニケーション',
     tagline: '調剤完了通知・受付案内を個別に届け、待ち時間ストレスを低減します。',
-    phase: 'Phase 2',
+    phase: 'Step 2',
     id: 'one-to-one',
   },
   // Phase 3
@@ -76,14 +76,14 @@ const FEATURES = [
     image: '/images/セグメント配信.png',
     name: 'セグメント配信',
     tagline: 'POSデータ×購買属性で配信を出し分け。一斉配信によるブロック率を抑制します。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'segment-delivery',
   },
   {
     image: '/images/ギフト.png',
     name: 'ギフト',
     tagline: 'ロイヤル顧客からの紹介で、広告費ゼロの新規会員獲得へ。',
-    phase: 'Phase 3',
+    phase: 'Step 3',
     id: 'gift',
   },
 ];
@@ -677,9 +677,9 @@ export default function DrugstorePage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {FEATURES.map((f) => {
             const phaseColor =
-              f.phase === 'Phase 1'
+              f.phase === 'Step 1'
                 ? 'bg-[#E8F8F0] text-[#05A847]'
-                : f.phase === 'Phase 2'
+                : f.phase === 'Step 2'
                 ? 'bg-[#FEF3C7] text-[#B45309]'
                 : 'bg-[#EDE9FE] text-[#6D28D9]';
             return (
