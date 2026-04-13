@@ -164,8 +164,8 @@ const STATS = [
     sub: '7割はOTA経由。直販チャネル強化の根拠',
   },
   {
-    value: 'アプリ',
-    unit: 'DL不要',
+    value: 'DL不要',
+    unit: '',
     label: 'LINEだけで会員化が完結',
     sub: 'インストール不要。友だち追加と同時に会員化',
   },

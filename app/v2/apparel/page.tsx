@@ -153,8 +153,8 @@ const PHASES = [
 
 const STATS = [
   {
-    value: 'アプリ',
-    unit: 'DL不要',
+    value: 'DL不要',
+    unit: '',
     label: 'LINEだけで会員化が完結',
     sub: 'インストール不要。お客様のスマホにLINEがあればOK',
   },

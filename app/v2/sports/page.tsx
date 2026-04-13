@@ -150,8 +150,8 @@ const PHASES = [
 
 const STATS = [
   {
-    value: 'アプリ',
-    unit: 'DL不要',
+    value: 'DL不要',
+    unit: '',
     label: 'LINEでライト層を即データ化',
     sub: 'インストール不要。QRから会員登録が完了',
   },
