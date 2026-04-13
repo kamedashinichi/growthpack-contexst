@@ -41,7 +41,7 @@ const FEATURE_GROUPS = [
         name: 'デジタルチケット・整理券の発行',
         challenge: '紙の整理券を配布するためにスタッフが受付に張り付き、会場設営や接客の人員が足りなくなる',
         solution: 'LINEミニアプリ上でチケットを即発行。スタッフ対応ゼロで入場準備が完結。',
-        demo_url: 'https://lp-ticket-function.vercel.app',
+        demo_url: 'https://prototype-ticket-function.vercel.app/demo/list',
       },
       {
         icon: QrCode,
@@ -235,7 +235,7 @@ export default function TicketPage() {
                 className="border-white/60 text-white hover:bg-white/10 hover:border-white"
               >
                 <TrackedExternalLink
-                  href="https://lp-ticket-function.vercel.app"
+                  href="https://prototype-ticket-function.vercel.app/demo/list"
                   location="hero"
                   destination="demo"
                 >
