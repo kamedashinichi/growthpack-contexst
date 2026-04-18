@@ -47,10 +47,10 @@ export const metadata: Metadata = {
     siteName: 'グロースパック for LINE',
     images: [
       {
-        url: '/images/ogp.png',
+        url: '/images/ogp-v2.jpg',
         width: 1024,
-        height: 536,
-        alt: 'グロースパック for LINE｜ハーフスクラッチで作るLINEミニアプリ開発サービス',
+        height: 537,
+        alt: 'グロースパック for LINE｜機能アセットで実現するスピード×柔軟性のLINEミニアプリ開発',
       },
     ],
   },
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: 'グロースパック for LINE｜ハーフスクラッチで作るLINEミニアプリ開発サービス',
     description:
       'SaaSの速さとフルスクラッチの柔軟性を両立。会員証・予約・クーポンなど10機能から選び、最短3ヶ月で立ち上げます。',
-    images: ['/images/ogp.png'],
+    images: ['/images/ogp-v2.jpg'],
   },
 }
 
