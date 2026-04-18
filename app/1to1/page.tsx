@@ -286,13 +286,13 @@ export default function OneToOnePage() {
             <a href="#steps" className="hover:text-[#05A847] transition-colors">導入ステップ</a>
           </nav>
           <Button variant="primary" size="sm" asChild>
-            <a
+            <TrackedExternalLink
               href="https://classmethod.jp/services/line/line-apps/#iframe-form"
-              target="_blank"
-              rel="noopener noreferrer"
+              location="1to1_header"
+              destination="contact"
             >
               お問い合わせ
-            </a>
+            </TrackedExternalLink>
           </Button>
         </div>
       </header>
@@ -604,24 +604,24 @@ export default function OneToOnePage() {
               <div className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">CONTACT</div>
               <ul className="space-y-2 text-sm text-white/60">
                 <li>
-                  <a
+                  <TrackedExternalLink
                     href="https://classmethod.jp/services/line/line-apps/#iframe-form"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    location="1to1_footer_contact"
+                    destination="contact"
                     className="hover:text-white transition-colors"
                   >
                     お問い合わせ
-                  </a>
+                  </TrackedExternalLink>
                 </li>
                 <li>
-                  <a
+                  <TrackedExternalLink
                     href="https://classmethod.jp/download/line-mini-app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    location="1to1_footer_download"
+                    destination="download"
                     className="hover:text-white transition-colors"
                   >
                     資料ダウンロード
-                  </a>
+                  </TrackedExternalLink>
                 </li>
               </ul>
             </div>
