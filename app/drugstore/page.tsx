@@ -296,6 +296,7 @@ export default function DrugstorePage() {
             <a href="#problems" className="hover:text-[#05A847] transition-colors">課題</a>
             <a href="#appeal" className="hover:text-[#05A847] transition-colors">調剤連携</a>
             <a href="#features" className="hover:text-[#05A847] transition-colors">機能</a>
+            <a href="#wp-download" className="hover:text-[#05A847] transition-colors">調査レポート</a>
             <a href="#faq" className="hover:text-[#05A847] transition-colors">FAQ</a>
           </nav>
           <Button variant="primary" size="sm" asChild>

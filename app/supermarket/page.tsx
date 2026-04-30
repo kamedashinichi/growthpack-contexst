@@ -312,6 +312,7 @@ export default function SupermarketPage() {
             <a href="#appeal" className="hover:text-[#05A847] transition-colors">訴求</a>
             <a href="#features" className="hover:text-[#05A847] transition-colors">機能</a>
             <a href="#case-studies" className="hover:text-[#05A847] transition-colors">事例</a>
+            <a href="#wp-download" className="hover:text-[#05A847] transition-colors">調査レポート</a>
             <a href="#faq" className="hover:text-[#05A847] transition-colors">FAQ</a>
           </nav>
           <Button variant="primary" size="sm" asChild>
