@@ -6,7 +6,7 @@ import { trackGA4 } from '@/lib/ga4';
 
 const PDF_PATH = '/downloads/whitepaper-drugstore-2026.pdf';
 const DOC_ID = 'drugstore-2026';
-const PDF_AVAILABLE = false;
+const PDF_AVAILABLE = true;
 
 export function WPDownloadButton() {
   if (!PDF_AVAILABLE) {
