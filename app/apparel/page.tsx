@@ -714,24 +714,24 @@ export default function ApparelPage() {
                 無料ダウンロード
               </span>
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight mb-3">
-                アパレル店舗スタッフ<br />業務実態調査 2026
+                アパレル・ファッション業界<br />LINEミニアプリ活用ガイド 2026
               </h3>
-              <p className="text-sm text-white/60 leading-relaxed">193名調査で見えた、現場の「見えない非効率」と「届かない声」。</p>
+              <p className="text-sm text-white/60 leading-relaxed">会員獲得・ID連携を起点にした、店舗とECをつなぐLINEの設計。</p>
             </div>
             {/* 右: 内容+CTA */}
             <div className="p-6 sm:p-8 md:p-10 flex flex-col justify-center md:w-3/5">
               <ul className="text-sm text-[#4B5563] space-y-2 mb-6">
                 <li className="flex items-start gap-2">
                   <span className="text-[#06C755] mt-0.5 font-bold">✓</span>
-                  50.8%が業務時間の4割以上を接客以外に消費
+                  LINEタッチ・クイック入力で本会員化を成果につなげる導線
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#06C755] mt-0.5 font-bold">✓</span>
-                  最大課題は「EC連携」ではなく「手作業オペ」
+                  店頭商品シェアで「検討層」をLINEに引き戻す施策
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-[#06C755] mt-0.5 font-bold">✓</span>
-                  改善意見を持つスタッフの82%が「声が届いていない」
+                  既存EC・会員DBと無理なくつなぐ実装の論点
                 </li>
               </ul>
               <WPDownloadButton />
