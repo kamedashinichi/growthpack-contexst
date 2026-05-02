@@ -83,11 +83,7 @@ const FEATURES = [
 const PROBLEMS = [
   {
     title: 'LINE友だちとEC会員の分断',
-    body: 'LINEで配信はできても「誰が買うか」がわからない。LINE ID連携で友だちとEC会員を結びつけることで、初めて購買データを使った配信が可能になります。',
-  },
-  {
-    title: 'カゴ落ちの自動フォロー不足',
-    body: '国内ECのカゴ落ち率は約65%（イー・エージェンシー2022年850サイト調査）。カゴに入れた商品のリマインドを自動送信するだけで回収率は大きく改善します。',
+    body: 'LINEで配信はできても「誰が買うか」がわからない。LINE⇄EC ID連携で友だちとEC会員を結びつけることで、初めて購買データを使った配信が可能になります。',
   },
   {
     title: '一斉配信によるブロック率の増加',
@@ -96,6 +92,13 @@ const PROBLEMS = [
   {
     title: '新規獲得の広告費高騰とCAC上昇',
     body: '広告CPAが年々上昇し、新規獲得の費用対効果が悪化している。ソーシャルギフト経由なら受取人が会員化するため、CAC≒0の新規獲得チャネルを設計できます。',
+  },
+];
+
+const STRUCTURAL_ISSUES = [
+  {
+    title: 'カゴ落ちの自動フォロー不足',
+    body: 'カゴに入れた商品のリマインドを自動送信するだけで回収率は大きく改善します。LINE⇄EC連携の設計・実装に限定したアプローチで対応します。',
   },
   {
     title: '定期購買・再入荷機会の取りこぼし',
@@ -288,7 +291,7 @@ export default function EcPage() {
             <a href="#faq" className="hover:text-[#05A847] transition-colors">FAQ</a>
           </nav>
           <Button variant="primary" size="sm" asChild>
-            <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="v2_ec_lp_header" destination="contact">お問い合わせ</TrackedExternalLink>
+            <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="header" destination="contact">お問い合わせ</TrackedExternalLink>
           </Button>
         </div>
       </header>
@@ -338,7 +341,7 @@ export default function EcPage() {
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
                 <Button variant="primary" size="lg" asChild>
-                  <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="v2_ec_lp_hero_primary" destination="contact">
+                  <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=ec-idlink#iframe-form" location="hero_primary" destination="contact">
                     無料で相談する
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </TrackedExternalLink>
@@ -349,7 +352,7 @@ export default function EcPage() {
                   asChild
                   className="border-white/60 text-white hover:bg-white/10 hover:border-white"
                 >
-                  <TrackedExternalLink href="https://classmethod.jp/download/line-mini-app/" location="v2_ec_lp_hero_secondary" destination="download">
+                  <TrackedExternalLink href="https://classmethod.jp/download/line-mini-app/" location="hero_secondary" destination="download">
                     資料をダウンロード
                   </TrackedExternalLink>
                 </Button>
@@ -520,7 +523,7 @@ export default function EcPage() {
       </Section>
 
       {/* ============================================================ */}
-      {/* 課題セクション（§7-4、EC 5点セット）                             */}
+      {/* 課題セクション（§7-4、EC PROBLEMS 3点）                          */}
       {/* ============================================================ */}
       <Section id="problems" spacing="sm" container="wide" background="muted">
         <div className="max-w-[720px] mb-10 md:mb-12">
@@ -528,13 +531,36 @@ export default function EcPage() {
             CHALLENGES
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            EC担当者が「手を打てていない」と感じる、5つの壁。
+            ID分断・ブロック増加・CAC高騰—LINE×EC連携で解くべき3つの壁。
           </h2>
-          <p className="text-base text-[#4B5563]">ツールを足すだけでは解決できない、ECビジネスの構造的な課題です。</p>
+          <p className="text-base text-[#4B5563]">LINE⇄EC ID連携を起点に、セグメント配信とソーシャルギフトで顧客獲得コストの上昇に対抗します。</p>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
           {PROBLEMS.map((p) => (
             <Card key={p.title} padding="md" className="border-l-4 border-l-[#06C755]">
+              <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
+              <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* 構造課題セクション（主旨外 2点）                                   */}
+      {/* ============================================================ */}
+      <Section id="structural-issues" spacing="sm" container="wide" background="white">
+        <div className="max-w-[720px] mb-10 md:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#9CA3AF] mb-3">
+            STRUCTURAL ISSUES
+          </div>
+          <h3 className="text-xl sm:text-2xl font-semibold text-[#374151] mb-3">
+            業界全体の構造課題
+          </h3>
+          <p className="text-base text-[#4B5563]">あわせて解決できる構造的な課題</p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+          {STRUCTURAL_ISSUES.map((p) => (
+            <Card key={p.title} padding="md" className="border-l-4 border-l-[#9CA3AF]">
               <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
               <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
             </Card>
@@ -604,7 +630,7 @@ export default function EcPage() {
             <div className="absolute -top-3 left-4 px-2 py-0.5 bg-[#05A847] text-white text-xs font-bold rounded-sm">
               RECOMMENDED
             </div>
-            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">Growthpack</div>
+            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">グロースパック</div>
             <h3 className="text-base font-bold mb-4">ハーフスクラッチ<br /><span className="text-sm font-normal text-[#05A847]">開発</span></h3>
             <ul className="text-sm text-[#1F2937] space-y-2 font-medium">
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />初期コスト: 中</li>
@@ -641,7 +667,7 @@ export default function EcPage() {
                 asChild
                 className="bg-white text-[#05A847] hover:bg-white/90 font-bold"
               >
-                <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="v2_ec_lp_midband" destination="contact">
+                <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=ec-idlink#iframe-form" location="midband" destination="contact">
                   無料で相談する
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </TrackedExternalLink>
@@ -768,7 +794,7 @@ export default function EcPage() {
           <p className="text-base sm:text-lg text-white/80 max-w-[640px] mx-auto leading-relaxed">既存EC基盤・会員データの状態・目指すKPIをお聞きして、最適な構成をご提案します。初回相談は無料です。</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-4">
             <Button variant="primary" size="lg" asChild>
-              <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="v2_ec_lp_final_primary" destination="contact">
+              <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=ec-idlink#iframe-form" location="final_primary" destination="contact">
                 無料で相談する
                 <ArrowRight className="w-5 h-5 ml-2" />
               </TrackedExternalLink>
@@ -779,7 +805,7 @@ export default function EcPage() {
               asChild
               className="border-white/50 text-white hover:bg-white/10 hover:border-white"
             >
-              <TrackedExternalLink href="https://classmethod.jp/download/line-mini-app/" location="v2_ec_lp_final_secondary" destination="download">
+              <TrackedExternalLink href="https://classmethod.jp/download/line-mini-app/" location="final_secondary" destination="download">
                 資料をダウンロード
               </TrackedExternalLink>
             </Button>

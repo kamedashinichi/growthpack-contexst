@@ -91,8 +91,15 @@ const PROBLEMS = [
   },
   {
     title: '独自アプリとLINE公式が並立し、顧客データが分散',
-    body: '12社中12社が独自アプリを保有しながらLINEも運用。会員IDが分散して本部管理コストが増大しています。',
+    body: '独自アプリを保有しながらLINEも運用。会員IDが分散して本部管理コストが増大しています。',
   },
+  {
+    title: '試合・公演当日以外にファンとの接点がなく、来場動機を作れない',
+    body: 'オフシーズンや公演間のコミュニケーションが途切れる。来場スタンプや先行情報で日常的な接点が必要です。',
+  },
+];
+
+const STRUCTURAL_ISSUES = [
   {
     title: '払っているが来ない会員の離脱をメール・DMで止められない',
     body: 'フィットネス・スポーツクラブ共通の構造課題。解約のタイミングを捉えた自動フォローが機能していません。',
@@ -100,10 +107,6 @@ const PROBLEMS = [
   {
     title: 'チケット先行抽選・限定グッズ配布が手作業で属人化',
     body: '公平性の担保と当選通知がスプレッドシートと人力で回っている。ミスやクレームが発生しやすい状態です。',
-  },
-  {
-    title: '試合・公演当日以外にファンとの接点がなく、来場動機を作れない',
-    body: 'オフシーズンや公演間のコミュニケーションが途切れる。来場スタンプや先行情報で日常的な接点が必要です。',
   },
 ];
 
@@ -351,7 +354,7 @@ export default function SportsPage() {
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
                 <Button variant="primary" size="lg" asChild>
-                  <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="hero_primary" destination="contact">
+                  <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=sports-light#iframe-form" location="hero_primary" destination="contact">
                     無料で相談する
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </TrackedExternalLink>
@@ -533,7 +536,7 @@ export default function SportsPage() {
       </Section>
 
       {/* ============================================================ */}
-      {/* 課題セクション（§7-4）                                           */}
+      {/* 課題セクション（§7-4、スポーツ PROBLEMS 3点）                      */}
       {/* ============================================================ */}
       <Section id="problems" spacing="sm" container="wide" background="muted">
         <div className="max-w-[720px] mb-10 md:mb-12">
@@ -541,13 +544,36 @@ export default function SportsPage() {
             CHALLENGES
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            スポーツ・エンタメのDX担当者が「限界だ」と感じる、5つの壁。
+            ライト層接点ゼロ・データ分散・オフシーズン断絶—ライト層育成を阻む3つの壁。
           </h2>
-          <p className="text-base text-[#4B5563]">個別ツールでは解決できない、スポーツ・エンタメ業界の構造的な課題です。</p>
+          <p className="text-base text-[#4B5563]">コアファン向け施策は整備済み。年1-2回来場のライト層をLINEで捕まえ、日常接点を作ることから始めます。</p>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
           {PROBLEMS.map((p) => (
             <Card key={p.title} padding="md" className="border-l-4 border-l-[#06C755]">
+              <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
+              <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* 構造課題セクション（主旨外 2点）                                   */}
+      {/* ============================================================ */}
+      <Section id="structural-issues" spacing="sm" container="wide" background="white">
+        <div className="max-w-[720px] mb-10 md:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#9CA3AF] mb-3">
+            STRUCTURAL ISSUES
+          </div>
+          <h3 className="text-xl sm:text-2xl font-semibold text-[#374151] mb-3">
+            業界全体の構造課題
+          </h3>
+          <p className="text-base text-[#4B5563]">あわせて解決できる構造的な課題</p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+          {STRUCTURAL_ISSUES.map((p) => (
+            <Card key={p.title} padding="md" className="border-l-4 border-l-[#9CA3AF]">
               <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
               <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
             </Card>
@@ -617,7 +643,7 @@ export default function SportsPage() {
             <div className="absolute -top-3 left-4 px-2 py-0.5 bg-[#05A847] text-white text-xs font-bold rounded-sm">
               RECOMMENDED
             </div>
-            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">Growthpack</div>
+            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">グロースパック</div>
             <h3 className="text-base font-bold mb-4">ハーフスクラッチ<br /><span className="text-sm font-normal text-[#05A847]">開発</span></h3>
             <ul className="text-sm text-[#1F2937] space-y-2 font-medium">
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />初期コスト: 中</li>
@@ -654,7 +680,7 @@ export default function SportsPage() {
                 asChild
                 className="bg-white text-[#05A847] hover:bg-white/90 font-bold"
               >
-                <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="midband" destination="contact">
+                <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=sports-light#iframe-form" location="midband" destination="contact">
                   無料で相談する
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </TrackedExternalLink>
@@ -781,7 +807,7 @@ export default function SportsPage() {
           <p className="text-base sm:text-lg text-white/80 max-w-[640px] mx-auto leading-relaxed">業態・会員構成・既存システムをお聞きして、最適な構成をご提案します。初回相談は無料です。</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-4">
             <Button variant="primary" size="lg" asChild>
-              <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="final_primary" destination="contact">
+              <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=sports-light#iframe-form" location="final_primary" destination="contact">
                 無料で相談する
                 <ArrowRight className="w-5 h-5 ml-2" />
               </TrackedExternalLink>
