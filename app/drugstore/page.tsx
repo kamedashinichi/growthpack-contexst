@@ -34,6 +34,7 @@ import { Card } from '@/components/shared/ui/card';
 import { TrackedExternalLink } from './tracking';
 import { ScrollTracker } from './scroll-tracker';
 import { WPDownloadButton } from './wp-download-button';
+import { TargetAudienceNotice } from '@/components/shared/ui/target-audience-notice';
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                  */
@@ -186,6 +187,10 @@ const FAQS = [
   {
     q: 'POSデータを使ったセグメント配信はどこまで対応できますか？',
     a: '購買頻度・カテゴリ嗜好・来店サイクルなど購買属性に基づくセグメントに対応します。POS連携の方式（API・バッチ・CSVインポート等）はご利用のシステムに合わせて設計します。',
+  },
+  {
+    q: '代理店・パートナーとして相談したいのですが、対象になりますか？',
+    a: '本サービスは、自社サービスとしてLINEミニアプリの導入をご検討の事業会社さまを対象としています。代理店・パートナーさま経由でのご提案や、エンドクライアントを別企業とする受託開発でのご利用は対象外とさせていただいております。事業会社さまから直接お問い合わせいただける場合は対応可能です。',
   },
 ];
 
@@ -579,6 +584,11 @@ export default function DrugstorePage() {
           ))}
         </div>
       </Section>
+
+      {/* ============================================================ */}
+      {/* 対象明示（Issue #223）                                           */}
+      {/* ============================================================ */}
+      <TargetAudienceNotice />
 
       {/* ============================================================ */}
       {/* 訴求セクション（調剤連携3層、DS固有キラー機能）                      */}

@@ -31,6 +31,7 @@ import { Card } from '@/components/shared/ui/card';
 import { WPDownloadButton } from './wp-download-button';
 import { TrackedExternalLink } from './tracking';
 import { ScrollTracker } from './scroll-tracker';
+import { TargetAudienceNotice } from '@/components/shared/ui/target-audience-notice';
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                  */
@@ -181,6 +182,10 @@ const FAQS = [
   {
     q: 'SPAブランドとセレクトショップで提案内容は変わりますか？',
     a: '変わります。SPA型はセグメント配信とアップセル、セレクト型は統合IDと紹介獲得が主軸です。',
+  },
+  {
+    q: '代理店・パートナーとして相談したいのですが、対象になりますか？',
+    a: '本サービスは、自社サービスとしてLINEミニアプリの導入をご検討の事業会社さまを対象としています。代理店・パートナーさま経由でのご提案や、エンドクライアントを別企業とする受託開発でのご利用は対象外とさせていただいております。事業会社さまから直接お問い合わせいただける場合は対応可能です。',
   },
 ];
 
@@ -577,6 +582,11 @@ export default function ApparelPage() {
           ))}
         </div>
       </Section>
+
+      {/* ============================================================ */}
+      {/* 対象明示（Issue #223）                                           */}
+      {/* ============================================================ */}
+      <TargetAudienceNotice />
 
       {/* ============================================================ */}
       {/* 訴求セクション（アパレル固有 3ステップ訴求、B パターン準拠）          */}

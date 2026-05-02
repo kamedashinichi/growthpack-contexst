@@ -35,6 +35,7 @@ import { Card } from '@/components/shared/ui/card';
 import { TrackedExternalLink } from './tracking';
 import { ScrollTracker } from './scroll-tracker';
 import { WPDownloadButton } from './wp-download-button';
+import { TargetAudienceNotice } from '@/components/shared/ui/target-audience-notice';
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                  */
@@ -185,6 +186,10 @@ const FAQS = [
   {
     q: '紙チラシを完全廃止せずLINEと併用しながら移行できますか？',
     a: '併用移行に対応します。まずLINE会員向けの先行クーポン配信から始め、効果を測定しながら段階的に紙チラシの比率を下げていくアプローチが現実的です。急な全廃ではなく計画的な移行をサポートします。',
+  },
+  {
+    q: '代理店・パートナーとして相談したいのですが、対象になりますか？',
+    a: '本サービスは、自社サービスとしてLINEミニアプリの導入をご検討の事業会社さまを対象としています。代理店・パートナーさま経由でのご提案や、エンドクライアントを別企業とする受託開発でのご利用は対象外とさせていただいております。事業会社さまから直接お問い合わせいただける場合は対応可能です。',
   },
 ];
 
@@ -597,6 +602,11 @@ export default function SupermarketPage() {
           ))}
         </div>
       </Section>
+
+      {/* ============================================================ */}
+      {/* 対象明示（Issue #223）                                           */}
+      {/* ============================================================ */}
+      <TargetAudienceNotice />
 
       {/* ============================================================ */}
       {/* 訴求セクション（SM・HC固有 3ステップ訴求）                          */}
