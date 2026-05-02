@@ -210,6 +210,83 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const FAQS = [
+  {
+    q: 'LINEで予約できる業種はどこですか？',
+    a: '飲食店、美容サロン・エステ、医療・歯科クリニック、フィットネスジム、スポーツ施設、ホテル・宿泊施設など、予約受付が発生する業種全般に対応しています。業種ごとの予約フローや項目の差異も、ヒアリングを踏まえて設計します。',
+  },
+  {
+    q: '既存の予約システムや基幹システムと連携できますか？',
+    a: '可能です。既存の予約管理システムやPOS・基幹システムとのAPI連携に対応しています。連携先の仕様確認が必要なため、初回ヒアリングで現状をお聞きし、連携方法をご提案します。',
+  },
+  {
+    q: '開発期間と費用の目安は？',
+    a: '予約受付・リマインド・会員ID取得の基本構成であれば最短3ヶ月が目安です。費用は連携先システムの数や予約項目の複雑さによって変わるため、初回ヒアリング後に概算をお出しします。',
+  },
+  {
+    q: 'SaaSの予約ツールとの違いは何ですか？',
+    a: 'グロースパック for LINEはハーフスクラッチ型のため、既存システムとの深い連携、業種固有の予約フロー設計、時期ベースのリマインド設定など、パッケージでは対応しにくいカスタマイズが可能です。予約データを会員証・スタンプ・クーポンと連携して活用する点も特徴です。',
+  },
+  {
+    q: '実際にLINE予約を導入した業種の事例はありますか？',
+    a: '飲食・サロン・施設など複数業種で導入実績があります。具体的な事例の詳細はお問い合わせいただいた後のヒアリングでご紹介しています。業種ごとの課題やフローに合わせた構成をご提案します。',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'LINE予約の導入ステップ',
+  description: '3ステップで段階的に導入できます',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: '要件ヒアリング・見積',
+      text: '予約受付方法・メニュー構成・既存システム連携の要否を確認し、概算費用と工期を提示します。',
+      position: 1,
+    },
+    {
+      '@type': 'HowToStep',
+      name: '設計・実装',
+      text: '予約受付・カレンダー連携・リマインド自動配信・会員ID取得を設計・実装します。',
+      position: 2,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'テスト・本番リリース',
+      text: '受入テスト・LINEヤフー審査・本番リリースまで伴走します。',
+      position: 3,
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'LINE予約｜飲食・サロン・施設の予約をLINE上で完結｜グロースパック for LINE',
+  description: '電話予約の負担、予約忘れによるノーショウ、外部予約サービスへの手数料。飲食・サロン・施設の予約課題をLINEミニアプリで解消。リマインド自動化で最短3ヶ月。',
+  author: { '@type': 'Organization', name: 'クラスメソッド株式会社', url: 'https://classmethod.jp/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: { '@type': 'ImageObject', url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png' },
+  },
+  datePublished: '2026-04-30',
+  dateModified: '2026-05-01',
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                */
 /* ------------------------------------------------------------------ */
@@ -219,6 +296,9 @@ export default function ReservationPage() {
     <main className="min-h-screen bg-white text-[#1F2937]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
       <FeatureScrollTracker page="reservation" />
       {/* Header */}
@@ -326,6 +406,27 @@ export default function ReservationPage() {
         </div>
       </div>
 
+      {/* 3行でわかる */}
+      <Section id="key-takeaways" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6">3行でわかる、LINE予約で何ができるか</h2>
+          <ol className="space-y-4">
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">1</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">飲食・サロン・施設の予約をLINE上で完結。アプリのダウンロードなしに24時間受け付けられる</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">2</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">予約確認・前日リマインド・キャンセル待ち・空席通知を自動化し、スタッフの確認工数をなくす</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">3</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">既存の予約システム・POSとAPI連携するため、現場の運用フローを変えずに導入できる</p>
+            </li>
+          </ol>
+        </div>
+      </Section>
+
       {/* できること */}
       <Section id="features" spacing="md" container="wide" background="white">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -422,6 +523,47 @@ export default function ReservationPage() {
             </Card>
           ))}
         </div>
+      </Section>
+
+      {/* よくある質問 */}
+      <Section id="faq" spacing="md" container="wide" background="muted">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">FAQ</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">よくある質問</h2>
+        </div>
+        <div className="max-w-[800px] space-y-4">
+          {FAQS.map((f) => (
+            <details key={f.q} className="bg-white rounded-xl border border-[#E5E7EB] p-5 group">
+              <summary className="cursor-pointer font-semibold text-[#1F2937] text-base leading-snug list-none flex justify-between items-start gap-4">
+                <span>{f.q}</span>
+                <span className="shrink-0 text-[#05A847] mt-0.5">+</span>
+              </summary>
+              <p className="mt-3 text-sm text-[#4B5563] leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      {/* 3ステップ導入フロー */}
+      <Section id="how-to" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">HOW TO START</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">3ステップで導入できます</h2>
+        </div>
+        <ol className="max-w-[800px] space-y-4">
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">1. 要件ヒアリング・見積（〜2週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">予約受付方法・メニュー構成・既存システム連携の要否をお聞きし、概算費用と工期をご提示します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">2. 設計・実装（1〜2ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">予約受付・カレンダー連携・リマインド自動配信・会員ID取得の設計と実装を行います。既存システム連携も並列で進行します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">3. テスト・本番リリース（1ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">受入テスト・LINEヤフー審査・本番リリースまで伴走します。リリース後の運用フォローも対応可能です。</p>
+          </li>
+        </ol>
       </Section>
 
       {/* CTA */}
