@@ -95,16 +95,19 @@ const PROBLEMS = [
     body: '年間3,000万〜1億円規模の折込チラシ費が損益に直結する。配布エリア外には届かず効果測定もできない。デジタル移行を進めたいがシニア層への対応が課題になっている。',
   },
   {
-    title: '会員カード提示率の低迷',
-    body: 'カードを持ち歩かない・忘れる顧客が多く会員特典が届かない。ポイント未付与の来店データが蓄積されず顧客行動の全体像が見えない状態が続いている。',
-  },
-  {
     title: 'シニア層のアプリ離脱',
     body: 'スマホアプリのDL・設定が障壁となりシニア顧客がデジタル施策から取り残される。LINEはシニア世代の利用率が高く、アプリDL不要のLINEミニアプリで解決できる。',
   },
   {
     title: '紙スタンプカードの管理コスト',
     body: '紙スタンプカードの印刷・配布・集計に毎月コストと工数がかかる。紛失・不正利用の対応も現場負荷になっており、デジタル化で運用コストを削減できる。',
+  },
+];
+
+const STRUCTURAL_ISSUES = [
+  {
+    title: '会員カード提示率の低迷',
+    body: 'カードを持ち歩かない・忘れる顧客が多く会員特典が届かない。ポイント未付与の来店データが蓄積されず顧客行動の全体像が見えない状態が続いている。',
   },
   {
     title: '競合店増加による来店頻度低下',
@@ -365,7 +368,7 @@ export default function SupermarketPage() {
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
                 <Button variant="primary" size="lg" asChild>
-                  <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="hero_primary" destination="contact">
+                  <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=supermarket-flyer#iframe-form" location="hero_primary" destination="contact">
                     無料で相談する
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </TrackedExternalLink>
@@ -548,7 +551,7 @@ export default function SupermarketPage() {
       </Section>
 
       {/* ============================================================ */}
-      {/* 課題セクション（§7-4）                                          */}
+      {/* 課題セクション（§7-4、スーパー PROBLEMS 3点）                      */}
       {/* ============================================================ */}
       <Section id="problems" spacing="sm" container="wide" background="muted">
         <div className="max-w-[720px] mb-10 md:mb-12">
@@ -556,13 +559,36 @@ export default function SupermarketPage() {
             CHALLENGES
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            SM・HC企業が「このままでは限界だ」と感じる、5つの壁。
+            チラシコスト・シニア離脱・スタンプ運用—紙DXで解くべき3つの壁。
           </h2>
-          <p className="text-base text-[#4B5563]">個別施策では解決できない、スーパー・ホームセンター業界の構造的な課題です。</p>
+          <p className="text-base text-[#4B5563]">折込チラシの費用対効果低下を出発点に、シニア含む全顧客のデジタル移行と販促デジタル化を実現します。</p>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
           {PROBLEMS.map((p) => (
             <Card key={p.title} padding="md" className="border-l-4 border-l-[#06C755]">
+              <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
+              <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* 構造課題セクション（主旨外 2点）                                   */}
+      {/* ============================================================ */}
+      <Section id="structural-issues" spacing="sm" container="wide" background="white">
+        <div className="max-w-[720px] mb-10 md:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">
+            STRUCTURAL ISSUES
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            業界全体の構造課題
+          </h2>
+          <p className="text-base text-[#4B5563]">主軸課題に取り組む過程で見えてくる隣接課題</p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+          {STRUCTURAL_ISSUES.map((p) => (
+            <Card key={p.title} padding="md" className="border-l-4 border-l-[#9CA3AF]">
               <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
               <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
             </Card>
@@ -632,7 +658,7 @@ export default function SupermarketPage() {
             <div className="absolute -top-3 left-4 px-2 py-0.5 bg-[#05A847] text-white text-xs font-bold rounded-sm">
               RECOMMENDED
             </div>
-            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">Growthpack</div>
+            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">グロースパック</div>
             <h3 className="text-base font-bold mb-4">ハーフスクラッチ<br /><span className="text-sm font-normal text-[#05A847]">開発</span></h3>
             <ul className="text-sm text-[#1F2937] space-y-2 font-medium">
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />初期コスト: 中</li>
@@ -669,7 +695,7 @@ export default function SupermarketPage() {
                 asChild
                 className="bg-white text-[#05A847] hover:bg-white/90 font-bold"
               >
-                <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="midband" destination="contact">
+                <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=supermarket-flyer#iframe-form" location="midband" destination="contact">
                   無料で相談する
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </TrackedExternalLink>
@@ -799,7 +825,7 @@ export default function SupermarketPage() {
           <p className="text-base sm:text-lg text-white/80 max-w-[640px] mx-auto leading-relaxed">店舗数・現行会員DB・POSシステムをお聞きして、最適な構成をご提案します。初回相談は無料です。</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-4">
             <Button variant="primary" size="lg" asChild>
-              <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/#iframe-form" location="final_primary" destination="contact">
+              <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=supermarket-flyer#iframe-form" location="final_primary" destination="contact">
                 無料で相談する
                 <ArrowRight className="w-5 h-5 ml-2" />
               </TrackedExternalLink>

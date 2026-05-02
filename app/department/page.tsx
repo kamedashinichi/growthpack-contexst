@@ -108,6 +108,9 @@ const PROBLEMS = [
     title: '来館後の再来訪率が低い：一見客化してLTVが最大化できない',
     body: 'インバウンド・観光顧客は「旅行中の一度だけ」になりがち。来館後にLINEで接点を持ち、次回来日時の再来訪やオンライン購買につなげる仕組みが必要です。',
   },
+];
+
+const STRUCTURAL_ISSUES = [
   {
     title: '外商の属人化：担当者交代で顧客関係がリセットされる',
     body: '接客履歴・好み・人間関係が個人の頭の中にある。異動・退職で関係がゼロに戻り、上顧客層が離れるリスクが組織に潜んでいます。',
@@ -545,7 +548,7 @@ export default function DepartmentPage() {
       </Section>
 
       {/* ============================================================ */}
-      {/* 課題セクション（§7-4、百貨店5点）                                 */}
+      {/* 課題セクション（§7-4、百貨店 PROBLEMS 3点）                        */}
       {/* ============================================================ */}
       <Section id="problems" spacing="sm" container="wide" background="muted">
         <div className="max-w-[720px] mb-10 md:mb-12">
@@ -553,13 +556,36 @@ export default function DepartmentPage() {
             CHALLENGES
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            外商の属人化から催事管理まで、百貨店の顧客接点が抱える構造的な課題。
+            言語の壁・免税・一見客化—インバウンド時代の百貨店が抱える接点課題。
           </h2>
-          <p className="text-base text-[#4B5563]">外商の属人化・催事のアナログ管理・一斉配信依存。百貨店特有の課題を二層設計で解きます。</p>
+          <p className="text-base text-[#4B5563]">訪日外国人増加の恩恵を取りこぼさないために、言語・手続き・再来訪の3つの壁を同時に解きます。</p>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
           {PROBLEMS.map((p) => (
             <Card key={p.title} padding="md" className="border-l-4 border-l-[#06C755]">
+              <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
+              <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* 構造課題セクション（主旨外 2点）                                   */}
+      {/* ============================================================ */}
+      <Section id="structural-issues" spacing="sm" container="wide" background="white">
+        <div className="max-w-[720px] mb-10 md:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">
+            STRUCTURAL ISSUES
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            業界全体の構造課題
+          </h2>
+          <p className="text-base text-[#4B5563]">主軸課題に取り組む過程で見えてくる隣接課題</p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+          {STRUCTURAL_ISSUES.map((p) => (
+            <Card key={p.title} padding="md" className="border-l-4 border-l-[#9CA3AF]">
               <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
               <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
             </Card>
@@ -632,7 +658,7 @@ export default function DepartmentPage() {
             <div className="absolute -top-3 left-4 px-2 py-0.5 bg-[#05A847] text-white text-xs font-bold rounded-sm">
               RECOMMENDED
             </div>
-            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">Growthpack</div>
+            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">グロースパック</div>
             <h3 className="text-base font-bold mb-4">ハーフスクラッチ<br /><span className="text-sm font-normal text-[#05A847]">開発</span></h3>
             <ul className="text-sm text-[#1F2937] space-y-2 font-medium">
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />初期コスト: 中</li>
@@ -669,7 +695,7 @@ export default function DepartmentPage() {
                 asChild
                 className="bg-white text-[#05A847] hover:bg-white/90 font-bold"
               >
-                <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=department-118#iframe-form" location="mid_band" destination="contact">
+                <TrackedExternalLink href="https://classmethod.jp/services/line/line-apps/?utm_source=organic&utm_medium=lp&utm_campaign=hypothesis-v1&utm_content=department-118#iframe-form" location="midband" destination="contact">
                   無料で相談する
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </TrackedExternalLink>

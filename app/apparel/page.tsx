@@ -92,13 +92,16 @@ const PROBLEMS = [
     body: '試着・検討中に「また今度」で帰宅すると購買転換できない。QRコードで即座に友だち追加と会員化を同時完了させ、退店後も接点を維持します。',
   },
   {
-    title: 'スタッフが接客データを残せない：顧客カルテ未整備でパーソナライズ不可',
-    body: '好み・サイズ・試着履歴がスタッフの記憶にしかない。接客情報をシステムに蓄積することで、次回来店時の精度と担当引き継ぎの質を高めます。',
-  },
-  {
     title: '季節セール・再入荷の通知が届かない：セグメント配信基盤なし',
     body: '購買嗜好・来店チャネルに応じた配信ができず、全会員に同じメッセージを送り続けている。ブランド嗜好・購買帯ごとのセグメント配信で売上機会の損失を防ぎます。',
   },
+  {
+    title: 'スタッフが接客データを残せない：顧客カルテ未整備でパーソナライズ不可',
+    body: '好み・サイズ・試着履歴がスタッフの記憶にしかない。接客情報をシステムに蓄積することで、次回来店時の精度と担当引き継ぎの質を高めます。',
+  },
+];
+
+const STRUCTURAL_ISSUES = [
   {
     title: 'OMO課題：店舗とECで顧客が別人扱い',
     body: '店舗POS・EC・LINEに会員IDが散在。購買履歴が統合できず、パーソナライズが機能しません。',
@@ -538,13 +541,36 @@ export default function ApparelPage() {
             CHALLENGES
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            アパレル業界のDX担当者が「限界だ」と感じる、5つの壁。
+            試着・セール・接客—店頭の購買機会が今日も取りこぼされている。
           </h2>
-          <p className="text-base text-[#4B5563]">個別ツールでは解決できない、アパレル業界の構造的な課題です。</p>
+          <p className="text-base text-[#4B5563]">店頭での商品シェアを最大化するために、会員化・配信・顧客カルテの3層を順に整備します。</p>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
           {PROBLEMS.map((p) => (
             <Card key={p.title} padding="md" className="border-l-4 border-l-[#06C755]">
+              <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
+              <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* 構造課題セクション（主旨外 2点）                                   */}
+      {/* ============================================================ */}
+      <Section id="structural-issues" spacing="sm" container="wide" background="white">
+        <div className="max-w-[720px] mb-10 md:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">
+            STRUCTURAL ISSUES
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            業界全体の構造課題
+          </h2>
+          <p className="text-base text-[#4B5563]">主軸課題に取り組む過程で見えてくる隣接課題</p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+          {STRUCTURAL_ISSUES.map((p) => (
+            <Card key={p.title} padding="md" className="border-l-4 border-l-[#9CA3AF]">
               <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
               <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
             </Card>
@@ -614,7 +640,7 @@ export default function ApparelPage() {
             <div className="absolute -top-3 left-4 px-2 py-0.5 bg-[#05A847] text-white text-xs font-bold rounded-sm">
               RECOMMENDED
             </div>
-            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">Growthpack</div>
+            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">グロースパック</div>
             <h3 className="text-base font-bold mb-4">ハーフスクラッチ<br /><span className="text-sm font-normal text-[#05A847]">開発</span></h3>
             <ul className="text-sm text-[#1F2937] space-y-2 font-medium">
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />初期コスト: 中</li>

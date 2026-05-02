@@ -102,12 +102,15 @@ const PROBLEMS = [
     body: '注文データと会員データが別管理のため、誰が何を買っているかが見えない。LINEを軸に注文・来店・購買を一元管理し、販促施策の精度を高めます。',
   },
   {
-    title: 'クーポン・スタンプによるリピート促進が仕組み化されていない：来店後の即フォローができない',
-    body: '来店したその日にLINEで再来店を促す自動シナリオがない。スタンプカード+クーポン自動配信で「また行きたい」サイクルを設計します。',
-  },
-  {
     title: 'テイクアウト・デリバリー手数料：マージンが圧迫される',
     body: 'デリバリープラットフォーム依存で手数料が経営を圧迫。LINEを起点にした自社テイクアウト導線を整備し、プラットフォーム手数料依存から脱却できます。',
+  },
+];
+
+const STRUCTURAL_ISSUES = [
+  {
+    title: 'クーポン・スタンプによるリピート促進が仕組み化されていない：来店後の即フォローができない',
+    body: '来店したその日にLINEで再来店を促す自動シナリオがない。スタンプカード+クーポン自動配信で「また行きたい」サイクルを設計します。',
   },
   {
     title: '複数ブランドのLINE乱立：管理コストが膨張する',
@@ -545,13 +548,36 @@ export default function FoodPage() {
             CHALLENGES
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            飲食チェーンのDX担当者が直面する、5つの構造課題。
+            行列・データ分断・手数料—モバイルオーダーで解くべき飲食3課題。
           </h2>
-          <p className="text-base text-[#4B5563]">個別ツールでは解決できない、飲食業界の構造的な課題です。</p>
+          <p className="text-base text-[#4B5563]">ピーク時の機会損失を入口に、注文データ活用と自社チャネル化の3層を順に整備します。</p>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
           {PROBLEMS.map((p) => (
             <Card key={p.title} padding="md" className="border-l-4 border-l-[#06C755]">
+              <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
+              <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* 構造課題セクション（主旨外 2点）                                   */}
+      {/* ============================================================ */}
+      <Section id="structural-issues" spacing="sm" container="wide" background="white">
+        <div className="max-w-[720px] mb-10 md:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">
+            STRUCTURAL ISSUES
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            業界全体の構造課題
+          </h2>
+          <p className="text-base text-[#4B5563]">主軸課題に取り組む過程で見えてくる隣接課題</p>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+          {STRUCTURAL_ISSUES.map((p) => (
+            <Card key={p.title} padding="md" className="border-l-4 border-l-[#9CA3AF]">
               <h3 className="text-base sm:text-lg font-bold text-[#1F2937] mb-2">{p.title}</h3>
               <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed">{p.body}</p>
             </Card>
@@ -621,7 +647,7 @@ export default function FoodPage() {
             <div className="absolute -top-3 left-4 px-2 py-0.5 bg-[#05A847] text-white text-xs font-bold rounded-sm">
               RECOMMENDED
             </div>
-            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">Growthpack</div>
+            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">グロースパック</div>
             <h3 className="text-base font-bold mb-4">ハーフスクラッチ<br /><span className="text-sm font-normal text-[#05A847]">開発</span></h3>
             <ul className="text-sm text-[#1F2937] space-y-2 font-medium">
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />初期コスト: 中</li>
