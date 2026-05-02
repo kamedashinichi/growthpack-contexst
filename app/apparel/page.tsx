@@ -31,6 +31,7 @@ import { Card } from '@/components/shared/ui/card';
 import { WPDownloadButton } from './wp-download-button';
 import { TrackedExternalLink } from './tracking';
 import { ScrollTracker } from './scroll-tracker';
+import { TargetAudienceNotice } from '@/components/shared/ui/target-audience-notice';
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                  */
@@ -531,6 +532,11 @@ export default function ApparelPage() {
           ))}
         </div>
       </Section>
+
+      {/* ============================================================ */}
+      {/* 対象明示（Issue #223）                                           */}
+      {/* ============================================================ */}
+      <TargetAudienceNotice />
 
       {/* ============================================================ */}
       {/* 課題セクション（§7-4、DX 5点セット）                             */}

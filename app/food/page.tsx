@@ -31,6 +31,7 @@ import { Card } from '@/components/shared/ui/card';
 import { TrackedExternalLink } from './tracking';
 import { ScrollTracker } from './scroll-tracker';
 import { WPDownloadButton } from './wp-download-button';
+import { TargetAudienceNotice } from '@/components/shared/ui/target-audience-notice';
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                  */
@@ -540,6 +541,11 @@ export default function FoodPage() {
         </div>
         <p className="text-xs text-[#9CA3AF] text-center mt-4">※ 導入効果は企業規模・既存システム・施策設計によって異なります。</p>
       </Section>
+
+      {/* ============================================================ */}
+      {/* 対象明示（Issue #223）                                           */}
+      {/* ============================================================ */}
+      <TargetAudienceNotice />
 
       {/* ============================================================ */}
       {/* 課題セクション（§7-4、飲食5点セット）                             */}

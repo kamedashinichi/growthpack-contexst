@@ -31,6 +31,7 @@ import { Card } from '@/components/shared/ui/card';
 import { TrackedExternalLink } from './tracking';
 import { ScrollTracker } from './scroll-tracker';
 import { WPDownloadButton } from './wp-download-button';
+import { TargetAudienceNotice } from '@/components/shared/ui/target-audience-notice';
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                  */
@@ -528,6 +529,11 @@ export default function HotelPage() {
           ))}
         </div>
       </Section>
+
+      {/* ============================================================ */}
+      {/* 対象明示（Issue #223）                                           */}
+      {/* ============================================================ */}
+      <TargetAudienceNotice />
 
       {/* ============================================================ */}
       {/* 課題セクション（§7-4、ホテル PROBLEMS 3点）                        */}
