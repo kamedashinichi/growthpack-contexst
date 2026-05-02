@@ -184,6 +184,29 @@ const STEPS = [
   },
 ];
 
+const FAQS = [
+  {
+    q: 'セグメント条件はどのような例がありますか？',
+    a: '「来店回数5回以上・ゴールドランク・最終来店から60日以内」のような複合条件や、「スタンプ残り2枚以下」「特定商品の購買履歴あり」「チャットで付けたタグ」など、導入している機能のデータをAND/OR条件で自由に組み合わせられます。',
+  },
+  {
+    q: '個人情報の取り扱いはどうなっていますか？',
+    a: 'LINE IDと顧客データの連携はLINEヤフーのガイドラインに準拠した設計で行います。個人を特定する情報はグロースパック for LINEのシステム内で管理し、第三者に提供することはありません。詳細は初回ヒアリング時にご説明します。',
+  },
+  {
+    q: '配信回数の上限はありますか？',
+    a: 'LINEの仕様上、月間配信数はLINE公式アカウントのプランに依存します。グロースパック for LINEのシステムに独自の上限設定はありませんが、ブロック率を下げるためにセグメント配信・シナリオ配信の設計を最適化するご支援も行っています。',
+  },
+  {
+    q: '開発期間と費用の目安は？',
+    a: 'CRM基盤とセグメント配信の基本構成は最短3ヶ月で立ち上げが可能です。シナリオ配信の本数、連携する既存システムの数、分析レポートの詳細度により期間と費用が変わるため、初回ヒアリングで概算をご提示します。',
+  },
+  {
+    q: 'どのような業界で活用されていますか？',
+    a: '小売（百貨店・アパレル・食品スーパー・ドラッグストア）、飲食、ホテル、スポーツ・エンタメなど、LINE友だち基盤を持ち一斉配信のブロック率に課題を感じている事業会社さま全般でご利用いただいています。',
+  },
+];
+
 /* ------------------------------------------------------------------ */
 /* JSON-LD                                                             */
 /* ------------------------------------------------------------------ */
@@ -207,6 +230,60 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'LINEセグメント配信の導入ステップ',
+  description: '3ステップで段階的に導入できます',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: '要件ヒアリング・見積',
+      text: '既存のCRM/MAツール・自動化したい配信シナリオ・データを見る人の役職を確認し、概算費用と工期を提示します。',
+      position: 1,
+    },
+    {
+      '@type': 'HowToStep',
+      name: '設計・実装',
+      text: 'CRM基盤・セグメントビルダー・一斉配信・シナリオ配信の設計と実装を行います。既存システムとのデータ連携も並列で進行します。',
+      position: 2,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'テスト・本番リリース',
+      text: '受入テスト・LINEヤフー審査・本番リリースまで伴走します。開封率・クリック率の確認フローも初期設定します。',
+      position: 3,
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'LINEセグメント配信｜購買履歴・属性別の最適配信でブロック率を下げる｜グロースパック for LINE',
+  description: '一斉配信によるブロック率上昇、購買履歴を活かしきれない配信設計、属性別可視化不足。LINEセグメント配信で最適なメッセージを届ける。ハーフスクラッチ開発で最短3ヶ月。',
+  author: { '@type': 'Organization', name: 'クラスメソッド株式会社', url: 'https://classmethod.jp/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: { '@type': 'ImageObject', url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png' },
+  },
+  datePublished: '2026-04-30',
+  dateModified: '2026-05-01',
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                */
 /* ------------------------------------------------------------------ */
@@ -216,6 +293,9 @@ export default function SegmentPage() {
     <main className="min-h-screen bg-white text-[#1F2937]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
       <FeatureScrollTracker page="segment" />
       {/* Header */}
@@ -297,6 +377,27 @@ export default function SegmentPage() {
           </div>
         </div>
       </div>
+
+      {/* 3行でわかる */}
+      <Section id="key-takeaways" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6">3行でわかる、LINEセグメント配信で何ができるか</h2>
+          <ol className="space-y-4">
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">1</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">購買履歴・属性別の最適配信でブロック率を下げ、一斉配信から脱却する</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">2</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">適切な人への配信集中で配信あたりの開封率・クリック率を上昇させる</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">3</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">配信効果をLINE上で計測しPDCAを高速化する仕組みを整備する</p>
+            </li>
+          </ol>
+        </div>
+      </Section>
 
       {/* できること */}
       <Section id="features" spacing="md" container="wide" background="white">
@@ -383,6 +484,47 @@ export default function SegmentPage() {
             </Card>
           ))}
         </div>
+      </Section>
+
+      {/* よくある質問 */}
+      <Section id="faq" spacing="md" container="wide" background="muted">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">FAQ</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">よくある質問</h2>
+        </div>
+        <div className="max-w-[800px] space-y-4">
+          {FAQS.map((f) => (
+            <details key={f.q} className="bg-white rounded-xl border border-[#E5E7EB] p-5 group">
+              <summary className="cursor-pointer font-semibold text-[#1F2937] text-base leading-snug list-none flex justify-between items-start gap-4">
+                <span>{f.q}</span>
+                <span className="shrink-0 text-[#05A847] mt-0.5">+</span>
+              </summary>
+              <p className="mt-3 text-sm text-[#4B5563] leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      {/* 3ステップ導入フロー */}
+      <Section id="how-to" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">HOW TO START</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">3ステップで導入できます</h2>
+        </div>
+        <ol className="max-w-[800px] space-y-4">
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">1. 要件ヒアリング・見積（〜2週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">既存のCRM/MAツール・最初に自動化したい配信シナリオ・データを見る人の役職をお聞きし、概算費用と工期をご提示します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">2. 設計・実装（1〜2ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">CRM基盤・セグメントビルダー・一斉配信・シナリオ配信の設計と実装を行います。既存システムとのデータ連携も並列で進行します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">3. テスト・本番リリース（1ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">受入テスト・LINEヤフー審査・本番リリースまで伴走します。開封率・クリック率の確認フローを初期設定し、改善サイクルを開始します。</p>
+          </li>
+        </ol>
       </Section>
 
       {/* CTA */}
