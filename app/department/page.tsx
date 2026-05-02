@@ -575,13 +575,13 @@ export default function DepartmentPage() {
       {/* ============================================================ */}
       <Section id="structural-issues" spacing="sm" container="wide" background="white">
         <div className="max-w-[720px] mb-10 md:mb-12">
-          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#9CA3AF] mb-3">
             STRUCTURAL ISSUES
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+          <h3 className="text-xl sm:text-2xl font-semibold text-[#374151] mb-3">
             業界全体の構造課題
-          </h2>
-          <p className="text-base text-[#4B5563]">主軸課題に取り組む過程で見えてくる隣接課題</p>
+          </h3>
+          <p className="text-base text-[#4B5563]">あわせて解決できる構造的な課題</p>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
           {STRUCTURAL_ISSUES.map((p) => (
