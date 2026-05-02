@@ -15,6 +15,39 @@
  * - 煽り語NG、丁寧体
  * - 顧客向けに「開発中」「未リリース」の表記は入れない
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINE 1to1コミュニケーション｜双方向のチャット・お客様対応｜グロースパック for LINE',
+  description: 'LINEを使った顧客との個別チャット対応、問い合わせ管理の煩雑さ、スタッフ対応品質のばらつき。LINE 1to1コミュニケーションで双方向の顧客接点を実現。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINE。',
+  keywords: ['LINE 1to1', '双方向', 'チャット', 'カスタマーサポート', 'LINEミニアプリ', '1to1コミュニケーション'],
+  alternates: {
+    canonical: '/1to1',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/1to1',
+    title: 'LINE 1to1コミュニケーション｜双方向のチャット・お客様対応｜グロースパック for LINE',
+    description: 'LINEを使った顧客との個別チャット対応、問い合わせ管理の煩雑さ、スタッフ対応品質のばらつき。LINE 1to1コミュニケーションで双方向の顧客接点を実現。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINE 1to1コミュニケーション｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINE 1to1コミュニケーション｜双方向のチャット・お客様対応｜グロースパック for LINE',
+    description: 'LINEを使った顧客との個別チャット対応、問い合わせ管理の煩雑さ、スタッフ対応品質のばらつき。LINE 1to1コミュニケーションで双方向の顧客接点を実現。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import {
   ArrowRight,

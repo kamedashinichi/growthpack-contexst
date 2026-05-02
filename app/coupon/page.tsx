@@ -3,6 +3,39 @@
  *
  * docs/DESIGN-FEATURE-PAGE.md に厳密に従う。
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINEクーポン配信｜セグメント別クーポン・ブロック率を下げる配信設計｜グロースパック for LINE',
+  description: '一斉配信によるブロック率上昇、クーポンの多用による値引き依存、配信効果の可視化不足。LINEクーポンをセグメント別に最適配信してブロック率を抑制。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINE。',
+  keywords: ['LINE クーポン', 'セグメント配信', 'ブロック率', 'LINEミニアプリ', 'クーポン配信'],
+  alternates: {
+    canonical: '/coupon',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/coupon',
+    title: 'LINEクーポン配信｜セグメント別クーポン・ブロック率を下げる配信設計｜グロースパック for LINE',
+    description: '一斉配信によるブロック率上昇、クーポンの多用による値引き依存、配信効果の可視化不足。LINEクーポンをセグメント別に最適配信してブロック率を抑制。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINEクーポン配信｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINEクーポン配信｜セグメント別クーポン・ブロック率を下げる配信設計｜グロースパック for LINE',
+    description: '一斉配信によるブロック率上昇、クーポンの多用による値引き依存、配信効果の可視化不足。LINEクーポンをセグメント別に最適配信してブロック率を抑制。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {

@@ -3,6 +3,39 @@
  *
  * docs/DESIGN-FEATURE-PAGE.md に厳密に従う。
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINEソーシャルギフト｜受取人自動会員化でCACを下げる送付スキーム｜グロースパック for LINE',
+  description: '新規顧客獲得コストの高さ、ギフト送付後の受取人フォロー不足、贈答機会の未活用。LINEソーシャルギフトで受取人を自動会員化しCACを削減。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINE。',
+  keywords: ['LINE ギフト', 'ソーシャルギフト', '受取人会員化', 'LINEミニアプリ', 'CAC', '新規獲得'],
+  alternates: {
+    canonical: '/gift',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/gift',
+    title: 'LINEソーシャルギフト｜受取人自動会員化でCACを下げる送付スキーム｜グロースパック for LINE',
+    description: '新規顧客獲得コストの高さ、ギフト送付後の受取人フォロー不足、贈答機会の未活用。LINEソーシャルギフトで受取人を自動会員化しCACを削減。ハーフスクラッチ開発で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINEソーシャルギフト｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINEソーシャルギフト｜受取人自動会員化でCACを下げる送付スキーム｜グロースパック for LINE',
+    description: '新規顧客獲得コストの高さ、ギフト送付後の受取人フォロー不足、贈答機会の未活用。LINEソーシャルギフトで受取人を自動会員化しCACを削減。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {

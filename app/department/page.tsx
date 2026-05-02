@@ -12,6 +12,39 @@
  * - 機能アイコンは /public/images/<機能名>.png を <Image> で表示
  * - CTA リンクは §10 正規 URL
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: '百貨店向けLINEミニアプリ開発｜インバウンド・免税・外商の接点課題を解く｜グロースパック for LINE',
+  description: '百貨店・商業施設のインバウンド対応・免税手続きDX・外商顧客のデジタル接点が課題なら、LINEミニアプリで解消できます。事業会社向けハーフスクラッチ開発で最短3ヶ月。グロースパック for LINEはクラスメソッド提供。',
+  keywords: ['百貨店', 'LINEミニアプリ', 'インバウンド', '免税', '外商', 'デジタル会員証', 'LINEミニアプリ開発', 'OMO'],
+  alternates: {
+    canonical: '/department',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/department',
+    title: '百貨店向けLINEミニアプリ開発｜インバウンド・免税・外商の接点課題を解く｜グロースパック for LINE',
+    description: '百貨店・商業施設のインバウンド対応・免税手続きDX・外商顧客のデジタル接点が課題なら、LINEミニアプリで解消できます。事業会社向けハーフスクラッチ開発で最短3ヶ月。グロースパック for LINE。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: '百貨店向けLINEミニアプリ開発｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '百貨店向けLINEミニアプリ開発｜インバウンド・免税・外商の接点課題を解く｜グロースパック for LINE',
+    description: '百貨店・商業施設のインバウンド対応・免税手続きDX・外商顧客のデジタル接点が課題なら、LINEミニアプリで解消できます。事業会社向けハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {

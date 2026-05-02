@@ -3,6 +3,39 @@
  *
  * docs/DESIGN-FEATURE-PAGE.md に厳密に従う。
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINEセグメント配信｜購買履歴・属性別の最適配信でブロック率を下げる｜グロースパック for LINE',
+  description: '一斉配信によるブロック率上昇、購買履歴を活かしきれない配信設計、配信効果の属性別可視化不足。LINEセグメント配信で顧客属性・購買履歴に応じた最適なメッセージを届ける。ハーフスクラッチ開発で最短3ヶ月、グロースパック for LINE。',
+  keywords: ['LINE セグメント配信', 'セグメント', '配信最適化', 'LINEミニアプリ', 'ブロック率'],
+  alternates: {
+    canonical: '/segment',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/segment',
+    title: 'LINEセグメント配信｜購買履歴・属性別の最適配信でブロック率を下げる｜グロースパック for LINE',
+    description: '一斉配信によるブロック率上昇、購買履歴を活かしきれない配信設計、属性別可視化不足。LINEセグメント配信で最適なメッセージを届ける。ハーフスクラッチ開発で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINEセグメント配信｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINEセグメント配信｜購買履歴・属性別の最適配信でブロック率を下げる｜グロースパック for LINE',
+    description: '一斉配信によるブロック率上昇、購買履歴を活かしきれない配信設計、属性別可視化不足。LINEセグメント配信で最適なメッセージを届ける。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import {
   ArrowRight,

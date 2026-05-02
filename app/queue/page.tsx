@@ -3,6 +3,39 @@
  *
  * docs/DESIGN-FEATURE-PAGE.md に厳密に従う。
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINE順番待ち通知｜行列・呼び出し・ピーク時の客離れを防ぐ｜グロースパック for LINE',
+  description: '行列による待ち時間での客離れ、ピーク時の呼び出し管理、人手不足での対応限界。LINEで順番待ち通知を実現し来店体験を改善。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINE。',
+  keywords: ['LINE 順番待ち', '呼び出し', '行列', '飲食', 'ウェイティング', 'LINEミニアプリ'],
+  alternates: {
+    canonical: '/queue',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/queue',
+    title: 'LINE順番待ち通知｜行列・呼び出し・ピーク時の客離れを防ぐ｜グロースパック for LINE',
+    description: '行列による待ち時間での客離れ、ピーク時の呼び出し管理、人手不足での対応限界。LINEで順番待ち通知を実現し来店体験を改善。ハーフスクラッチ開発で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINE順番待ち通知｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINE順番待ち通知｜行列・呼び出し・ピーク時の客離れを防ぐ｜グロースパック for LINE',
+    description: '行列による待ち時間での客離れ、ピーク時の呼び出し管理、人手不足での対応限界。LINEで順番待ち通知を実現し来店体験を改善。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {

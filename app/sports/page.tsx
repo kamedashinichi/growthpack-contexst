@@ -14,6 +14,39 @@
  * - CTA リンクは §10 正規 URL
  * - 独自アプリを否定しない。LINEとの補完レイヤーとして位置付ける
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'スポーツ・エンタメ向けLINEミニアプリ開発｜ライト層接点・コアファン拡張｜グロースパック for LINE',
+  description: '年1〜2回来場のライト層への接点不足、コアファン以外の購買機会損失。スポーツ・エンタメ業界の課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINEがファン育成を支援。',
+  keywords: ['スポーツ', 'エンタメ', 'LINEミニアプリ', 'ファンクラブ', 'ライト層', 'チケット', 'LINEミニアプリ開発'],
+  alternates: {
+    canonical: '/sports',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/sports',
+    title: 'スポーツ・エンタメ向けLINEミニアプリ開発｜ライト層接点・コアファン拡張｜グロースパック for LINE',
+    description: '年1〜2回来場のライト層への接点不足、コアファン以外の購買機会損失。スポーツ・エンタメの課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。グロースパック for LINE。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'スポーツ・エンタメ向けLINEミニアプリ開発｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'スポーツ・エンタメ向けLINEミニアプリ開発｜ライト層接点・コアファン拡張｜グロースパック for LINE',
+    description: '年1〜2回来場のライト層への接点不足、コアファン以外の購買機会損失。スポーツ・エンタメの課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {

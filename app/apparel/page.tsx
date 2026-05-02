@@ -15,6 +15,39 @@
  * - 機能アイコンは /public/images/<機能名>.png を <Image> で表示
  * - CTA リンクは §10 正規 URL
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'アパレル向けLINEミニアプリ開発｜試着後の購買・セグメント配信・顧客カルテ｜グロースパック for LINE',
+  description: '試着後の離脱、顧客カルテの未整備、セグメント配信不足。アパレル特有の店頭×ECの分断課題をLINEミニアプリで解消。最短3ヶ月で会員IDを統合し、ブランドごとの最適配信を実現。グロースパック for LINEのハーフスクラッチ開発。',
+  keywords: ['アパレル', 'LINEミニアプリ', '顧客カルテ', 'セグメント配信', '店頭OMO', 'LINEミニアプリ開発', 'ハーフスクラッチ'],
+  alternates: {
+    canonical: '/apparel',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/apparel',
+    title: 'アパレル向けLINEミニアプリ開発｜試着後の購買・セグメント配信・顧客カルテ｜グロースパック for LINE',
+    description: '試着後の離脱、顧客カルテの未整備、セグメント配信不足。アパレル特有の店頭×ECの分断課題をLINEミニアプリで解消。最短3ヶ月で会員IDを統合。グロースパック for LINE。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'アパレル向けLINEミニアプリ開発｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'アパレル向けLINEミニアプリ開発｜試着後の購買・セグメント配信・顧客カルテ｜グロースパック for LINE',
+    description: '試着後の離脱、顧客カルテの未整備、セグメント配信不足。アパレル特有の店頭×ECの分断課題をLINEミニアプリで解消。最短3ヶ月で会員IDを統合。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {

@@ -15,6 +15,39 @@
  * - GP事例ゼロのため caseStudies は空。STATS は「業界水準」として提示
  * - RET-166 は本 LP 非掲載
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'ホテル向けLINEミニアプリ開発｜OTA手数料削減・直予約・館内消費を伸ばす｜グロースパック for LINE',
+  description: 'OTA手数料の高さ、直予約率の低さ、館内消費の取りこぼし。ホテル・旅館の経営課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINEが直予約率向上を支援。',
+  keywords: ['ホテル', 'LINEミニアプリ', 'OTA', '直予約', 'リピーター', '旅館', 'LINEミニアプリ開発'],
+  alternates: {
+    canonical: '/hotel',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/hotel',
+    title: 'ホテル向けLINEミニアプリ開発｜OTA手数料削減・直予約・館内消費を伸ばす｜グロースパック for LINE',
+    description: 'OTA手数料の高さ、直予約率の低さ、館内消費の取りこぼし。ホテル・旅館の課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。グロースパック for LINE。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'ホテル向けLINEミニアプリ開発｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ホテル向けLINEミニアプリ開発｜OTA手数料削減・直予約・館内消費を伸ばす｜グロースパック for LINE',
+    description: 'OTA手数料の高さ、直予約率の低さ、館内消費の取りこぼし。ホテル・旅館の課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {

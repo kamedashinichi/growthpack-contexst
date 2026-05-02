@@ -19,6 +19,39 @@
  * - CTA リンクは §10 正規 URL
  * - グッデイ公開事例のみ掲載（阪急オアシスは初期リリースでは含めない）
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: '食品スーパー向けLINEミニアプリ開発｜紙チラシDX・シニア対応・スタンプカード｜グロースパック for LINE',
+  description: '紙チラシのコスト、シニア層へのデジタル接点不足、スタンプカードの管理負担。食品スーパーの課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINEで既存会員基盤を活性化。',
+  keywords: ['スーパー', 'LINEミニアプリ', 'チラシDX', 'スタンプカード', '食品スーパー', 'シニア対応', 'LINEミニアプリ開発'],
+  alternates: {
+    canonical: '/supermarket',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/supermarket',
+    title: '食品スーパー向けLINEミニアプリ開発｜紙チラシDX・シニア対応・スタンプカード｜グロースパック for LINE',
+    description: '紙チラシのコスト、シニア層へのデジタル接点不足、スタンプカードの管理負担。食品スーパーの課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: '食品スーパー向けLINEミニアプリ開発｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '食品スーパー向けLINEミニアプリ開発｜紙チラシDX・シニア対応・スタンプカード｜グロースパック for LINE',
+    description: '紙チラシのコスト、シニア層へのデジタル接点不足、スタンプカードの管理負担。食品スーパーの課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {

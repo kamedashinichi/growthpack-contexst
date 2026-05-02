@@ -18,6 +18,39 @@
  * - 薬機法ガードレール（処方内容の直接参照なし）をFAQで明示
  * - 健診データ活用は訴求しない
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'ドラッグストア向けLINEミニアプリ開発｜アプリ疲れ・ポイントカード・調剤接点｜グロースパック for LINE',
+  description: 'アプリ疲れによるポイントカード離脱、調剤待ち時間の非効率、セグメント配信の未活用。ドラッグストアの課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINE。',
+  keywords: ['ドラッグストア', 'LINEミニアプリ', 'ポイントカード', '調剤', '薬局', 'セグメント配信', 'LINEミニアプリ開発'],
+  alternates: {
+    canonical: '/drugstore',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/drugstore',
+    title: 'ドラッグストア向けLINEミニアプリ開発｜アプリ疲れ・ポイントカード・調剤接点｜グロースパック for LINE',
+    description: 'アプリ疲れによるポイントカード離脱、調剤待ち時間の非効率、セグメント配信の未活用。ドラッグストアの課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'ドラッグストア向けLINEミニアプリ開発｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ドラッグストア向けLINEミニアプリ開発｜アプリ疲れ・ポイントカード・調剤接点｜グロースパック for LINE',
+    description: 'アプリ疲れによるポイントカード離脱、調剤待ち時間の非効率、セグメント配信の未活用。ドラッグストアの課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {
