@@ -152,18 +152,24 @@ const APPEAL_STEPS = [
     title: '直予約チャネルを作る',
     description: 'LINE予約とデジタル会員証で「OTA経由→LINE直予約」への導線を確立。OTA手数料の発生点そのものを削減します。',
     icon: '🏨',
+    duration: '初月〜1ヶ月目',
+    completion: 'OTA非経由の直予約基盤が稼働する',
   },
   {
     step: 'Step 2',
     title: '滞在中の館内消費を拾う',
     description: 'クーポンと1to1でチェックイン後の接点を維持し、レストラン・スパ・売店の付帯収益を引き上げます。',
     icon: '🍽',
+    duration: '1〜2ヶ月目',
+    completion: '館内消費データが蓄積され次回滞在の提案精度が上がる',
   },
   {
     step: 'Step 3',
     title: '退館後にリピートを設計する',
     description: 'セグメント配信で半年未来訪・季節・プラン別に呼び戻し。紙DMからLINEへ置き換え、直予約の継続ループを作ります。',
     icon: '🔁',
+    duration: '3ヶ月以降',
+    completion: '直予約の好循環ループが自動で回り始める',
   },
 ];
 
@@ -220,6 +226,16 @@ const FAQS = [
     q: '代理店・パートナーとして相談したいのですが、対象になりますか？',
     a: '本サービスは、自社サービスとしてLINEミニアプリの導入をご検討の事業会社さまを対象としています。代理店・パートナーさま経由でのご提案や、エンドクライアントを別企業とする受託開発でのご利用は対象外とさせていただいております。事業会社さまから直接お問い合わせいただける場合は対応可能です。',
   },
+];
+
+/* ------------------------------------------------------------------ */
+/* KEY TAKEAWAYS (AIO §A)                                               */
+/* ------------------------------------------------------------------ */
+
+const KEY_TAKEAWAYS = [
+  'OTA手数料に依存していたリピーターを、LINE直予約に移行する設計（最短3ヶ月）',
+  '滞在中の館内消費（レストラン/スパ/物販）をLINE接点で取りこぼさない',
+  'ID連携で会員データを統合し、再来訪率を高めるセグメント配信に活かす',
 ];
 
 /* ------------------------------------------------------------------ */
@@ -291,6 +307,57 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'ホテル×LINEミニアプリの導入ステップ',
+  description: 'OTA手数料削減から館内消費最大化、リピート設計まで3ステップで段階導入する流れ',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: '直予約チャネルを作る',
+      text: 'LINE予約とデジタル会員証で「OTA経由→LINE直予約」への導線を確立。OTA手数料の発生点そのものを削減します。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: '滞在中の館内消費を拾う',
+      text: 'クーポンと1to1でチェックイン後の接点を維持し、レストラン・スパ・売店の付帯収益を引き上げます。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: '退館後にリピートを設計する',
+      text: 'セグメント配信で半年未来訪・季節・プラン別に呼び戻し。紙DMからLINEへ置き換え、直予約の継続ループを作ります。',
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'ホテル向けLINEミニアプリ開発｜OTA手数料削減・直予約・館内消費を伸ばす｜グロースパック for LINE',
+  description: 'OTA手数料の高さ、直予約率の低さ、館内消費の取りこぼし。ホテル・旅館の経営課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINEが直予約率向上を支援。',
+  author: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    url: 'https://classmethod.jp/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png',
+    },
+  },
+  datePublished: '2026-04-30',
+  dateModified: new Date().toISOString().split('T')[0],
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                  */
 /* ------------------------------------------------------------------ */
@@ -310,6 +377,14 @@ export default function HotelPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <ScrollTracker />
 
@@ -568,6 +643,25 @@ export default function HotelPage() {
       </Section>
 
       {/* ============================================================ */}
+      {/* Key Takeaways（AIO §A — 結論先出し）                            */}
+      {/* ============================================================ */}
+      <Section spacing="sm" container="default" background="white">
+        <div className="max-w-[800px] mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#1F2937] mb-6">
+            3行でわかる、ホテル×LINEミニアプリで何が変わるか
+          </h2>
+          <ol className="space-y-4">
+            {KEY_TAKEAWAYS.map((item, i) => (
+              <li key={i} className="flex items-start gap-4 p-4 bg-[#F0FDF4] rounded-xl border border-[#BBF7D0]">
+                <span className="w-8 h-8 rounded-full bg-[#06C755] text-white font-bold text-sm flex items-center justify-center shrink-0">{i + 1}</span>
+                <p className="text-sm sm:text-base text-[#1F2937] leading-relaxed font-medium">{item}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
       {/* 課題セクション（§7-4、ホテル PROBLEMS 3点）                        */}
       {/* ============================================================ */}
       <Section id="problems" spacing="sm" container="wide" background="muted">
@@ -631,22 +725,26 @@ export default function HotelPage() {
           </h2>
           <p className="text-base text-[#4B5563]">直販チャネルを作り、館内消費を最大化し、退館後の再来訪を設計する。OTA依存を段階的に解消するロードマップです。</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+        <ol className="grid md:grid-cols-3 gap-4 md:gap-5 list-none">
           {APPEAL_STEPS.map((s, i) => (
-            <Card key={s.step} variant="elevated" padding="lg" rounded="xl" className="relative">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
-                  {i + 1}
+            <li key={s.step}>
+              <Card variant="elevated" padding="lg" rounded="xl" className="relative h-full">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{s.step}</div>
+                    <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{s.title}</h3>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{s.step}</div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{s.title}</h3>
-                </div>
-              </div>
-              <p className="text-sm text-[#4B5563] leading-relaxed">{s.description}</p>
-            </Card>
+                <p className="text-[11px] font-semibold text-[#05A847] mb-2">{s.duration}</p>
+                <p className="text-sm text-[#4B5563] leading-relaxed">{s.description}</p>
+                <p className="text-xs text-[#6B7280] mt-3 pt-3 border-t border-[#E5E7EB]">{s.completion}</p>
+              </Card>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
       {/* ============================================================ */}
@@ -699,6 +797,38 @@ export default function HotelPage() {
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />拡張性: ◎</li>
             </ul>
           </Card>
+        </div>
+
+        {/* 比較表（AIO §B — AI抽出最適化） */}
+        <div className="mt-10 overflow-x-auto">
+          <table className="w-full text-sm border-collapse rounded-xl overflow-hidden shadow-sm">
+            <thead>
+              <tr className="bg-[#1F2937] text-white">
+                <th className="px-4 py-3 text-left font-semibold">比較項目</th>
+                <th className="px-4 py-3 text-center font-semibold">SaaS（パッケージ型）</th>
+                <th className="px-4 py-3 text-center font-semibold bg-[#05A847]">グロースパック for LINE</th>
+                <th className="px-4 py-3 text-center font-semibold">フルスクラッチ開発</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#E5E7EB]">
+              {[
+                ['初期費用', '低', '中', '高'],
+                ['月額費用', '低〜中', '中', '中〜高'],
+                ['PMS連携', '△（制約あり）', '◎（柔軟に対応）', '◎（全て対応可）'],
+                ['OTA手数料削減設計', '△', '◎（直予約導線を設計）', '◎'],
+                ['立ち上げ期間', '1〜2ヶ月', '最短3ヶ月', '6ヶ月〜'],
+                ['運用負荷', '低', '低〜中', '高'],
+              ].map(([label, saas, gp, scratch], idx) => (
+                <tr key={label} className={idx % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFB]'}>
+                  <td className="px-4 py-3 font-medium text-[#1F2937]">{label}</td>
+                  <td className="px-4 py-3 text-center text-[#6B7280]">{saas}</td>
+                  <td className="px-4 py-3 text-center font-semibold text-[#05A847] bg-[#F0FDF4]">{gp}</td>
+                  <td className="px-4 py-3 text-center text-[#6B7280]">{scratch}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="text-xs text-[#9CA3AF] mt-2">※ 費用感は「低／中／高」の目安表記です。詳細はヒアリング後にご提示します。</p>
         </div>
       </Section>
 
