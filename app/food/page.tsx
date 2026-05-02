@@ -15,6 +15,39 @@
  * - 機能アイコンは /public/images/<機能名>.png を <Image> で表示
  * - CTA リンクは §10 正規 URL
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: '飲食チェーン向けLINEミニアプリ開発｜行列・事前注文・テイクアウト手数料の課題解消｜グロースパック for LINE',
+  description: '行列による機会損失、紙スタンプの管理コスト、テイクアウト手数料の負担。飲食チェーンが抱える課題をLINEミニアプリで一括解消。ハーフスクラッチ開発で最短3ヶ月。事業会社向けグロースパック for LINE。',
+  keywords: ['飲食', 'LINEミニアプリ', 'モバイルオーダー', '順番待ち', 'テイクアウト', 'スタンプカード', 'LINEミニアプリ開発'],
+  alternates: {
+    canonical: '/food',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/food',
+    title: '飲食チェーン向けLINEミニアプリ開発｜行列・事前注文・テイクアウト手数料の課題解消｜グロースパック for LINE',
+    description: '行列による機会損失、紙スタンプの管理コスト、テイクアウト手数料の負担。飲食チェーンの課題をLINEミニアプリで一括解消。ハーフスクラッチ開発で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: '飲食チェーン向けLINEミニアプリ開発｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '飲食チェーン向けLINEミニアプリ開発｜行列・事前注文・テイクアウト手数料の課題解消｜グロースパック for LINE',
+    description: '行列による機会損失、紙スタンプの管理コスト、テイクアウト手数料の負担。飲食チェーンの課題をLINEミニアプリで一括解消。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {

@@ -3,6 +3,39 @@
  *
  * docs/DESIGN-FEATURE-PAGE.md に厳密に従う。
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINEチケット｜デジタル発券・もぎり・先行抽選を1つに｜グロースパック for LINE',
+  description: '紙チケットの印刷コスト、当日もぎり作業の人手不足、先行販売の管理煩雑さ。LINEでデジタル発券・もぎり・先行抽選を一元化。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINE。',
+  keywords: ['LINE チケット', 'デジタル発券', 'もぎり', 'LINEミニアプリ', 'スポーツ', 'エンタメ'],
+  alternates: {
+    canonical: '/ticket',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/ticket',
+    title: 'LINEチケット｜デジタル発券・もぎり・先行抽選を1つに｜グロースパック for LINE',
+    description: '紙チケットの印刷コスト、当日もぎり作業の人手不足、先行販売の管理煩雑さ。LINEでデジタル発券・もぎり・先行抽選を一元化。ハーフスクラッチ開発で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINEチケット｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINEチケット｜デジタル発券・もぎり・先行抽選を1つに｜グロースパック for LINE',
+    description: '紙チケットの印刷コスト、当日もぎり作業の人手不足、先行販売の管理煩雑さ。LINEでデジタル発券・もぎり・先行抽選を一元化。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {

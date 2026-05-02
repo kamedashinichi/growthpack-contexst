@@ -8,6 +8,39 @@
  * - 煽り語NG、丁寧体
  * - 顧客向けに「開発中」「未リリース」の表記は入れない
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINEデジタル会員証｜店頭で5秒会員化・QR対応・既存会員基盤連携｜グロースパック for LINE',
+  description: '紙の会員証・アプリ離脱・既存会員基盤との連携不足を解消するLINEデジタル会員証。QRコードで店頭5秒会員化、既存会員IDとの連携も対応。ハーフスクラッチ開発で最短3ヶ月、グロースパック for LINE。',
+  keywords: ['LINE 会員証', 'デジタル会員証', 'QR', '会員ID連携', 'LINEミニアプリ', '会員証DX'],
+  alternates: {
+    canonical: '/memberscard',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/memberscard',
+    title: 'LINEデジタル会員証｜店頭で5秒会員化・QR対応・既存会員基盤連携｜グロースパック for LINE',
+    description: '紙の会員証・アプリ離脱・既存会員基盤との連携不足を解消するLINEデジタル会員証。QRコードで店頭5秒会員化、既存会員IDとの連携も対応。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINEデジタル会員証｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINEデジタル会員証｜店頭で5秒会員化・QR対応・既存会員基盤連携｜グロースパック for LINE',
+    description: '紙の会員証・アプリ離脱・既存会員基盤との連携不足を解消するLINEデジタル会員証。QRコードで店頭5秒会員化、既存会員IDとの連携も対応。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {

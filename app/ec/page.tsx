@@ -15,6 +15,39 @@
  * - 機能アイコンは /public/images/<機能名>.png を <Image> で表示
  * - CTA リンクは §10 正規 URL
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'EC向けLINEミニアプリ開発｜LINE×EC ID連携でCAC上昇を止める｜グロースパック for LINE',
+  description: 'LINE友だちとEC会員の分断、カゴ落ち、一斉配信でのブロック率上昇。EC・D2C事業のCAC課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINEがID連携を支援。',
+  keywords: ['EC', 'LINEミニアプリ', 'ID連携', 'CAC', 'ブロック率', 'D2C', 'LINEミニアプリ開発'],
+  alternates: {
+    canonical: '/ec',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/ec',
+    title: 'EC向けLINEミニアプリ開発｜LINE×EC ID連携でCAC上昇を止める｜グロースパック for LINE',
+    description: 'LINE友だちとEC会員の分断、カゴ落ち、一斉配信でのブロック率上昇。EC・D2C事業のCAC課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。グロースパック for LINE。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'EC向けLINEミニアプリ開発｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'EC向けLINEミニアプリ開発｜LINE×EC ID連携でCAC上昇を止める｜グロースパック for LINE',
+    description: 'LINE友だちとEC会員の分断、カゴ落ち、一斉配信でのブロック率上昇。EC・D2C事業のCAC課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {

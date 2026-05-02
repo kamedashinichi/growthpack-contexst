@@ -3,6 +3,39 @@
  *
  * docs/DESIGN-FEATURE-PAGE.md に厳密に従う。
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINE予約｜飲食・サロン・施設の予約をLINE上で完結｜グロースパック for LINE',
+  description: '電話予約の負担、予約忘れによるノーショウ、外部予約サービスへの手数料。飲食・サロン・施設の予約課題をLINEミニアプリで解消。リマインド自動化と事業会社向けハーフスクラッチ開発で最短3ヶ月。グロースパック for LINE。',
+  keywords: ['LINE 予約', '予約システム', 'リマインド', 'LINEミニアプリ', '飲食予約', 'サロン予約'],
+  alternates: {
+    canonical: '/reservation',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/reservation',
+    title: 'LINE予約｜飲食・サロン・施設の予約をLINE上で完結｜グロースパック for LINE',
+    description: '電話予約の負担、予約忘れによるノーショウ、外部予約サービスへの手数料。飲食・サロン・施設の予約課題をLINEミニアプリで解消。リマインド自動化で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINE予約｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINE予約｜飲食・サロン・施設の予約をLINE上で完結｜グロースパック for LINE',
+    description: '電話予約の負担、予約忘れによるノーショウ、外部予約サービスへの手数料。飲食・サロン・施設の予約課題をLINEミニアプリで解消。リマインド自動化で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {

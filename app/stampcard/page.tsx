@@ -3,6 +3,39 @@
  *
  * docs/DESIGN-FEATURE-PAGE.md に厳密に従う。
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINEスタンプカード｜紙のスタンプカードをデジタル化・自動付与・特典管理｜グロースパック for LINE',
+  description: '紙スタンプの紛失・管理コスト、来店ごとの手動付与の手間、特典管理の煩雑さ。LINEスタンプカードで来店リピートを促進。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINE。',
+  keywords: ['LINE スタンプカード', 'デジタルスタンプ', 'リピート', 'LINEミニアプリ', 'ポイントカード'],
+  alternates: {
+    canonical: '/stampcard',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/stampcard',
+    title: 'LINEスタンプカード｜紙のスタンプカードをデジタル化・自動付与・特典管理｜グロースパック for LINE',
+    description: '紙スタンプの紛失・管理コスト、来店ごとの手動付与の手間、特典管理の煩雑さ。LINEスタンプカードで来店リピートを促進。ハーフスクラッチ開発で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINEスタンプカード｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINEスタンプカード｜紙のスタンプカードをデジタル化・自動付与・特典管理｜グロースパック for LINE',
+    description: '紙スタンプの紛失・管理コスト、来店ごとの手動付与の手間、特典管理の煩雑さ。LINEスタンプカードで来店リピートを促進。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {

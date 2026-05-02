@@ -3,6 +3,39 @@
  *
  * docs/DESIGN-FEATURE-PAGE.md に厳密に従う。
  */
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: 'LINE抽選｜キャンペーン抽選・スタンプラリー・ライト層育成｜グロースパック for LINE',
+  description: 'キャンペーン応募のハードル、スタンプラリーの管理コスト、ライト層とのLINE接点創出。LINE抽選でキャンペーン参加率と友だち登録を同時に伸ばす。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINE。',
+  keywords: ['LINE 抽選', 'キャンペーン', 'スタンプラリー', 'LINEミニアプリ', 'ライト層'],
+  alternates: {
+    canonical: '/lottery',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ja_JP',
+    url: '/lottery',
+    title: 'LINE抽選｜キャンペーン抽選・スタンプラリー・ライト層育成｜グロースパック for LINE',
+    description: 'キャンペーン応募のハードル、スタンプラリーの管理コスト、ライト層とのLINE接点創出。LINE抽選でキャンペーン参加率と友だち登録を同時に伸ばす。ハーフスクラッチ開発で最短3ヶ月。',
+    siteName: 'グロースパック for LINE',
+    images: [
+      {
+        url: '/images/ogp-v2.jpg',
+        width: 1024,
+        height: 537,
+        alt: 'LINE抽選｜グロースパック for LINE',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LINE抽選｜キャンペーン抽選・スタンプラリー・ライト層育成｜グロースパック for LINE',
+    description: 'キャンペーン応募のハードル、スタンプラリーの管理コスト、ライト層とのLINE接点創出。LINE抽選でキャンペーン参加率と友だち登録を同時に伸ばす。ハーフスクラッチ開発で最短3ヶ月。',
+    images: ['/images/ogp-v2.jpg'],
+  },
+}
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {
