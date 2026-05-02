@@ -171,6 +171,29 @@ const STEPS = [
   },
 ];
 
+const FAQS = [
+  {
+    q: '抽選方式はどのような種類がありますか？',
+    a: '応募後に即時当落を通知する即時抽選、期間内の応募を締め切ってから一括で実施する期間別抽選、スタンプ数や来店回数に応じて当選確率が上がる累積ポイント連動抽選に対応しています。',
+  },
+  {
+    q: '景品の配布はどのような仕組みですか？',
+    a: '当選通知と同時にクーポン・QRコード・デジタルギフトを自動配布できます。物品景品の場合は引換番号の発行と引換ステータス管理に対応。落選者への参加賞クーポンも自動配布可能です。',
+  },
+  {
+    q: '不正対策はどうなっていますか？',
+    a: '1LINE IDにつき1エントリーの制限、VPNや複数アカウントによる重複応募の検知、当選後の二重引換防止フラグを実装しています。参加資格を会員ランクや来店履歴で絞ることで、なりすまし参加も防止できます。',
+  },
+  {
+    q: '開発期間と費用の目安は？',
+    a: '即時抽選と当選通知・クーポン配布の基本構成であれば最短3ヶ月で立ち上げが可能です。参加資格の複雑な設定やMA連携など要件により期間と費用が変わるため、初回ヒアリングで概算をご提示します。',
+  },
+  {
+    q: 'どのような業界で活用されていますか？',
+    a: '小売（百貨店・アパレル・食品スーパー）、スポーツ・エンタメ、飲食など、キャンペーン施策を定期的に実施している事業会社さまで活用いただいています。ライト層のLINE友だち獲得とコアファン育成を両立したい場合に特に効果的です。',
+  },
+];
+
 /* ------------------------------------------------------------------ */
 /* JSON-LD                                                             */
 /* ------------------------------------------------------------------ */
@@ -194,6 +217,60 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'LINE抽選機能の導入ステップ',
+  description: '3ステップで段階的に導入できます',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: '要件ヒアリング・見積',
+      text: '抽選のユースケース・景品形態・チケットとの入場制御連携の要否を確認し、概算費用と工期を提示します。',
+      position: 1,
+    },
+    {
+      '@type': 'HowToStep',
+      name: '設計・実装',
+      text: '抽選ロジック・当落判定・当選通知・クーポン自動配布・参加賞クーポンの設計と実装を行います。',
+      position: 2,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'テスト・本番リリース',
+      text: '受入テスト・LINEヤフー審査・本番リリースまで伴走します。',
+      position: 3,
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'LINE抽選｜キャンペーン抽選・スタンプラリー・ライト層育成｜グロースパック for LINE',
+  description: 'キャンペーン応募のハードル、スタンプラリーの管理コスト、ライト層とのLINE接点創出。LINE抽選でキャンペーン参加率と友だち登録を同時に伸ばす。ハーフスクラッチ開発で最短3ヶ月。',
+  author: { '@type': 'Organization', name: 'クラスメソッド株式会社', url: 'https://classmethod.jp/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: { '@type': 'ImageObject', url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png' },
+  },
+  datePublished: '2026-04-30',
+  dateModified: '2026-05-01',
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                */
 /* ------------------------------------------------------------------ */
@@ -203,6 +280,9 @@ export default function LotteryPage() {
     <main className="min-h-screen bg-white text-[#1F2937]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
       <FeatureScrollTracker page="lottery" />
       {/* Header */}
@@ -310,6 +390,27 @@ export default function LotteryPage() {
         </div>
       </div>
 
+      {/* 3行でわかる */}
+      <Section id="key-takeaways" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6">3行でわかる、LINE抽選で何ができるか</h2>
+          <ol className="space-y-4">
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">1</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">キャンペーン抽選・スタンプラリーを手作業からシステム化し、集計と通知コストをゼロにする</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">2</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">ライト層獲得とコアファン育成の両方を1つの機能で実現し、参加賞でハズレの人にも来店動機を残す</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">3</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">当選通知・特典配布まで自動化し、キャンペーン頻度を上げても運用工数が増えない体制を作る</p>
+            </li>
+          </ol>
+        </div>
+      </Section>
+
       {/* できること */}
       <Section id="features" spacing="md" container="wide" background="white">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -406,6 +507,47 @@ export default function LotteryPage() {
             </Card>
           ))}
         </div>
+      </Section>
+
+      {/* よくある質問 */}
+      <Section id="faq" spacing="md" container="wide" background="muted">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">FAQ</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">よくある質問</h2>
+        </div>
+        <div className="max-w-[800px] space-y-4">
+          {FAQS.map((f) => (
+            <details key={f.q} className="bg-white rounded-xl border border-[#E5E7EB] p-5 group">
+              <summary className="cursor-pointer font-semibold text-[#1F2937] text-base leading-snug list-none flex justify-between items-start gap-4">
+                <span>{f.q}</span>
+                <span className="shrink-0 text-[#05A847] mt-0.5">+</span>
+              </summary>
+              <p className="mt-3 text-sm text-[#4B5563] leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      {/* 3ステップ導入フロー */}
+      <Section id="how-to" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">HOW TO START</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">3ステップで導入できます</h2>
+        </div>
+        <ol className="max-w-[800px] space-y-4">
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">1. 要件ヒアリング・見積（〜2週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">抽選のユースケース・景品形態・チケットとの入場制御連携の要否をお聞きし、概算費用と工期をご提示します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">2. 設計・実装（1〜2ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">抽選ロジック・当落判定・当選通知・クーポン自動配布・参加賞クーポンの設計と実装を行います。不正対策・参加資格制御も並列で進行します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">3. テスト・本番リリース（1ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">受入テスト・LINEヤフー審査・本番リリースまで伴走します。リリース後の運用フォローも対応可能です。</p>
+          </li>
+        </ol>
       </Section>
 
       {/* CTA */}

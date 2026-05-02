@@ -202,6 +202,89 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const FAQS = [
+  {
+    q: '受取人の会員化はどのような仕組みですか？',
+    a: 'ギフトURLを開いた受取人のLIFF初回起動時にLINE友だち追加を促す導線を設置します。友だち追加と同時に会員IDが自動発行され、受取時の選択情報（サイズ・カラー等）も会員プロフィールに自動登録されます。',
+  },
+  {
+    q: '既存のECサイトやショッピングカートと連携できますか？',
+    a: '可能です。既存ECの商品DBやカート・決済フローとAPI連携する設計が可能です。連携方式はお客様のシステム構成に合わせてご提案します。',
+  },
+  {
+    q: 'ギフトの種類は物品とデジタルのどちらに対応していますか？',
+    a: '両方に対応しています。物品ギフトは受取人の住所入力不要でURLを送るだけ、デジタルギフトはQRコード・バーコード形式でLINE上に表示し店頭で消込できます。',
+  },
+  {
+    q: '導入期間と費用の目安は？',
+    a: 'ギフト基本機能であれば最短3ヶ月での立ち上げが可能です。費用は商品種別・決済連携・消込方式によって変わるため、初回ヒアリングで概算をご提示します。',
+  },
+  {
+    q: '業界別の活用事例を教えてください。',
+    a: 'アパレルではサイズ選択型ギフト、飲食・ホテルでは体験型ギフト（受取後に予約画面へ誘導）、スポーツ・エンタメではチケット型ギフトとして活用されています。詳細はご商談でご説明します。',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'LINEソーシャルギフトの導入ステップ',
+  description: '4ステップで段階的に導入できます',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: '要件ヒアリング・見積',
+      text: '商品形態・決済方法・消込方式・受取人の選択機能の要否をお聞きします。',
+      position: 1,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'ギフト基盤の構築',
+      text: 'URL共有方式のギフト発行・受取・チケット表示・店頭消込・セキュリティ機能を実装します。',
+      position: 2,
+    },
+    {
+      '@type': 'HowToStep',
+      name: '会員連携・受取体験の設定',
+      text: '受取時の友だち追加促進・好みの自動登録・受取通知・未受取リマインドを設定します。',
+      position: 3,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'テスト・本番リリース',
+      text: '受入テスト・LINEヤフー審査・本番リリースまで伴走します。',
+      position: 4,
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'LINEソーシャルギフト｜受取人自動会員化でCACを下げる送付スキーム｜グロースパック for LINE',
+  description: 'URLを共有するだけで贈れるソーシャルギフト。受取人がサイズ・カラーを自分で選択。ギフト受取と同時に新規会員化する導線を構築します。',
+  author: { '@type': 'Organization', name: 'クラスメソッド株式会社', url: 'https://classmethod.jp/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: { '@type': 'ImageObject', url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png' },
+  },
+  datePublished: '2026-04-30',
+  dateModified: '2026-05-01',
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                */
 /* ------------------------------------------------------------------ */
@@ -211,6 +294,9 @@ export default function GiftPage() {
     <main className="min-h-screen bg-white text-[#1F2937]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
       <FeatureScrollTracker page="gift" />
       {/* Header */}
@@ -318,6 +404,27 @@ export default function GiftPage() {
         </div>
       </div>
 
+      {/* 3行でわかる */}
+      <Section id="key-takeaways" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6">3行でわかる、LINEソーシャルギフトで何ができるか</h2>
+          <ol className="space-y-4">
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">1</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">受取人の自動会員化でCACをゼロに近づける送付スキーム。住所不要でURLを送るだけで贈れる</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">2</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">ギフト受取→会員化→再来訪のフローをLINE上で完結させ、一度きりの接点をリピートに変える</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">3</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">既存EC・通販と連携し、贈り物市場を新規顧客獲得チャネルとして設計できる</p>
+            </li>
+          </ol>
+        </div>
+      </Section>
+
       {/* できること */}
       <Section id="features" spacing="md" container="wide" background="white">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -414,6 +521,51 @@ export default function GiftPage() {
             </Card>
           ))}
         </div>
+      </Section>
+
+      {/* よくある質問 */}
+      <Section id="faq" spacing="md" container="wide" background="muted">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">FAQ</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">よくある質問</h2>
+        </div>
+        <div className="max-w-[800px] space-y-4">
+          {FAQS.map((f) => (
+            <details key={f.q} className="bg-white rounded-xl border border-[#E5E7EB] p-5 group">
+              <summary className="cursor-pointer font-semibold text-[#1F2937] text-base leading-snug list-none flex justify-between items-start gap-4">
+                <span>{f.q}</span>
+                <span className="shrink-0 text-[#05A847] mt-0.5">+</span>
+              </summary>
+              <p className="mt-3 text-sm text-[#4B5563] leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      {/* 4ステップ導入フロー */}
+      <Section id="how-to" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">HOW TO START</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">4ステップで導入できます</h2>
+        </div>
+        <ol className="max-w-[800px] space-y-4">
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">1. 要件ヒアリング・見積（〜2週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">商品形態・決済方法・消込方式・受取人の選択機能の要否をお聞きします。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">2. ギフト基盤の構築（1〜2ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">URL共有方式のギフト発行・受取・チケット表示・店頭消込・セキュリティ機能を実装します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">3. 会員連携・受取体験の設定（2〜4週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">受取時の友だち追加促進・好みの自動登録・受取通知・未受取リマインドを設定します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">4. テスト・本番リリース（1ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">受入テスト・LINEヤフー審査・本番リリースまで伴走します。リリース後の運用フォローも対応可能です。</p>
+          </li>
+        </ol>
       </Section>
 
       {/* CTA */}

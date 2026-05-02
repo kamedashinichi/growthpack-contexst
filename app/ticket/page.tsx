@@ -179,6 +179,29 @@ const STEPS = [
   },
 ];
 
+const FAQS = [
+  {
+    q: 'スポーツ・エンタメ以外の興行でも利用できますか？',
+    a: '対応可能です。スポーツ観戦・コンサート・展示会・体験型イベントなど、入場管理が必要な興行全般でご利用いただいています。屋外フェスや分散型イベントにも対応できます。',
+  },
+  {
+    q: 'もぎり方式はどのような種類がありますか？',
+    a: 'スタッフがスキャナーで読み取る方式、来場者が自分でQRを提示してチェックする方式、会員IDと連動して入場を自動判定する方式に対応しています。イベント規模や運営体制に合わせてご提案します。',
+  },
+  {
+    q: '先行抽選はどのような仕組みですか？',
+    a: 'LINE友だちや会員ランクを参加条件に設定し、申込期間内にエントリーを受け付けます。抽選後は当落通知と同時にチケットを自動発行。繰り上げ当選や補欠管理も設定可能です。',
+  },
+  {
+    q: '開発期間と費用の目安は？',
+    a: 'チケット発行・QR入場チェックの基本構成であれば最短3ヶ月で立ち上げが可能です。先行抽選・複数時間枠管理・予約との連携など要件により期間と費用が変わるため、初回ヒアリングで概算をご提示します。',
+  },
+  {
+    q: 'どのような業界で活用されていますか？',
+    a: 'スポーツ観戦（クラブ・アリーナ）、エンタメ（コンサート・演劇）、展示会・見本市、商業施設のイベントなど、入場管理とファン育成の両方が必要な事業会社さまで活用いただいています。',
+  },
+];
+
 /* ------------------------------------------------------------------ */
 /* JSON-LD                                                             */
 /* ------------------------------------------------------------------ */
@@ -202,6 +225,60 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'LINEチケット・パスの導入ステップ',
+  description: '3ステップで段階的に導入できます',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: '要件ヒアリング・見積',
+      text: 'イベント規模・時間枠管理の粒度・消込方式・予約との連携要否を確認し、概算費用と工期を提示します。',
+      position: 1,
+    },
+    {
+      '@type': 'HowToStep',
+      name: '設計・実装',
+      text: 'チケット発行・QR入場チェック・転売防止・会員ID連携の設計と実装を行います。',
+      position: 2,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'テスト・本番リリース',
+      text: '受入テスト・LINEヤフー審査・本番リリースまで伴走します。',
+      position: 3,
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'LINEチケット｜デジタル発券・もぎり・先行抽選を1つに｜グロースパック for LINE',
+  description: '紙チケットの印刷コスト、当日もぎり作業の人手不足、先行販売の管理煩雑さ。LINEでデジタル発券・もぎり・先行抽選を一元化。ハーフスクラッチ開発で最短3ヶ月。',
+  author: { '@type': 'Organization', name: 'クラスメソッド株式会社', url: 'https://classmethod.jp/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: { '@type': 'ImageObject', url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png' },
+  },
+  datePublished: '2026-04-30',
+  dateModified: '2026-05-01',
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                */
 /* ------------------------------------------------------------------ */
@@ -211,6 +288,9 @@ export default function TicketPage() {
     <main className="min-h-screen bg-white text-[#1F2937]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
       <FeatureScrollTracker page="ticket" />
       {/* Header */}
@@ -318,6 +398,27 @@ export default function TicketPage() {
         </div>
       </div>
 
+      {/* 3行でわかる */}
+      <Section id="key-takeaways" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6">3行でわかる、LINEチケット・パスで何ができるか</h2>
+          <ol className="space-y-4">
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">1</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">デジタル発券・もぎり・先行抽選をLINE上で1つに統合し、紙チケットの印刷・郵送コストをなくす</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">2</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">紙チケットの在庫管理・郵送コストをゼロにし、QR入場で受付スタッフの工数を削減する</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">3</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">観戦・公演履歴を会員データに統合し、次回イベントへの先行告知やリピート設計の起点にする</p>
+            </li>
+          </ol>
+        </div>
+      </Section>
+
       {/* できること */}
       <Section id="features" spacing="md" container="wide" background="white">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -414,6 +515,47 @@ export default function TicketPage() {
             </Card>
           ))}
         </div>
+      </Section>
+
+      {/* よくある質問 */}
+      <Section id="faq" spacing="md" container="wide" background="muted">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">FAQ</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">よくある質問</h2>
+        </div>
+        <div className="max-w-[800px] space-y-4">
+          {FAQS.map((f) => (
+            <details key={f.q} className="bg-white rounded-xl border border-[#E5E7EB] p-5 group">
+              <summary className="cursor-pointer font-semibold text-[#1F2937] text-base leading-snug list-none flex justify-between items-start gap-4">
+                <span>{f.q}</span>
+                <span className="shrink-0 text-[#05A847] mt-0.5">+</span>
+              </summary>
+              <p className="mt-3 text-sm text-[#4B5563] leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      {/* 3ステップ導入フロー */}
+      <Section id="how-to" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">HOW TO START</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">3ステップで導入できます</h2>
+        </div>
+        <ol className="max-w-[800px] space-y-4">
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">1. 要件ヒアリング・見積（〜2週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">イベント規模・時間枠管理の粒度・消込方式・予約との連携要否をお聞きし、概算費用と工期をご提示します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">2. 設計・実装（1〜2ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">チケット発行・QR入場チェック・転売防止・会員ID連携の設計と実装を行います。先行抽選や複数時間枠の管理も並列で進行します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">3. テスト・本番リリース（1ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">受入テスト・LINEヤフー審査・本番リリースまで伴走します。リリース後の運用フォローも対応可能です。</p>
+          </li>
+        </ol>
       </Section>
 
       {/* CTA */}

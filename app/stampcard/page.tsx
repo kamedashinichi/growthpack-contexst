@@ -215,6 +215,83 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const FAQS = [
+  {
+    q: 'スタンプ付与のトリガーはどのように設定できますか？',
+    a: 'QRコードのスキャンによる来店時付与が基本です。加えて、購入金額連動・特定時間帯ボーナス・平日加算など、業態に合わせた複数の付与ルールを設定できます。トリガーの組み合わせはヒアリングをもとに設計します。',
+  },
+  {
+    q: 'QR・NFC・POS連携など、どの方式に対応していますか？',
+    a: 'QRコードスキャンを標準としています。POS連携によるスタンプ自動付与も要件に応じて対応可能です。NFCへの対応は個別にご相談ください。',
+  },
+  {
+    q: '不正利用（スタンプの二重付与など）への対策はありますか？',
+    a: '同一LINEユーザーIDへの付与ログを管理しており、一定時間内の重複付与を防ぐ設計が可能です。具体的な不正対策の設計はヒアリングをもとにご提案します。',
+  },
+  {
+    q: '開発期間と費用の目安は？',
+    a: 'QRスタンプ付与・ゴール接近通知・クーポン自動配布の基本構成であれば最短3ヶ月が目安です。費用はランク設計の複雑さや連携先システムの数によって変わるため、初回ヒアリング後に概算をご提示します。',
+  },
+  {
+    q: '業界別の導入事例はありますか？',
+    a: '飲食、小売（アパレル・ドラッグストア）、スポーツ・フィットネス施設など複数業種での導入実績があります。業種ごとのスタンプ設計の特徴は、お問い合わせ後のヒアリングでご紹介します。',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'LINEスタンプカードの導入ステップ',
+  description: '3ステップで段階的に導入できます',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: '要件ヒアリング・見積',
+      text: 'スタンプ付与条件・ランク設計・既存POSとの連携要否を確認し、概算費用と工期を提示します。',
+      position: 1,
+    },
+    {
+      '@type': 'HowToStep',
+      name: '設計・実装',
+      text: 'QRスタンプ付与・ゴール接近通知・クーポン自動配布・離脱予兆検知を設計・実装します。',
+      position: 2,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'テスト・本番リリース',
+      text: '受入テスト・LINEヤフー審査・本番リリースまで伴走します。',
+      position: 3,
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'LINEスタンプカード｜紙のスタンプカードをデジタル化・自動付与・特典管理｜グロースパック for LINE',
+  description: '紙スタンプの紛失・管理コスト、来店ごとの手動付与の手間、特典管理の煩雑さ。LINEスタンプカードで来店リピートを促進。ハーフスクラッチ開発で最短3ヶ月。',
+  author: { '@type': 'Organization', name: 'クラスメソッド株式会社', url: 'https://classmethod.jp/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: { '@type': 'ImageObject', url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png' },
+  },
+  datePublished: '2026-04-30',
+  dateModified: '2026-05-01',
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                */
 /* ------------------------------------------------------------------ */
@@ -224,6 +301,9 @@ export default function StampCardPage() {
     <main className="min-h-screen bg-white text-[#1F2937]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
       <FeatureScrollTracker page="stampcard" />
       {/* Header */}
@@ -331,6 +411,27 @@ export default function StampCardPage() {
         </div>
       </div>
 
+      {/* 3行でわかる */}
+      <Section id="key-takeaways" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6">3行でわかる、LINEスタンプカードで何ができるか</h2>
+          <ol className="space-y-4">
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">1</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">紙のスタンプカードをLINE上でデジタル化し、QRスキャンで来店スタンプを自動付与できる</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">2</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">来店履歴・購買金額に応じたランク設定や特典管理が可能で、常連顧客への優遇施策を自動化できる</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">3</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">POS・会員ID連携で「いつ・誰が・何回来たか」を可視化し、離脱予兆の早期検知とリテンション施策に活用できる</p>
+            </li>
+          </ol>
+        </div>
+      </Section>
+
       {/* できること */}
       <Section id="features" spacing="md" container="wide" background="white">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -427,6 +528,47 @@ export default function StampCardPage() {
             </Card>
           ))}
         </div>
+      </Section>
+
+      {/* よくある質問 */}
+      <Section id="faq" spacing="md" container="wide" background="muted">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">FAQ</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">よくある質問</h2>
+        </div>
+        <div className="max-w-[800px] space-y-4">
+          {FAQS.map((f) => (
+            <details key={f.q} className="bg-white rounded-xl border border-[#E5E7EB] p-5 group">
+              <summary className="cursor-pointer font-semibold text-[#1F2937] text-base leading-snug list-none flex justify-between items-start gap-4">
+                <span>{f.q}</span>
+                <span className="shrink-0 text-[#05A847] mt-0.5">+</span>
+              </summary>
+              <p className="mt-3 text-sm text-[#4B5563] leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      {/* 3ステップ導入フロー */}
+      <Section id="how-to" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">HOW TO START</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">3ステップで導入できます</h2>
+        </div>
+        <ol className="max-w-[800px] space-y-4">
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">1. 要件ヒアリング・見積（〜2週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">スタンプ付与条件・ランク設計・既存POSとの連携要否をお聞きし、概算費用と工期をご提示します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">2. 設計・実装（1〜2ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">QRスタンプ付与・ゴール接近通知・クーポン自動配布・離脱予兆検知の設計と実装を行います。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">3. テスト・本番リリース（1ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">受入テスト・LINEヤフー審査・本番リリースまで伴走します。リリース後の運用フォローも対応可能です。</p>
+          </li>
+        </ol>
       </Section>
 
       {/* CTA */}

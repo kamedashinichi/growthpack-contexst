@@ -216,6 +216,83 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const FAQS = [
+  {
+    q: 'LINE順番待ちはどのような仕組みですか？',
+    a: 'お客様がLINEで整理券を取得すると、待ち人数と推定待ち時間がリアルタイムで確認できます。順番が近づくとLINEに通知が届くため、店外で自由に待つことができます。',
+  },
+  {
+    q: '既存の呼び出しシステムや予約台帳と連携できますか？',
+    a: '可能です。既存のPOSや予約管理システムとのAPI連携により、ウェイティングリストとオーダー情報を一元管理できる構成をご提案します。',
+  },
+  {
+    q: '開発期間と費用の目安は？',
+    a: '順番待ち単機能であれば最短3ヶ月で導入可能です。店舗数・連携先システムの複雑さにより費用は変わりますので、初回ヒアリングで概算をご提示します。',
+  },
+  {
+    q: 'SaaS型の順番待ちシステムとの違いは何ですか？',
+    a: 'グロースパック for LINEはハーフスクラッチ型です。既存POSや会員証との深い連携、業態固有の待ち順ルール設定、複数店舗管理など、SaaSでは対応が難しいカスタマイズが可能です。',
+  },
+  {
+    q: 'どのような業種で活用できますか？',
+    a: '飲食店・フードコート・ホテルのチェックイン、病院・クリニック、百貨店の催事・接客対応など、行列や待ち時間が発生するあらゆる業種に対応します。',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'LINE順番待ちの導入ステップ',
+  description: '3ステップで段階的に導入できます',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: '要件ヒアリング・見積',
+      text: '店舗数・ピーク時の来客数・既存システムを確認し、概算費用と工期を提示します。',
+      position: 1,
+    },
+    {
+      '@type': 'HowToStep',
+      name: '設計・実装',
+      text: 'LINE整理券・リアルタイム表示・呼び出し通知の設計と実装を行います。',
+      position: 2,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'テスト・本番リリース',
+      text: '受入テスト・LINEヤフー審査・本番リリースまで伴走します。',
+      position: 3,
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'LINE順番待ち通知｜行列・呼び出し・ピーク時の客離れを防ぐ｜グロースパック for LINE',
+  description: '行列による待ち時間での客離れ、ピーク時の呼び出し管理、人手不足での対応限界。LINEで順番待ち通知を実現し来店体験を改善。',
+  author: { '@type': 'Organization', name: 'クラスメソッド株式会社', url: 'https://classmethod.jp/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: { '@type': 'ImageObject', url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png' },
+  },
+  datePublished: '2026-04-30',
+  dateModified: '2026-05-01',
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                */
 /* ------------------------------------------------------------------ */
@@ -225,6 +302,9 @@ export default function QueuePage() {
     <main className="min-h-screen bg-white text-[#1F2937]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
       <FeatureScrollTracker page="queue" />
       {/* Header */}
@@ -332,6 +412,27 @@ export default function QueuePage() {
         </div>
       </div>
 
+      {/* 3行でわかる */}
+      <Section id="key-takeaways" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6">3行でわかる、LINE順番待ちで何ができるか</h2>
+          <ol className="space-y-4">
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">1</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">LINEで整理券を取得するだけ。店外で自由に待ちながら、順番が近づいたらスマホに通知が届く</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">2</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">スタッフはLINE管理画面から呼び出し・キャンセル・順番変更を操作でき、呼び出し機器のレンタルが不要</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">3</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">順番待ちをきっかけに会員証・スタンプカードと連携し、待ち時間を次の来店接点に変える</p>
+            </li>
+          </ol>
+        </div>
+      </Section>
+
       {/* できること */}
       <Section id="features" spacing="md" container="wide" background="white">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -428,6 +529,47 @@ export default function QueuePage() {
             </Card>
           ))}
         </div>
+      </Section>
+
+      {/* よくある質問 */}
+      <Section id="faq" spacing="md" container="wide" background="muted">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">FAQ</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">よくある質問</h2>
+        </div>
+        <div className="max-w-[800px] space-y-4">
+          {FAQS.map((f) => (
+            <details key={f.q} className="bg-white rounded-xl border border-[#E5E7EB] p-5 group">
+              <summary className="cursor-pointer font-semibold text-[#1F2937] text-base leading-snug list-none flex justify-between items-start gap-4">
+                <span>{f.q}</span>
+                <span className="shrink-0 text-[#05A847] mt-0.5">+</span>
+              </summary>
+              <p className="mt-3 text-sm text-[#4B5563] leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      {/* 3ステップ導入フロー */}
+      <Section id="how-to" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">HOW TO START</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">3ステップで導入できます</h2>
+        </div>
+        <ol className="max-w-[800px] space-y-4">
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">1. 要件ヒアリング・見積（〜2週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">店舗数・ピーク時の来客数・既存呼び出しシステムを確認し、概算費用と工期をご提示します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">2. 設計・実装（1〜2ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">LINE整理券・リアルタイム待ち状況表示・順番接近通知の設計と実装を行います。既存システム連携も並列で進行します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">3. テスト・本番リリース（1ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">受入テスト・LINEヤフー審査・本番リリースまで伴走します。リリース後の運用フォローも対応可能です。</p>
+          </li>
+        </ol>
       </Section>
 
       {/* CTA */}

@@ -225,6 +225,16 @@ const FAQS = [
 ];
 
 /* ------------------------------------------------------------------ */
+/* KEY TAKEAWAYS (AIO §A)                                               */
+/* ------------------------------------------------------------------ */
+
+const KEY_TAKEAWAYS = [
+  'アプリDLが負担なライト層を、LINEで気軽に試合・公演接点に巻き込み年1-2回来場のファンをデータ化する（最短3ヶ月）',
+  '独自アプリとLINE公式の並立を解消し、ライト層からコアファンまでのファンデータを統合会員基盤に集約する',
+  'スタンプ・クーポン・セグメント配信でオフシーズンも接点を維持し、シーズン開幕の動員につなげる',
+];
+
+/* ------------------------------------------------------------------ */
 /* JSON-LD (structured data for SEO)                                     */
 /* ------------------------------------------------------------------ */
 
@@ -297,6 +307,57 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'スポーツ・エンタメ×LINEミニアプリの導入ステップ',
+  description: 'ライト層の接点確保からファン育成、幽霊会員再活性化まで3ステップで段階導入する流れ',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'ライト層をLINEで捕まえる',
+      text: '会員証とチケット・パスで、これまでデータがなかったライト層（年1-2回来場）をLINE IDに紐づけます。独自アプリを持っているファンはそのまま継続利用、ライト層はLINEが窓口になります。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: '来場動機を設計する',
+      text: 'チケット先行抽選・限定グッズ配布・来場スタンプを組み合わせ、次の来場理由を継続的に作ります。試合・公演日以外にもLINEで接点を持ち続けることがライト層育成の核心です。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: '払っているが来ない会員を再活性化する',
+      text: 'セグメント配信で幽霊会員を検知し、自動フォローで解約前に介入します。解約1件を阻止するコストは新規獲得よりはるかに小さく、フィットネス業界では最も即効性の高い施策です。',
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'スポーツ・エンタメ向けLINEミニアプリ開発｜ライト層接点・コアファン拡張｜グロースパック for LINE',
+  description: '年1〜2回来場のライト層への接点不足、コアファン以外の購買機会損失。スポーツ・エンタメ業界の課題をLINEミニアプリで解消。ハーフスクラッチ開発で最短3ヶ月、事業会社向けグロースパック for LINEがファン育成を支援。',
+  author: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    url: 'https://classmethod.jp/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png',
+    },
+  },
+  datePublished: '2026-04-30',
+  dateModified: new Date().toISOString().split('T')[0],
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                  */
 /* ------------------------------------------------------------------ */
@@ -316,6 +377,14 @@ export default function SportsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <ScrollTracker />
 
@@ -574,6 +643,25 @@ export default function SportsPage() {
       </Section>
 
       {/* ============================================================ */}
+      {/* Key Takeaways（AIO §A — 結論先出し）                            */}
+      {/* ============================================================ */}
+      <Section spacing="sm" container="default" background="white">
+        <div className="max-w-[800px] mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#1F2937] mb-6">
+            3行でわかる、スポーツ・エンタメ×LINEミニアプリで何が変わるか
+          </h2>
+          <ol className="space-y-4">
+            {KEY_TAKEAWAYS.map((item, i) => (
+              <li key={i} className="flex items-start gap-4 p-4 bg-[#F0FDF4] rounded-xl border border-[#BBF7D0]">
+                <span className="w-8 h-8 rounded-full bg-[#06C755] text-white font-bold text-sm flex items-center justify-center shrink-0">{i + 1}</span>
+                <p className="text-sm sm:text-base text-[#1F2937] leading-relaxed font-medium">{item}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
       {/* 課題セクション（§7-4、スポーツ PROBLEMS 3点）                      */}
       {/* ============================================================ */}
       <Section id="problems" spacing="sm" container="wide" background="muted">
@@ -637,22 +725,24 @@ export default function SportsPage() {
           </h2>
           <p className="text-base text-[#4B5563]">LINEで捕まえる→来場動機を設計する→幽霊会員を再活性化する。コアファン施策とは独立したライト層育成フローです。</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+        <ol className="grid md:grid-cols-3 gap-4 md:gap-5 list-none">
           {APPEAL_STEPS.map((s, i) => (
-            <Card key={s.step} variant="elevated" padding="lg" rounded="xl" className="relative">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
-                  {i + 1}
+            <li key={s.step}>
+              <Card variant="elevated" padding="lg" rounded="xl" className="relative h-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{s.step}</div>
+                    <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{s.title}</h3>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{s.step}</div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{s.title}</h3>
-                </div>
-              </div>
-              <p className="text-sm text-[#4B5563] leading-relaxed">{s.description}</p>
-            </Card>
+                <p className="text-sm text-[#4B5563] leading-relaxed">{s.description}</p>
+              </Card>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
       {/* ============================================================ */}
@@ -705,6 +795,38 @@ export default function SportsPage() {
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />拡張性: ◎</li>
             </ul>
           </Card>
+        </div>
+
+        {/* 比較表（AIO §B — AI抽出最適化） */}
+        <div className="mt-10 overflow-x-auto">
+          <table className="w-full text-sm border-collapse rounded-xl overflow-hidden shadow-sm">
+            <thead>
+              <tr className="bg-[#1F2937] text-white">
+                <th className="px-4 py-3 text-left font-semibold">比較項目</th>
+                <th className="px-4 py-3 text-center font-semibold">SaaS（パッケージ型）</th>
+                <th className="px-4 py-3 text-center font-semibold bg-[#05A847]">グロースパック for LINE</th>
+                <th className="px-4 py-3 text-center font-semibold">フルスクラッチ開発</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#E5E7EB]">
+              {[
+                ['初期費用', '低', '中', '高'],
+                ['月額費用', '低〜中', '中', '中〜高'],
+                ['ライト層向け会員化', '△（DL必要な場合あり）', '◎（LINE・DL不要）', '◎（全て対応可）'],
+                ['既存システム連携', '△（制約あり）', '○（柔軟に対応）', '◎（全て対応可）'],
+                ['立ち上げ期間', '1〜2ヶ月', '最短3ヶ月', '6ヶ月〜'],
+                ['独自アプリとの併用', '△', '○（補完レイヤー設計）', '◎'],
+              ].map(([label, saas, gp, scratch], idx) => (
+                <tr key={label} className={idx % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFB]'}>
+                  <td className="px-4 py-3 font-medium text-[#1F2937]">{label}</td>
+                  <td className="px-4 py-3 text-center text-[#6B7280]">{saas}</td>
+                  <td className="px-4 py-3 text-center font-semibold text-[#05A847] bg-[#F0FDF4]">{gp}</td>
+                  <td className="px-4 py-3 text-center text-[#6B7280]">{scratch}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="text-xs text-[#9CA3AF] mt-2">※ 費用感は「低／中／高」の目安表記です。詳細はヒアリング後にご提示します。</p>
         </div>
       </Section>
 

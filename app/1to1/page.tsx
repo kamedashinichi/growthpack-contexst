@@ -279,6 +279,89 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const FAQS = [
+  {
+    q: '対応可能な業種は？',
+    a: '小売・飲食・ホテル・スポーツ・エンタメなど、顧客との継続的なコミュニケーションが発生する業種全般に対応しています。業種固有のシナリオ設計もご相談ください。',
+  },
+  {
+    q: 'オペレーターを複数人体制で運用できますか？',
+    a: 'はい。スタッフごとのアカウント管理・担当アサイン・権限設定に対応しています。シフト制の運用やチーム間の引き継ぎフローも設計可能です。',
+  },
+  {
+    q: '自動応答（チャットボット）と有人対応を併用できますか？',
+    a: '可能です。時間外はボットが即応答し、翌営業日にスタッフへ自動引き継ぎするフローが標準的な構成です。問い合わせ種別に応じた振り分けフローも設定できます。',
+  },
+  {
+    q: '導入期間と費用の目安は？',
+    a: '基本チャット機能であれば最短3ヶ月での立ち上げが可能です。費用はスタッフ数・連携システム・ボットの複雑さによって変わるため、初回ヒアリングで概算をご提示します。',
+  },
+  {
+    q: '業界別の活用事例を教えてください。',
+    a: 'アパレルでは購買相談・スタイリング提案、飲食では予約変更・アレルギー確認、ホテルでは宿泊前後のフォローアップなど、業種ごとに活用パターンが異なります。詳細はご商談でご説明します。',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'LINE 1to1コミュニケーションの導入ステップ',
+  description: '4ステップで段階的に導入できます',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: '要件ヒアリング・見積',
+      text: '対応チャネル・スタッフ体制・既存システムをお聞きし、概算費用と工期を提示します。',
+      position: 1,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'チャット基盤の構築',
+      text: 'スタッフ対顧客チャット・対話履歴保存・担当アサインの基本機能を実装します。',
+      position: 2,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'ボット・自動応答の設定',
+      text: 'FAQ登録・チャットボットフロー・時間外応答を設定します。',
+      position: 3,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'テスト・本番リリース',
+      text: '受入テスト・LINEヤフー審査・本番リリースまで伴走します。',
+      position: 4,
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'LINE 1to1コミュニケーション｜双方向のチャット・お客様対応｜グロースパック for LINE',
+  description: 'スタッフと顧客の1対1チャットをLINE公式アカウント上で実現。対話履歴・顧客タグ・AIサマリで、担当が替わっても接客品質を維持します。',
+  author: { '@type': 'Organization', name: 'クラスメソッド株式会社', url: 'https://classmethod.jp/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: { '@type': 'ImageObject', url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png' },
+  },
+  datePublished: '2026-04-30',
+  dateModified: '2026-05-01',
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                */
 /* ------------------------------------------------------------------ */
@@ -295,6 +378,9 @@ export default function OneToOnePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
 
       <FeatureScrollTracker page="1to1" />
 
@@ -428,6 +514,29 @@ export default function OneToOnePage() {
       </div>
 
       {/* ============================================================ */}
+      {/* 3行でわかる                                                     */}
+      {/* ============================================================ */}
+      <Section id="key-takeaways" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6">3行でわかる、LINE 1to1コミュニケーションで何ができるか</h2>
+          <ol className="space-y-4">
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">1</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">顧客との双方向チャットをLINE上で完結。個人LINEに頼らず、対話履歴を組織の資産として蓄積できる</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">2</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">問い合わせ対応・予約確認・オーダー受付をLINE一元化し、チャネルの分散を解消する</p>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="shrink-0 w-8 h-8 rounded-full bg-[#06C755] text-white font-bold flex items-center justify-center text-sm">3</span>
+              <p className="text-base text-[#1F2937] leading-relaxed pt-1">オペレーター負荷を分散し、担当アサインとAIサマリでCSスタッフの応答品質を統一する</p>
+            </li>
+          </ol>
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
       {/* できること — 課題→解決カード一覧                                  */}
       {/* ============================================================ */}
       <Section id="features" spacing="md" container="wide" background="white">
@@ -546,6 +655,55 @@ export default function OneToOnePage() {
             </Card>
           ))}
         </div>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* よくある質問                                                    */}
+      {/* ============================================================ */}
+      <Section id="faq" spacing="md" container="wide" background="muted">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">FAQ</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">よくある質問</h2>
+        </div>
+        <div className="max-w-[800px] space-y-4">
+          {FAQS.map((f) => (
+            <details key={f.q} className="bg-white rounded-xl border border-[#E5E7EB] p-5 group">
+              <summary className="cursor-pointer font-semibold text-[#1F2937] text-base leading-snug list-none flex justify-between items-start gap-4">
+                <span>{f.q}</span>
+                <span className="shrink-0 text-[#05A847] mt-0.5">+</span>
+              </summary>
+              <p className="mt-3 text-sm text-[#4B5563] leading-relaxed">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* 3ステップ導入フロー                                             */}
+      {/* ============================================================ */}
+      <Section id="how-to" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-8 sm:mb-12">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">HOW TO START</div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">4ステップで導入できます</h2>
+        </div>
+        <ol className="max-w-[800px] space-y-4">
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">1. 要件ヒアリング・見積（〜2週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">対応チャネル・スタッフ体制・既存システムをお聞きし、概算費用と工期をご提示します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">2. チャット基盤の構築（1〜2ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">スタッフ対顧客チャット・対話履歴保存・担当アサインの基本機能を実装します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">3. ボット・自動応答の設定（2〜4週間）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">FAQ登録・チャットボットフロー・時間外応答を設定。スタッフの負荷を軽減します。</p>
+          </li>
+          <li className="bg-[#F9FAFB] rounded-xl border border-[#E5E7EB] p-6">
+            <h3 className="text-lg font-bold text-[#1F2937] mb-2">4. テスト・本番リリース（1ヶ月）</h3>
+            <p className="text-sm text-[#4B5563] leading-relaxed">受入テスト・LINEヤフー審査・本番リリースまで伴走します。リリース後の運用フォローも対応可能です。</p>
+          </li>
+        </ol>
       </Section>
 
       {/* ============================================================ */}
