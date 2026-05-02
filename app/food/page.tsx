@@ -230,6 +230,16 @@ const FAQS = [
 ];
 
 /* ------------------------------------------------------------------ */
+/* KEY TAKEAWAYS (AIO §A)                                               */
+/* ------------------------------------------------------------------ */
+
+const KEY_TAKEAWAYS = [
+  '行列をLINE通知に変換し、ピーク時の機会損失を止める（最短3ヶ月）',
+  'スタンプカード＋自動クーポンで「また行きたい」再来店サイクルを仕組み化する',
+  'LINEを起点にテイクアウト自社化を進め、デリバリープラットフォーム手数料への依存を下げる',
+];
+
+/* ------------------------------------------------------------------ */
 /* JSON-LD (structured data for SEO)                                     */
 /* ------------------------------------------------------------------ */
 
@@ -302,6 +312,57 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: '飲食チェーン×LINEミニアプリの導入ステップ',
+  description: '行列のデジタル化から再来店設計、テイクアウト自社化まで3ステップで段階導入する流れ',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: '待ち時間の可視化',
+      text: '順番待いLINE通知で「並ばなくていい体験」を実現。行列をデジタルの接点に変換します。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: '再来店の設計',
+      text: 'スタンプカード＋クーポン配信で「また行きたい」サイクルを仕組みで回します。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'テイクアウト自社化',
+      text: 'LINEを起点にしたテイクアウト・予約導線を整備し、デリバリープラットフォームへの手数料依存を減らします。',
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '飲食チェーン向けLINEミニアプリ開発｜行列・事前注文・テイクアウト手数料の課題解消｜グロースパック for LINE',
+  description: '行列による機会損失、紙スタンプの管理コスト、テイクアウト手数料の負担。飲食チェーンが抱える課題をLINEミニアプリで一括解消。ハーフスクラッチ開発で最短3ヶ月。事業会社向けグロースパック for LINE。',
+  author: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    url: 'https://classmethod.jp/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png',
+    },
+  },
+  datePublished: '2026-04-30',
+  dateModified: new Date().toISOString().split('T')[0],
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                  */
 /* ------------------------------------------------------------------ */
@@ -321,6 +382,14 @@ export default function FoodPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <ScrollTracker />
 
@@ -577,6 +646,25 @@ export default function FoodPage() {
           ))}
         </div>
         <p className="text-xs text-[#9CA3AF] text-center mt-4">※ 導入効果は企業規模・既存システム・施策設計によって異なります。</p>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* Key Takeaways（AIO §A — 結論先出し）                            */}
+      {/* ============================================================ */}
+      <Section spacing="sm" container="default" background="white">
+        <div className="max-w-[800px] mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#1F2937] mb-6">
+            3行でわかる、飲食チェーン×LINEミニアプリで何が変わるか
+          </h2>
+          <ol className="space-y-4">
+            {KEY_TAKEAWAYS.map((item, i) => (
+              <li key={i} className="flex items-start gap-4 p-4 bg-[#F0FDF4] rounded-xl border border-[#BBF7D0]">
+                <span className="w-8 h-8 rounded-full bg-[#06C755] text-white font-bold text-sm flex items-center justify-center shrink-0">{i + 1}</span>
+                <p className="text-sm sm:text-base text-[#1F2937] leading-relaxed font-medium">{item}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </Section>
 
       {/* ============================================================ */}

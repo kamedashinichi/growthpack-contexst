@@ -240,6 +240,16 @@ const FAQS = [
 ];
 
 /* ------------------------------------------------------------------ */
+/* KEY TAKEAWAYS (AIO §A)                                               */
+/* ------------------------------------------------------------------ */
+
+const KEY_TAKEAWAYS = [
+  'インバウンド顧客の言語バリアと免税手続きをLINEで整備し、訪日時の購買機会を取りこぼさない（最短3ヶ月）',
+  '外商担当者の交代・異動が起きても接客履歴・嗜好を組織資産として引き継ぎ、上顧客層の離脱を防ぐ',
+  '一般顧客〜外商の二層設計で、館内売場横断の統合IDを構築しパーソナライズ配信の精度を上げる',
+];
+
+/* ------------------------------------------------------------------ */
 /* JSON-LD (structured data for SEO)                                     */
 /* ------------------------------------------------------------------ */
 
@@ -309,6 +319,57 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: '百貨店×LINEミニアプリの導入ステップ',
+  description: '一般顧客のデジタル化から催事DX、外商の関係継承まで3ステップで段階導入する流れ',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: '一般顧客の会員接点をデジタル化',
+      text: 'デジタル会員証・クーポン・セグメント配信を整備し、一般顧客を館内共通IDで一元管理します。売場横断のデータ蓄積がここから始まります。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: '催事・イベントをデジタルで管理',
+      text: 'チケット発行・来場セグメント案内・先行販売受付をLINE上で完結。催事ごとの来場データが次の案内精度を高めます。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: '外商顧客の関係を組織資産として継承',
+      text: '1to1コミュニケーションで接触履歴・嗜好・担当引き継ぎ情報を蓄積。外商の関係性を個人の記憶から組織の資産に変えます。',
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '百貨店向けLINEミニアプリ開発｜インバウンド・免税・外商の接点課題を解く｜グロースパック for LINE',
+  description: '百貨店・商業施設のインバウンド対応・免税手続きDX・外商顧客のデジタル接点が課題なら、LINEミニアプリで解消できます。事業会社向けハーフスクラッチ開発で最短3ヶ月。グロースパック for LINEはクラスメソッド提供。',
+  author: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    url: 'https://classmethod.jp/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png',
+    },
+  },
+  datePublished: '2026-04-30',
+  dateModified: new Date().toISOString().split('T')[0],
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                  */
 /* ------------------------------------------------------------------ */
@@ -328,6 +389,14 @@ export default function DepartmentPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <ScrollTracker />
 
@@ -588,6 +657,25 @@ export default function DepartmentPage() {
       </Section>
 
       {/* ============================================================ */}
+      {/* Key Takeaways（AIO §A — 結論先出し）                            */}
+      {/* ============================================================ */}
+      <Section spacing="sm" container="default" background="white">
+        <div className="max-w-[800px] mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#1F2937] mb-6">
+            3行でわかる、百貨店×LINEミニアプリで何が変わるか
+          </h2>
+          <ol className="space-y-4">
+            {KEY_TAKEAWAYS.map((item, i) => (
+              <li key={i} className="flex items-start gap-4 p-4 bg-[#F0FDF4] rounded-xl border border-[#BBF7D0]">
+                <span className="w-8 h-8 rounded-full bg-[#06C755] text-white font-bold text-sm flex items-center justify-center shrink-0">{i + 1}</span>
+                <p className="text-sm sm:text-base text-[#1F2937] leading-relaxed font-medium">{item}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
       {/* 課題セクション（§7-4、百貨店 PROBLEMS 3点）                        */}
       {/* ============================================================ */}
       <Section id="problems" spacing="sm" container="wide" background="muted">
@@ -639,7 +727,7 @@ export default function DepartmentPage() {
       <TargetAudienceNotice />
 
       {/* ============================================================ */}
-      {/* 訴求セクション（二層設計 3ステップ訴求）                            */}
+      {/* 訴求セクション（二層設計 3ステップ訴求 — HowTo構造化）              */}
       {/* ============================================================ */}
       <Section id="appeal" spacing="md" container="wide" background="white">
         <div className="max-w-[720px] mb-10 md:mb-12">
@@ -651,25 +739,33 @@ export default function DepartmentPage() {
           </h2>
           <p className="text-base text-[#4B5563]">一般会員整備→催事DX→外商組織化の順で、百貨店の顧客構造に合わせて段階導入できます。</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+        <ol className="grid md:grid-cols-3 gap-4 md:gap-5 list-none">
           {APPEAL_STEPS.map((s, i) => (
-            <Card key={s.step} variant="elevated" padding="lg" rounded="xl" className="relative">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
-                  {i + 1}
+            <li key={s.step}>
+              <Card variant="elevated" padding="lg" rounded="xl" className="relative h-full">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{s.step}</div>
+                    <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{s.title}</h3>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{s.step}</div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{s.title}</h3>
+                <div className="mb-3">
+                  <span className="inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#E8F8F0] text-[#05A847]">{s.layer}</span>
                 </div>
-              </div>
-              <div className="mb-3">
-                <span className="inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#E8F8F0] text-[#05A847]">{s.layer}</span>
-              </div>
-              <p className="text-sm text-[#4B5563] leading-relaxed">{s.description}</p>
-            </Card>
+                <p className="text-[11px] font-semibold text-[#05A847] mb-2">
+                  {i === 0 ? '初月〜1ヶ月目' : i === 1 ? '1〜2ヶ月目' : '3ヶ月以降'}
+                </p>
+                <p className="text-sm text-[#4B5563] leading-relaxed">{s.description}</p>
+                <p className="text-xs text-[#6B7280] mt-3 pt-3 border-t border-[#E5E7EB]">
+                  {i === 0 ? '売場横断のデータ蓄積が始まる' : i === 1 ? '催事ごとの来場データが精度を高める' : '外商の関係性が組織資産になる'}
+                </p>
+              </Card>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
       {/* ============================================================ */}
@@ -722,6 +818,38 @@ export default function DepartmentPage() {
               <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />拡張性: ◎</li>
             </ul>
           </Card>
+        </div>
+
+        {/* 比較表（AIO §B — AI抽出最適化） */}
+        <div className="mt-10 overflow-x-auto">
+          <table className="w-full text-sm border-collapse rounded-xl overflow-hidden shadow-sm">
+            <thead>
+              <tr className="bg-[#1F2937] text-white">
+                <th className="px-4 py-3 text-left font-semibold">比較項目</th>
+                <th className="px-4 py-3 text-center font-semibold">SaaS（パッケージ型）</th>
+                <th className="px-4 py-3 text-center font-semibold bg-[#05A847]">グロースパック for LINE</th>
+                <th className="px-4 py-3 text-center font-semibold">フルスクラッチ開発</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#E5E7EB]">
+              {[
+                ['初期費用', '低', '中', '高'],
+                ['月額費用', '低〜中', '中', '中〜高'],
+                ['カスタマイズ性', '低（制約あり）', '高（外商二層対応）', '最高（要工数）'],
+                ['既存システム連携', '△（制約あり）', '○（柔軟に対応）', '◎（全て対応可）'],
+                ['立ち上げ期間', '1〜2ヶ月', '最短3ヶ月', '6ヶ月〜'],
+                ['運用負荷', '低', '低〜中', '高'],
+              ].map(([label, saas, gp, scratch], idx) => (
+                <tr key={label} className={idx % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFB]'}>
+                  <td className="px-4 py-3 font-medium text-[#1F2937]">{label}</td>
+                  <td className="px-4 py-3 text-center text-[#6B7280]">{saas}</td>
+                  <td className="px-4 py-3 text-center font-semibold text-[#05A847] bg-[#F0FDF4]">{gp}</td>
+                  <td className="px-4 py-3 text-center text-[#6B7280]">{scratch}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="text-xs text-[#9CA3AF] mt-2">※ 費用感は「低／中／高」の目安表記です。詳細はヒアリング後にご提示します。</p>
         </div>
       </Section>
 

@@ -223,6 +223,16 @@ const FAQS = [
 ];
 
 /* ------------------------------------------------------------------ */
+/* KEY TAKEAWAYS (AIO §A)                                               */
+/* ------------------------------------------------------------------ */
+
+const KEY_TAKEAWAYS = [
+  '試着→帰宅後の購買離脱を、QR会員化＋自動フォローで止める（最短3ヶ月）',
+  'ブランド・購買帯ごとのセグメント配信で、一斉配信のブロック率を下げる',
+  '接客履歴をシステムに残し、担当者が変わっても顧客との関係を組織資産化する',
+];
+
+/* ------------------------------------------------------------------ */
 /* JSON-LD (structured data for SEO)                                     */
 /* ------------------------------------------------------------------ */
 
@@ -295,6 +305,57 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'アパレル×LINEミニアプリの導入ステップ',
+  description: '店頭での会員化から自動フォロー、顧客カルテ構築まで3ステップで段階導入する流れ',
+  totalTime: 'P3M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: '店頭の検討層をLINE友だちにする',
+      text: '試着・検討中のお客様にQRコードを提示。5秒で友だち追加と会員登録が同時に完了します。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: '退店後に自動フォローで購買転換する',
+      text: '試着3日後の在庫確認、再入荷時の即時通知など、検討状況に応じたメッセージを自動配信します。',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: '接客品質を継続的に高めてリピート化する',
+      text: '購買・試着・接客の履歴を蓄積し、次回来店時の接客精度を向上。担当が替わっても対話履歴が引き継がれます。',
+    },
+  ],
+};
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'アパレル向けLINEミニアプリ開発｜試着後の購買・セグメント配信・顧客カルテ｜グロースパック for LINE',
+  description: '試着後の離脱、顧客カルテの未整備、セグメント配信不足。アパレル特有の店頭×ECの分断課題をLINEミニアプリで解消。最短3ヶ月で会員IDを統合し、ブランドごとの最適配信を実現。グロースパック for LINEのハーフスクラッチ開発。',
+  author: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    url: 'https://classmethod.jp/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'クラスメソッド株式会社',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://lp.growthpackforline.classmethod.net/images/cm-logo.png',
+    },
+  },
+  datePublished: '2026-04-30',
+  dateModified: new Date().toISOString().split('T')[0],
+  image: 'https://lp.growthpackforline.classmethod.net/images/ogp-v2.jpg',
+};
+
 /* ------------------------------------------------------------------ */
 /* PAGE                                                                  */
 /* ------------------------------------------------------------------ */
@@ -314,6 +375,14 @@ export default function ApparelPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <ScrollTracker />
 
@@ -571,6 +640,25 @@ export default function ApparelPage() {
       </Section>
 
       {/* ============================================================ */}
+      {/* Key Takeaways（AIO §A — 結論先出し）                            */}
+      {/* ============================================================ */}
+      <Section spacing="sm" container="default" background="white">
+        <div className="max-w-[800px] mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#1F2937] mb-6">
+            3行でわかる、アパレル×LINEミニアプリで何が変わるか
+          </h2>
+          <ol className="space-y-4">
+            {KEY_TAKEAWAYS.map((item, i) => (
+              <li key={i} className="flex items-start gap-4 p-4 bg-[#F0FDF4] rounded-xl border border-[#BBF7D0]">
+                <span className="w-8 h-8 rounded-full bg-[#06C755] text-white font-bold text-sm flex items-center justify-center shrink-0">{i + 1}</span>
+                <p className="text-sm sm:text-base text-[#1F2937] leading-relaxed font-medium">{item}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
       {/* 課題セクション（§7-4、DX 5点セット）                             */}
       {/* ============================================================ */}
       <Section id="problems" spacing="sm" container="wide" background="muted">
@@ -622,7 +710,7 @@ export default function ApparelPage() {
       <TargetAudienceNotice />
 
       {/* ============================================================ */}
-      {/* 訴求セクション（アパレル固有 3ステップ訴求、B パターン準拠）          */}
+      {/* 訴求セクション（アパレル固有 3ステップ訴求 — HowTo構造化）           */}
       {/* ============================================================ */}
       <Section id="appeal" spacing="md" container="wide" background="white">
         <div className="max-w-[720px] mb-10 md:mb-12">
@@ -634,22 +722,30 @@ export default function ApparelPage() {
           </h2>
           <p className="text-base text-[#4B5563]">店頭での接点づくりから始め、仕組みで関係を深め、データで接客を引き継ぐ。現場に受け入れられやすい導入順序です。</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+        <ol className="grid md:grid-cols-3 gap-4 md:gap-5 list-none">
           {APPEAL_STEPS.map((s, i) => (
-            <Card key={s.step} variant="elevated" padding="lg" rounded="xl" className="relative">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
-                  {i + 1}
+            <li key={s.step}>
+              <Card variant="elevated" padding="lg" rounded="xl" className="relative h-full">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-[#05A847] text-white font-bold flex items-center justify-center text-sm shrink-0">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{s.step}</div>
+                    <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{s.title}</h3>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">{s.step}</div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#1F2937]">{s.title}</h3>
-                </div>
-              </div>
-              <p className="text-sm text-[#4B5563] leading-relaxed">{s.description}</p>
-            </Card>
+                <p className="text-[11px] font-semibold text-[#05A847] mb-2">
+                  {i === 0 ? '初月〜1ヶ月目' : i === 1 ? '1〜2ヶ月目' : '3ヶ月以降'}
+                </p>
+                <p className="text-sm text-[#4B5563] leading-relaxed">{s.description}</p>
+                <p className="text-xs text-[#6B7280] mt-3 pt-3 border-t border-[#E5E7EB]">
+                  {i === 0 ? '退店後も接点が維持できるようになる' : i === 1 ? '自動フォローで購買転換が起きるようになる' : '担当を超えた接客継続ができるようになる'}
+                </p>
+              </Card>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
       {/* ============================================================ */}
@@ -666,42 +762,36 @@ export default function ApparelPage() {
           <p className="text-base text-[#4B5563]">SaaSはマルチブランドや既存EC連携で詰まり、フルスクラッチは期間とコストが膨らむ。グロースパックは<span className="font-bold text-[#1F2937]">速さ・柔軟性・マルチブランド対応</span>を同時に提供するハーフスクラッチ開発です。</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 md:gap-5">
-          {/* SaaS */}
-          <Card variant="outline" padding="md">
-            <div className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-wider mb-3">Option A</div>
-            <h3 className="text-base font-bold mb-4">SaaS<br /><span className="text-sm font-normal text-[#6B7280]">パッケージ型</span></h3>
-            <ul className="text-sm text-[#6B7280] space-y-2">
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />初期コスト: 低</li>
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />マルチブランド: △</li>
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />拡張性: △</li>
-            </ul>
-          </Card>
-
-          {/* Growthpack */}
-          <Card variant="accent" padding="md" className="ring-2 ring-[#06C755] shadow-lg relative">
-            <div className="absolute -top-3 left-4 px-2 py-0.5 bg-[#05A847] text-white text-xs font-bold rounded-sm">
-              RECOMMENDED
-            </div>
-            <div className="text-xs font-semibold text-[#05A847] uppercase tracking-wider mb-3">グロースパック</div>
-            <h3 className="text-base font-bold mb-4">ハーフスクラッチ<br /><span className="text-sm font-normal text-[#05A847]">開発</span></h3>
-            <ul className="text-sm text-[#1F2937] space-y-2 font-medium">
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#FCD34D] shrink-0" />初期コスト: 中</li>
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />マルチブランド: ◎</li>
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />拡張性: ○ / サポート: ○</li>
-            </ul>
-          </Card>
-
-          {/* スクラッチ */}
-          <Card variant="outline" padding="md">
-            <div className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-wider mb-3">Option C</div>
-            <h3 className="text-base font-bold mb-4">スクラッチ<br /><span className="text-sm font-normal text-[#6B7280]">開発</span></h3>
-            <ul className="text-sm text-[#6B7280] space-y-2">
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#EF4444] shrink-0" />初期コスト: 高</li>
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />マルチブランド: ◎</li>
-              <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#06C755] shrink-0" />拡張性: ◎</li>
-            </ul>
-          </Card>
+        {/* 比較表（AIO §B — AI抽出最適化） */}
+        <div className="mt-10 overflow-x-auto">
+          <table className="w-full text-sm border-collapse rounded-xl overflow-hidden shadow-sm">
+            <thead>
+              <tr className="bg-[#1F2937] text-white">
+                <th className="px-4 py-3 text-left font-semibold">比較項目</th>
+                <th className="px-4 py-3 text-center font-semibold">SaaS（パッケージ型）</th>
+                <th className="px-4 py-3 text-center font-semibold bg-[#05A847]">グロースパック for LINE</th>
+                <th className="px-4 py-3 text-center font-semibold">フルスクラッチ開発</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#E5E7EB]">
+              {[
+                ['初期費用', '低', '中', '高'],
+                ['月額費用', '低〜中', '中', '中〜高'],
+                ['カスタマイズ性', '低（制約あり）', '高（業界特化設計）', '最高（要工数）'],
+                ['既存システム連携', '△（制約あり）', '○（柔軟に対応）', '◎（全て対応可）'],
+                ['立ち上げ期間', '1〜2ヶ月', '最短3ヶ月', '6ヶ月〜'],
+                ['運用負荷', '低', '低〜中', '高'],
+              ].map(([label, saas, gp, scratch], idx) => (
+                <tr key={label} className={idx % 2 === 0 ? 'bg-white' : 'bg-[#F9FAFB]'}>
+                  <td className="px-4 py-3 font-medium text-[#1F2937]">{label}</td>
+                  <td className="px-4 py-3 text-center text-[#6B7280]">{saas}</td>
+                  <td className="px-4 py-3 text-center font-semibold text-[#05A847] bg-[#F0FDF4]">{gp}</td>
+                  <td className="px-4 py-3 text-center text-[#6B7280]">{scratch}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="text-xs text-[#9CA3AF] mt-2">※ 費用感は「低／中／高」の目安表記です。詳細はヒアリング後にご提示します。</p>
         </div>
       </Section>
 
