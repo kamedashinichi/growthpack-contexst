@@ -62,6 +62,7 @@ import { Section } from '@/components/shared/ui/section';
 import { Card } from '@/components/shared/ui/card';
 import { FeatureScrollTracker } from '@/components/shared/feature-page/scroll-tracker';
 import { TrackedExternalLink } from '@/components/shared/feature-page/tracking';
+import { PriceSection } from '@/components/shared/feature-page/price-section';
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                */
@@ -479,6 +480,8 @@ export default function QueuePage() {
           ))}
         </div>
       </Section>
+
+      <PriceSection currentFeatureKey="queue" />
 
       {/* 組み合わせ */}
       <Section id="combinations" spacing="md" container="wide" background="muted">
