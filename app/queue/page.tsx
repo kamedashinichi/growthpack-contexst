@@ -481,6 +481,8 @@ export default function QueuePage() {
         </div>
       </Section>
 
+      <PriceSection currentFeatureKey="queue" />
+
       {/* 組み合わせ */}
       <Section id="combinations" spacing="md" container="wide" background="muted">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -572,8 +574,6 @@ export default function QueuePage() {
           </li>
         </ol>
       </Section>
-
-      <PriceSection currentFeatureKey="queue" />
 
       {/* CTA */}
       <Section id="contact" spacing="lg" container="default" background="dark">

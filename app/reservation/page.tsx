@@ -475,6 +475,8 @@ export default function ReservationPage() {
         </div>
       </Section>
 
+      <PriceSection currentFeatureKey="reservation" />
+
       {/* 組み合わせ */}
       <Section id="combinations" spacing="md" container="wide" background="muted">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -566,8 +568,6 @@ export default function ReservationPage() {
           </li>
         </ol>
       </Section>
-
-      <PriceSection currentFeatureKey="reservation" />
 
       {/* CTA */}
       <Section id="contact" spacing="lg" container="default" background="dark">

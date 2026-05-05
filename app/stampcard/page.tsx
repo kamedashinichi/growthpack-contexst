@@ -480,6 +480,8 @@ export default function StampCardPage() {
         </div>
       </Section>
 
+      <PriceSection currentFeatureKey="stampcard" />
+
       {/* 組み合わせ */}
       <Section id="combinations" spacing="md" container="wide" background="muted">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -571,8 +573,6 @@ export default function StampCardPage() {
           </li>
         </ol>
       </Section>
-
-      <PriceSection currentFeatureKey="stampcard" />
 
       {/* CTA */}
       <Section id="contact" spacing="lg" container="default" background="dark">

@@ -436,6 +436,8 @@ export default function SegmentPage() {
         </div>
       </Section>
 
+      <PriceSection currentFeatureKey="segment" />
+
       {/* 組み合わせ */}
       <Section id="combinations" spacing="md" container="wide" background="muted">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -527,8 +529,6 @@ export default function SegmentPage() {
           </li>
         </ol>
       </Section>
-
-      <PriceSection currentFeatureKey="segment" />
 
       {/* CTA */}
       <Section id="contact" spacing="lg" container="default" background="dark">

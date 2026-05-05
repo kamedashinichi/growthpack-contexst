@@ -523,6 +523,8 @@ export default function MembersCardPage() {
         </div>
       </Section>
 
+      <PriceSection currentFeatureKey="memberscard" />
+
       {/* 組み合わせ */}
       <Section id="combinations" spacing="md" container="wide" background="muted">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -616,8 +618,6 @@ export default function MembersCardPage() {
           </li>
         </ol>
       </Section>
-
-      <PriceSection currentFeatureKey="memberscard" />
 
       {/* CTA */}
       <Section id="contact" spacing="lg" container="default" background="dark">

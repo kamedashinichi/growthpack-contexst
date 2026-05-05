@@ -467,6 +467,8 @@ export default function CouponPage() {
         </div>
       </Section>
 
+      <PriceSection currentFeatureKey="coupon" />
+
       {/* 組み合わせ */}
       <Section id="combinations" spacing="md" container="wide" background="muted">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -558,8 +560,6 @@ export default function CouponPage() {
           </li>
         </ol>
       </Section>
-
-      <PriceSection currentFeatureKey="coupon" />
 
       {/* CTA */}
       <Section id="contact" spacing="lg" container="default" background="dark">

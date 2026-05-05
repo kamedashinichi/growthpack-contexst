@@ -589,6 +589,8 @@ export default function OneToOnePage() {
         </div>
       </Section>
 
+      <PriceSection currentFeatureKey="1to1" />
+
       {/* ============================================================ */}
       {/* 他機能との組み合わせ                                             */}
       {/* ============================================================ */}
@@ -705,8 +707,6 @@ export default function OneToOnePage() {
           </li>
         </ol>
       </Section>
-
-      <PriceSection currentFeatureKey="1to1" />
 
       {/* ============================================================ */}
       {/* 最終CTA（§7-10 ダーク背景）                                     */}

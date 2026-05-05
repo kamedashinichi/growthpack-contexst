@@ -459,6 +459,8 @@ export default function LotteryPage() {
         </div>
       </Section>
 
+      <PriceSection currentFeatureKey="lottery" />
+
       {/* 組み合わせ */}
       <Section id="combinations" spacing="md" container="wide" background="muted">
         <div className="max-w-[720px] mb-8 sm:mb-12 md:mb-16">
@@ -550,8 +552,6 @@ export default function LotteryPage() {
           </li>
         </ol>
       </Section>
-
-      <PriceSection currentFeatureKey="lottery" />
 
       {/* CTA */}
       <Section id="contact" spacing="lg" container="default" background="dark">
