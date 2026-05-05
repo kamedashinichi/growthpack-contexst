@@ -8,7 +8,7 @@
  * - 信頼バッジ帯 / クライアントロゴ帯 / 実績数字の3層信頼構築
  * - CTA全3箇所に電話番号併記
  * - 共通プリミティブ Button / Section / Card のみ使用
- * - 価格の具体額は一切記載しない
+ * - 価格は機能別1列レンジ（¥XXX万円〜・税抜・初期費用）でPRICING_DATAを参照
  */
 import Link from 'next/link';
 import Image from 'next/image';
@@ -25,6 +25,7 @@ import { Button } from '@/components/shared/ui/button';
 import { Section } from '@/components/shared/ui/section';
 import { Card } from '@/components/shared/ui/card';
 import { TrackedExternalLink } from './tracking';
+import { PRICING_DATA, PRICE_NOTE, getPricingEntry, type FeatureKey } from '@/lib/pricing';
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                  */
@@ -743,6 +744,7 @@ export default function V2TopPage() {
                 : f.phase === 'Step 2'
                 ? 'bg-[#FEF3C7] text-[#B45309]'
                 : 'bg-[#EDE9FE] text-[#6D28D9]';
+            const pricing = getPricingEntry(f.url.slice(1) as FeatureKey);
             return (
               <Link key={f.id} href={f.url} className="block hover:shadow-lg transition-shadow rounded-xl">
                 <Card padding="md">
@@ -764,13 +766,88 @@ export default function V2TopPage() {
                       </span>
                     </div>
                   </div>
-                  <p className="text-sm text-[#4B5563] leading-relaxed">
+                  <p className="text-sm text-[#4B5563] leading-relaxed mb-3">
                     {f.tagline}
                   </p>
+                  {pricing && (
+                    <div className="pt-3 border-t border-[#E5E7EB] flex items-baseline justify-between">
+                      <span className="text-xs text-[#9CA3AF] font-semibold uppercase tracking-wider">
+                        初期費用
+                      </span>
+                      <span className="text-sm font-bold text-[#05A847]">
+                        {pricing.price}
+                        <span className="text-xs font-normal text-[#6B7280] ml-1">（税抜）</span>
+                      </span>
+                    </div>
+                  )}
                 </Card>
               </Link>
             );
           })}
+        </div>
+      </Section>
+
+      {/* ============================================================ */}
+      {/* 機能別初期費用の目安                                              */}
+      {/* ============================================================ */}
+      <Section id="pricing" spacing="md" container="wide" background="white">
+        <div className="max-w-[720px] mb-8 md:mb-10">
+          <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#05A847] mb-3">
+            PRICING
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            機能別 初期費用の目安
+          </h2>
+          <p className="text-base text-[#4B5563] leading-relaxed">{PRICE_NOTE}</p>
+        </div>
+
+        <div className="overflow-x-auto rounded-xl border border-[#E5E7EB]">
+          <table className="w-full min-w-[640px] text-sm">
+            <thead className="bg-[#F9FAFB]">
+              <tr className="border-b border-[#E5E7EB]">
+                <th className="text-left py-3 px-4 font-semibold text-[#6B7280]">機能名</th>
+                <th className="text-left py-3 px-4 font-semibold text-[#6B7280] whitespace-nowrap">
+                  初期費用（税抜）
+                </th>
+                <th className="text-left py-3 px-4 font-semibold text-[#6B7280] whitespace-nowrap">
+                  外部連携
+                </th>
+                <th className="text-left py-3 px-4 font-semibold text-[#6B7280]">標準仕様</th>
+              </tr>
+            </thead>
+            <tbody>
+              {PRICING_DATA.map((p) => (
+                <tr key={p.key} className="border-b border-[#F3F4F6] last:border-b-0 hover:bg-[#F9FAFB]">
+                  <td className="py-3 px-4">
+                    <Link
+                      href={p.path}
+                      className="text-[#05A847] hover:text-[#048838] hover:underline font-medium"
+                    >
+                      {p.name}
+                    </Link>
+                  </td>
+                  <td className="py-3 px-4 whitespace-nowrap text-[#1F2937] font-semibold">
+                    {p.price}
+                  </td>
+                  <td className="py-3 px-4 whitespace-nowrap text-[#1F2937]">{p.integration}</td>
+                  <td className="py-3 px-4 text-[#4B5563]">{p.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <Button variant="primary" size="lg" asChild>
+            <TrackedExternalLink
+              href="https://classmethod.jp/services/line/line-apps/#iframe-form"
+              location="top_pricing_section"
+              destination="contact"
+            >
+              お問い合わせ
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </TrackedExternalLink>
+          </Button>
         </div>
       </Section>
 

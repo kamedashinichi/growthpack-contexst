@@ -11,7 +11,6 @@
  *   4. 導入ステップ — 4ステップ
  *   5. CTA — お問い合わせ
  *
- * - 価格の具体額は一切記載しない
  * - 煽り語NG、丁寧体
  * - 顧客向けに「開発中」「未リリース」の表記は入れない
  */
@@ -76,6 +75,7 @@ import { Section } from '@/components/shared/ui/section';
 import { Card } from '@/components/shared/ui/card';
 import { FeatureScrollTracker } from '@/components/shared/feature-page/scroll-tracker';
 import { TrackedExternalLink } from '@/components/shared/feature-page/tracking';
+import { PriceSection } from '@/components/shared/feature-page/price-section';
 
 /* ------------------------------------------------------------------ */
 /* DATA                                                                */
@@ -705,6 +705,8 @@ export default function OneToOnePage() {
           </li>
         </ol>
       </Section>
+
+      <PriceSection currentFeatureKey="1to1" />
 
       {/* ============================================================ */}
       {/* 最終CTA（§7-10 ダーク背景）                                     */}
