@@ -2,22 +2,11 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/shared/ui/accordion';
 import { Button } from '@/components/shared/ui/button';
 import { Section } from '@/components/shared/ui/section';
 import { Card } from '@/components/shared/ui/card';
 import { TrackedExternalLink } from '@/components/shared/feature-page/tracking';
-import {
-  PRICING_DATA,
-  PRICE_NOTE,
-  getPricingEntry,
-  type FeatureKey,
-} from '@/lib/pricing';
+import { PRICE_NOTE, getPricingEntry, type FeatureKey } from '@/lib/pricing';
 
 interface PriceSectionProps {
   currentFeatureKey: FeatureKey;
@@ -53,71 +42,6 @@ export function PriceSection({ currentFeatureKey }: PriceSectionProps) {
           <dd className="text-[#1F2937]">{current.note}</dd>
         </dl>
       </Card>
-
-      {/* 横断アコーディオン */}
-      <div className="max-w-[960px] mb-8">
-        <Accordion type="single" collapsible className="bg-white rounded-xl border border-[#E5E7EB] px-4 sm:px-6">
-          <AccordionItem value="all-pricing" className="border-b-0">
-            <AccordionTrigger className="text-base sm:text-lg font-semibold text-[#1F2937]">
-              他の機能の初期費用を見る
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="overflow-x-auto -mx-4 sm:-mx-6 px-4 sm:px-6 pb-4">
-                <table className="w-full min-w-[640px] text-sm">
-                  <thead>
-                    <tr className="border-b border-[#E5E7EB]">
-                      <th className="text-left py-3 pr-4 font-semibold text-[#6B7280]">機能名</th>
-                      <th className="text-left py-3 pr-4 font-semibold text-[#6B7280] whitespace-nowrap">
-                        初期費用（税抜）
-                      </th>
-                      <th className="text-left py-3 pr-4 font-semibold text-[#6B7280] whitespace-nowrap">
-                        外部連携
-                      </th>
-                      <th className="text-left py-3 font-semibold text-[#6B7280]">標準仕様</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {PRICING_DATA.map((p) => {
-                      const isCurrent = p.key === currentFeatureKey;
-                      return (
-                        <tr
-                          key={p.key}
-                          className={
-                            isCurrent
-                              ? 'bg-[#E8F8F0] font-semibold'
-                              : 'border-b border-[#F3F4F6] last:border-b-0'
-                          }
-                        >
-                          <td className="py-3 pr-4">
-                            {isCurrent ? (
-                              <span className="text-[#1F2937]">
-                                {p.name}
-                                <span className="ml-2 text-xs text-[#05A847]">★ このページ</span>
-                              </span>
-                            ) : (
-                              <Link
-                                href={p.path}
-                                className="text-[#05A847] hover:text-[#048838] hover:underline"
-                              >
-                                {p.name}
-                              </Link>
-                            )}
-                          </td>
-                          <td className="py-3 pr-4 whitespace-nowrap text-[#1F2937]">{p.price}</td>
-                          <td className="py-3 pr-4 whitespace-nowrap text-[#1F2937]">
-                            {p.integration}
-                          </td>
-                          <td className="py-3 text-[#4B5563]">{p.note}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div>
 
       {/* CTA 2本 */}
       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-[720px]">
